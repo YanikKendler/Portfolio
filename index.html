@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7796cb6c97.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navline fadetop"></div>
+        <div class="navitem" data-itemnr="0"
+        onmouseenter="navOverEffect(this)" onmouseleave="navOutEffect(this)" onclick="scrollToPage(categoryPos.about)">
+            <div class="navicon"><div></div></div>
+            <p>about</p>
+        </div>
+        <div class="navline"></div>
+        <div class="navitem" data-itemnr="1"
+        onmouseenter="navOverEffect(this)" onmouseleave="navOutEffect(this)" onclick="scrollToPage(categoryPos.projects)">
+            <div class="navicon"><div></div></div>
+            <p>projects</p>
+        </div>
+        <div class="navline"></div>
+        <div class="navitem" data-itemnr="2"
+        onmouseenter="navOverEffect(this)" onmouseleave="navOutEffect(this)" onclick="scrollToPage(categoryPos.skills)">
+            <div class="navicon"><div></div></div>
+            <p>skills</p>
+        </div>
+        <div class="navline fadebottom"></div>
+    </nav>
+
+    <div id="pop">
+        <p>
+            yanik.kendler@gmail.com<br>
+            <div class="imgbox"><img src="./img/discord.png" alt="discord:"> <p>el_Yanuki#9999</p></div>
+            <div class="imgbox"><img src="./img/github.png" alt="github:"> <p>elYanuki</p></div>
+        </p>
+    </div>
+    
+    <main></main>
+
+    <div id="background"></div>
+    <div id="tallboi"></div>
+</body>
+</html>
