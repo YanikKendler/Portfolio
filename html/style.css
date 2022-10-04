@@ -1,0 +1,434 @@
+/************ Generall ************/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width:100%
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/************ Main Style ************/
+
+body{
+    background-color: #e3e2ec;
+    background: linear-gradient(0deg, #9b9aa1 0%, #e3e2ec 90%);   
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+/* 
+body::-webkit-scrollbar{
+    display: none;
+} */
+
+.hover-card {
+    transform-style: preserve-3d;
+    transition: transform .1s;
+}
+
+.tile-container{
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    height: 80vh;
+}
+
+.tile{
+    position: absolute;
+    box-shadow: -.3vw .6vw 1vw .5vw rgba(0, 0, 0, 0.2);
+    border-radius: 2vw;
+    transition: right .6s ease-out, opacity 1s;
+    opacity: 0.5;
+    color: white;
+}
+.tile.active{
+    opacity: 1;
+}
+
+.text-box{
+    background-color: var(--shade2);
+    padding: 2.5vw;
+    padding-right: 7.5vw;
+    border-radius: 1.5vw 0 0 1.5vw;
+    max-width: 40%;
+    z-index: 10;
+    right: -60vw;
+    font-family: candara;
+}
+.text-box.active{
+    right: -5vw;
+}
+
+.text-box h1{
+    font-family: inherit;
+    font-weight: lighter;
+    font-size: 3rem;
+    margin-left: .5vw;
+}
+
+.text-box hr{
+    margin-block:.5vw;
+}
+
+.text-box p{
+    margin-block: 2vw;
+    font-size: 1.3rem;
+    font-family: inherit;
+    line-height: 170%;
+    margin-left: .5vw;
+}
+
+.text-box a{
+    cursor: pointer;
+    color: var(--light);
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-family: inherit;
+    transition: all .2s;
+    margin-left: .5vw;
+    padding-block: .5vw;
+    margin-bottom: .5vw;
+    font-weight: 500;
+}
+.text-box a:hover{
+    margin-left: 1vw;
+}
+
+/*---------- nav ----------*/
+
+/* #region */
+
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 8vh;    
+    width: 100%;
+    font-family: candara;
+    position:sticky;
+    top: 0;
+    right: 0;   
+    left: 0;
+    background-color: #e3e2ec;	
+    z-index: 100;
+}
+
+nav .headings{
+    height: inherit;
+    font-family: inherit;
+    font-size: 1.2rem;
+}
+
+nav .headings .main{
+    display: flex;
+    font-family: inherit;
+    position: relative;
+    height: inherit;
+    width: 100%;
+}
+
+nav .headings .main .navitem{
+    display: grid;
+    place-content: center;
+    padding-inline: 3vw;
+    cursor: pointer;
+    transition: all .3s;
+    font-family: inherit;
+    height: inherit;
+    color: black;
+}
+
+nav .headings .main .navitem div{
+    font-family: inherit;
+    height: 1rem;
+    position: relative;
+}
+
+nav .headings .main .navitem div span{
+    font-family: inherit;
+    position: absolute;
+    bottom: 0rem;
+    padding-block: 1vw;
+    bottom: 50%;
+    font-size: inherit;
+    transform: translateY(50%);
+}
+
+nav .headings .main .navitem:hover div span{
+    color: #35384c;
+    animation: hover-nav-text .4s ease-in-out;
+}
+
+nav .headings .guides{
+    font-family: inherit;
+    display: flex;
+    visibility: hidden;
+    position: relative;
+    height: 1rem;
+}
+nav .headings .guides div{
+    font-family: inherit;
+    position: absolute;
+    left: 0;
+}
+nav .headings .guides span{
+    font-family: inherit;
+    font-size: inherit;
+}
+
+nav .logo{
+    margin-left: auto;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    margin-right: 1vw;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+nav .logo:hover p{
+    color: rgb(49, 49, 49);
+}
+
+nav .logo img{
+    height: 60%;
+    width: auto;
+}
+
+nav .logo p{
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* #endregion */
+
+/*---------- about ----------*/
+
+/* #region */
+
+#about{
+    height: 92vh;
+}
+
+#about .text-box{
+    top: 16vw;
+    background-color: var(--shade2);
+    padding: 2.5vw;
+    padding-right: 7.5vw;
+    border-radius: 1.5vw 0 0 1.5vw;
+    max-width: 40%;
+    z-index: 10;
+    right: -50vw;
+    font-family: candara;
+}
+#about .text-box.active{
+    right: -5vw;
+}
+
+#about .img-box{
+    background-image: url(./img/Yanik_Leonding_21_22.jpg);
+    background-size: cover;
+    height: 30vh;
+    aspect-ratio: 443 / 664;
+    border: .8vw solid var(--shade4);
+    top: 7vw;
+    rotate: -5deg;
+    z-index: 5;
+    right: -50vw;
+}
+#about .img-box.active{
+    right: 42%;
+}
+
+#about .box1{
+    width: 15vw;
+    height: 20vh;
+    top: 13vw;
+    background-color: var(--shade1);
+    rotate: 10deg;
+    right: -50vw;
+}
+#about .box1.active{
+    right: 13%;
+}
+
+#about .box2{
+    background-color: var(--shade3);
+    width: 10vw;
+    height: 20vh;
+    top: 19vw;
+    right: 100vw;
+}
+#about .box2.active{
+    right: 40%;
+}
+
+#about .box3{
+    background-color: var(--shade3);
+    height: 9vw;
+    width: 9vw;
+    border-radius: 1.5vw;
+    top: 21vw;
+    rotate: 30deg;
+    right: 100vw;
+}
+#about .box3.active{
+    right: 70%;
+}
+
+/* #endregion */
+
+/*---------- projects ----------*/
+
+/* #region */
+
+
+/* #region header*/
+
+#projects .header{
+    background: linear-gradient(90deg, var(--shade4) 0%, var(--shade2) 100%);   
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#projects .header h1{
+    padding-block: 6vw;
+    font-size: clamp(3rem, 5vw, 5rem); 
+    font-family: candara;
+    color: rgb(220, 219, 233);
+    font-weight: 400;
+    opacity: 0;
+    margin-left: 0;
+    transition: all .5s;
+    z-index: 5;
+    position: relative;
+    user-select: none;
+    pointer-events: none;
+}
+#projects .header h1.active{
+    opacity: 1;
+    margin-left: 12vw;
+}
+
+#projects .header .bouncy{
+    background-color: #7276aa;
+    height: 10vh;
+    aspect-ratio: 1/1;
+    border-radius: 1vw;
+    top: 1%;
+    left: 1%;
+    position: absolute;
+    z-index: 2;
+    transition: top .05s, left .05s, background-color .5s;
+    color: #0c209e;
+    font-family: candara;
+}
+
+/* #endregion */
+
+#projects .text-box p{
+    line-height: 190%;
+}
+
+#gameshow .text-box p{
+    margin-bottom: .5vw;
+}
+
+#gameshow{
+    outline: 5px solid red;
+}
+
+#gameshow .text-box{
+    max-width: 50%;
+    top: 10vw;
+    bottom: auto;
+}
+
+#gameshow .box1{
+    top: 8vw;
+    width: 8vw;
+    height: 12vw;
+    background-color: var(--shade2);
+    rotate: 5deg;
+    right: 100vw;
+}
+#gameshow .box1.active{
+    right: 50%;
+}
+
+#gameshow .box2{
+    top: 27vw;
+    right: -20vw;
+    height: 10vw;
+    width: 15vw;
+    background-color: var(--shade1);
+    rotate: 5deg;
+}
+#gameshow .box2.active{
+    right: -4vw;
+}
+
+#gameshow .box3{
+    background-color: var(--shade4);
+    width: 7vw;
+    height: 7vw;
+    top: 5vw;
+    right: -20vw;
+    rotate: 30deg;
+}
+#gameshow .box3.active{
+    right: 20vw;
+}
+
+#gameshow .box4{
+    height: 15vw;
+    width: 7vw;
+    rotate: -6deg;
+    background-color: var(--shade4);
+    right: 110vw;
+    top: 10vw;
+}
+#gameshow .box4.active{
+    right: 80vw;
+}
+
+
+/* #endregion */
+
+/************ Imports ************/
+
+/************ Keyframes ************/
+
+@keyframes hover-nav-text {
+    0% { bottom: 50%; color: #35384c; }
+    50% { bottom: 1.5rem; color: #0c209e;}
+    100% { bottom: 50%; color: #35384c; }
+}
+
+/************ Responsive ************/
+@media screen and (min-width: 800px) { /*pc*/
+    main{
+        
+    }
+}
+
+@media screen and (max-width: 800px) { /*phone*/
+    main{
+        
+    }
+}
+/************ Variables ************/
+:root {
+    --shade1: #434663;
+    --shade2: #494d6c;
+    --shade3: #595b75;
+    --shade4: #636795;
+
+    --light: #aaaccc;
+}

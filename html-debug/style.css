@@ -1,0 +1,282 @@
+/************ Generall ************/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width:100%
+}
+
+html{
+}
+
+/************ Main Style ************/
+
+body{
+    background-color: #d1d0d9;
+    background: linear-gradient(0deg, #9b9aa1 0%, #d1d0d9 100%);   
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    outline: 1px solid red;    
+}
+/* 
+body::-webkit-scrollbar{
+    display: none;
+} */
+  
+.hover-card {
+    transform-style: preserve-3d;
+    transition: transform .1s;
+}
+
+/*---------- nav ----------*/
+
+/* #region */
+
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 8vh;    
+    width: 100%;
+    font-family: candara;
+    position:sticky;
+    top: 0;
+    right: 0;   
+    left: 0;
+    background-color: #d1d0d9;	
+    z-index: 100;
+}
+
+nav .headings{
+    height: inherit;
+    font-family: inherit;
+    font-size: 1.2rem;
+}
+
+nav .headings .main{
+    display: flex;
+    font-family: inherit;
+    position: relative;
+    height: inherit;
+    width: 100%;
+}
+
+nav .headings .main .navitem{
+    display: grid;
+    place-content: center;
+    padding-inline: 3vw;
+    cursor: pointer;
+    transition: all .3s;
+    font-family: inherit;
+    height: inherit;
+    color: black;
+}
+
+nav .headings .main .navitem div{
+    font-family: inherit;
+    height: 1rem;
+    position: relative;
+}
+
+nav .headings .main .navitem div span{
+    font-family: inherit;
+    position: absolute;
+    bottom: 0rem;
+    padding-block: 1vw;
+    bottom: 50%;
+    font-size: inherit;
+    transform: translateY(50%);
+}
+
+nav .headings .main .navitem:hover div span{
+    color: #35384c;
+    animation: hover-nav-text .4s ease-in-out;
+}
+
+nav .headings .guides{
+    font-family: inherit;
+    display: flex;
+    visibility: hidden;
+    position: relative;
+    height: 1rem;
+}
+nav .headings .guides div{
+    font-family: inherit;
+    position: absolute;
+    left: 0;
+}
+nav .headings .guides span{
+    font-family: inherit;
+    font-size: inherit;
+}
+
+nav .logo{
+    margin-left: auto;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    margin-right: 1vw;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+nav .logo:hover p{
+    color: rgb(49, 49, 49);
+}
+
+nav .logo img{
+    height: 60%;
+    width: auto;
+}
+
+nav .logo p{
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* #endregion */
+
+/*---------- about ----------*/
+
+/* #region */
+
+#about{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+}
+
+.cbox{
+    position: absolute;
+    box-shadow: -.3vw .6vw 1vw .5vw rgba(0, 0, 0, 0.2);
+    border-radius: 2vw;
+    transition: right .8s ease-out, opacity 1s;
+    opacity: 0.5;
+}
+.cbox.active{
+    opacity: 1;
+}
+
+#about .text-box{
+    top: 16vw;
+    background-color: #494d6c;
+    padding: 2.5vw;
+    padding-right: 7.5vw;
+    border-radius: 1.5vw 0 0 1.5vw;
+    max-width: 40%;
+    z-index: 10;
+    right: -50vw;
+}
+#about .text-box.active{
+    right: -5vw;
+}
+
+#about .text-box h1{
+    font-family: candara;
+    font-weight: lighter;
+    font-size: 3rem;
+    margin-left: .5vw;
+}
+
+#about .text-box hr{
+    margin-block:.5vw;
+}
+
+#about .text-box p{
+    margin-block: 2vw;
+    font-size: 1.3rem;
+    font-family: candara;
+    line-height: 170%;
+    margin-left: .5vw;
+}
+
+#about .img-box{
+    background-image: url(./img/Yanik_Leonding_21_22.jpg);
+    background-size: cover;
+    height: 30vh;
+    aspect-ratio: 443 / 664;
+    border: .8vw solid #636795;
+    top: 7vw;
+    rotate: -5deg;
+    z-index: 5;
+    right: -50vw;
+}
+#about .img-box.active{
+    right: 42%;
+}
+
+#about .box1{
+    width: 15vw;
+    height: 20vh;
+    top: 13vw;
+    background-color: #434663;
+    rotate: 10deg;
+    right: -50vw;
+}
+#about .box1.active{
+    right: 13%;
+}
+
+#about .box2{
+    background-color: #595b75;
+    width: 10vw;
+    height: 20vh;
+    top: 19vw;
+    right: 100vw;
+}
+#about .box2.active{
+    right: 40%;
+}
+
+#about .box3{
+    background-color: #595b75;
+    height: 9vw;
+    width: 9vw;
+    border-radius: 1.5vw;
+    top: 21vw;
+    rotate: 30deg;
+    right: 100vw;
+}
+#about .box3.active{
+    right: 70%;
+}
+
+/* #endregion */
+
+/************ Imports ************/
+
+/************ Keyframes ************/
+
+@keyframes hover-nav-text {
+    0% { bottom: 50%; color: #35384c; }
+    50% { bottom: 1.5rem; color: #0c209e;}
+    100% { bottom: 50%; color: #35384c; }
+}
+
+/************ Responsive ************/
+@media screen and (min-width: 800px) { /*pc*/
+    main{
+        
+    }
+}
+
+@media screen and (max-width: 800px) { /*phone*/
+    main{
+        
+    }
+}
+/************ Variables ************/
+:root {
+    --color-accent: red;
+    --color-contrast: white;
+    --gray-1:rgb(30, 30, 30);
+    --gray-2:rgb(50, 50, 50);
+    --gray-3:rgb(70, 70, 70);
+    --gray-4: rgb(90, 90, 90);
+    --gray-5: rgb(110, 110, 110);
+}
