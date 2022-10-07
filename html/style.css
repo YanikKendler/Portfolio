@@ -25,23 +25,26 @@ body::-webkit-scrollbar{
     display: none;
 } */
 
+/* #region default tile style*/
+
 .hover-card {
     transform-style: preserve-3d;
     transition: transform .1s;
 }
 
 .tile-container{
+    overflow-y:initial;
     overflow-x: hidden;
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
 }
 
 .tile{
     position: absolute;
     box-shadow: -.3vw .6vw 1vw .5vw rgba(0, 0, 0, 0.2);
     border-radius: 2vw;
-    transition: right .6s ease-out, opacity 1s;
+    transition: right .6s ease-out, left .6s ease-out, opacity 1s;
     opacity: 0.5;
     color: white;
 }
@@ -49,25 +52,51 @@ body::-webkit-scrollbar{
     opacity: 1;
 }
 
+.tile:nth-of-type(2){
+    transition-delay: .1s;
+}
+.tile:nth-of-type(3){
+    transition-delay: .2s;
+}
+.tile:nth-of-type(4){
+    transition-delay: .3s;
+}
+.tile:nth-of-type(5){
+    transition-delay: .4s;
+}
+.tile:nth-of-type(6){
+    transition-delay: .5s;
+}
+
 .text-box{
     background-color: var(--shade2);
     padding: 2.5vw;
-    padding-right: 7.5vw;
-    border-radius: 1.5vw 0 0 1.5vw;
     max-width: 40%;
     z-index: 10;
-    right: -60vw;
     font-family: candara;
 }
-.text-box.active{
+.text-box.right{
+    padding-right: 7.5vw;
+    right: -60vw;
+    border-radius: 1.5vw 0 0 1.5vw;
+}
+.text-box.left{
+    padding-left: 7.5vw;
+    left: -60vw;
+    border-radius: 0 1.5vw 1.5vw 0;
+}
+.text-box.right.active{
     right: -5vw;
+}
+.text-box.left.active{
+    left: -5vw;
 }
 
 .text-box h1{
     font-family: inherit;
     font-weight: lighter;
     font-size: 3rem;
-    margin-left: .5vw;
+    margin-inline: .5vw;
 }
 
 .text-box hr{
@@ -79,7 +108,7 @@ body::-webkit-scrollbar{
     font-size: 1.3rem;
     font-family: inherit;
     line-height: 170%;
-    margin-left: .5vw;
+    margin-inline: .5vw;
 }
 
 .text-box a{
@@ -89,14 +118,16 @@ body::-webkit-scrollbar{
     text-decoration: none;
     font-family: inherit;
     transition: all .2s;
-    margin-left: .5vw;
+    margin-inline: .5vw;
     padding-block: .5vw;
     margin-bottom: .5vw;
     font-weight: 500;
 }
 .text-box a:hover{
-    margin-left: 1vw;
+    margin-inline: 1vw;
 }
+
+/* #endregion */
 
 /*---------- nav ----------*/
 
@@ -235,7 +266,7 @@ nav .logo p{
     background-size: cover;
     height: 30vh;
     aspect-ratio: 443 / 664;
-    border: .8vw solid var(--shade4);
+    border: .8vw solid var(--shade5);
     top: 7vw;
     rotate: -5deg;
     z-index: 5;
@@ -291,7 +322,7 @@ nav .logo p{
 /* #region header*/
 
 #projects .header{
-    background: linear-gradient(90deg, var(--shade4) 0%, var(--shade2) 100%);   
+    background: linear-gradient(90deg, var(--shade5) 0%, var(--shade2) 100%);   
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -332,20 +363,25 @@ nav .logo p{
 
 /* #endregion */
 
+#projects .text-box{
+    max-width: 50%;
+}
+
 #projects .text-box p{
     line-height: 190%;
 }
 
-#gameshow .text-box p{
+#projects .tile-container{
+    outline: 1px solid red;
+}
+
+#projects .text-box p{
     margin-bottom: .5vw;
 }
 
-#gameshow{
-    outline: 5px solid red;
-}
+/* #region gameshow*/
 
 #gameshow .text-box{
-    max-width: 50%;
     top: 10vw;
     bottom: auto;
 }
@@ -375,7 +411,7 @@ nav .logo p{
 }
 
 #gameshow .box3{
-    background-color: var(--shade4);
+    background-color: var(--shade5);
     width: 7vw;
     height: 7vw;
     top: 5vw;
@@ -390,13 +426,100 @@ nav .logo p{
     height: 15vw;
     width: 7vw;
     rotate: -6deg;
-    background-color: var(--shade4);
+    background-color: var(--shade5);
     right: 110vw;
     top: 10vw;
 }
 #gameshow .box4.active{
     right: 80vw;
 }
+/* #endregion */
+
+
+/* #region photoshop*/
+
+#photoshop{
+    height: 80vh;
+}
+
+#photoshop .text-box{
+    top: 10vw;
+    rotate: 1deg;
+}
+
+#photoshop .box1{
+    width: 20vw;
+    height: 10vw;
+    background-color: var(--shade1);
+    top: 8vw;
+    rotate: 5deg;
+    z-index: 1;
+    right: -25vw;
+}
+#photoshop .box1.active{
+    right: 40vw;
+}
+
+#photoshop .box2{
+    width: 5vw;
+    height: 8vw;
+    top: 23vw;
+    background-color: var(--shade3);
+    rotate: 10deg;
+    right: 90%;
+}
+#photoshop .box2.active{
+    right: 43vw;
+}
+
+#photoshop .box3{
+    width: 15vw;
+    height: 15vw;
+    top: 18vw;
+    background-color: var(--shade1);
+    rotate: -5deg;
+    right: 100%;
+}
+#photoshop .box3.active{
+    right: 80vw;
+}
+
+#photoshop .box4{
+    width: 12vw;
+    height: 12vw;
+    right: -20vw;
+    top: 13vw;
+    rotate: -15deg;
+    background-color: var(--shade5);
+}
+#photoshop .box4{
+    right: 10vw;
+}
+
+#photoshop .box5{
+    width: 6vw;
+    height: 6vw;
+    top: 30vw;
+    rotate: 5deg;
+    background-color: var(--shade4);
+    right: -20;
+}
+#photoshop .box5{
+    right: 10vw;
+}
+
+#photoshop .box6{
+    top: -5vw;
+    width: 8vw;
+    height: 5vw;
+    background-color: var(--shade2);
+    right: -10;
+}
+#photoshop .box6{
+    right: 40vw;
+}
+
+/* #endregion */
 
 
 /* #endregion */
@@ -428,7 +551,8 @@ nav .logo p{
     --shade1: #434663;
     --shade2: #494d6c;
     --shade3: #595b75;
-    --shade4: #636795;
+    --shade4: #626485;
+    --shade5: #636795;
 
     --light: #aaaccc;
 }

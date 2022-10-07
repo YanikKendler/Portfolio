@@ -1,6 +1,8 @@
-const nav = document.querySelector('nav')
-
 //----------- nav -----------//
+
+//#region 
+
+const nav = document.querySelector('nav')
 
 let navtext = ["about", "projects", "skills"]
 let navSpanHtml = ""
@@ -38,10 +40,14 @@ function createNav(){
 },0)
 }
 
+//#endregion
+
 //----------- rotate elements on mouse move -----------//
 
+//#region 
+
 let hoverCards = document.querySelectorAll('.hover-card');
-let mainCards = document.querySelectorAll('.main-card');
+let mainCards = document.querySelectorAll('.main-card') //UNUSED breakes hover effect
 
 document.addEventListener('mousemove', function(e) {
   ///default movement
@@ -53,17 +59,22 @@ document.addEventListener('mousemove', function(e) {
     element.style.transform = `rotateY(${xAxisDef}deg) rotateX(${yAxisDef}deg)`;
   });
 
-  ///text box - little movement
-  let xAxisSmall = (e.pageX - window.innerWidth/2) / 90;
+  //UNUSED text box - little movement
+  /* let xAxisSmall = (e.pageX - window.innerWidth/2) / 90;
   let yAxisSmall = (e.pageY - window.innerHeight/2 - window.scrollY) / 40;
 
   mainCards.forEach(element => {
     if(Math.abs(element.getBoundingClientRect().top - window.scrollY) < window.innerHeight)
       element.style.transform = `rotateY(${xAxisSmall}deg) rotateX(${yAxisSmall}deg)`;
-  });
+  }); */
 });
 
+//#endregion
+
 //----------- animate on scroll -----------//
+
+//#region 
+
 let sections = document.querySelectorAll(".tile-container");
 let elemsToAnimate = document.querySelectorAll('.animateMe')
 
@@ -74,7 +85,9 @@ function animateScroll() {
 
     let elems = sections[i].querySelectorAll('.tile') //gets all content boxes to be animated
 
-    if (secTop < window.innerHeight && secTop > -window.innerHeight/2) { //if section is visible onscreen
+    //!disappears to early
+    if (secTop > 0 && secTop < window.innerHeight) { //if top bounding box is larger then 0 (top in) but smaller than maximal height(bottom in)
+      console.log(secTop, window.innerHeight, -window.innerHeight/2);
       elems.forEach(element => { //assignes all content boxes the active class
         element.classList.add("active");
       });
@@ -106,7 +119,11 @@ animateScroll() //trigger on page load
 
 createNav() 
 
+//#endregion
+
 //----------- bouncy box -----------//
+
+//#region 
 
 let bouncyBox = document.querySelector('#projects .header .bouncy')
 let bouncyContainer = document.querySelector('#projects .header')
@@ -156,3 +173,5 @@ function clickBounce(){
 }
 
 setInterval(bounce, 30)
+
+//#endregion
