@@ -13,7 +13,7 @@ function createNav(){
   setTimeout(function(){
   //creates span tags containg individual letters of the headings
   for (let i = 0; i < navtext.length; i++) {
-      navSpanHtml += `<a class="navitem" href="#${navtext[i]}"><div>`
+      navSpanHtml += `<a class="navitem" href="#link-to-${navtext[i]}"><div>`
       for (let j = 0; j < navtext[i].length; j++) {
           navSpanHtml += `<span style="animation-delay: ${j*0.05}s">${navtext[i][j]}</span>`
       }
@@ -51,11 +51,11 @@ let mainCards = document.querySelectorAll('.main-card') //UNUSED breakes hover e
 
 document.addEventListener('mousemove', function(e) {
   ///default movement
-  let xAxisDef = (e.pageX - window.innerWidth/2) / 40;
+  let xAxisDef = (e.pageX - window.innerWidth/2) / 100;
   let yAxisDef = (e.pageY - window.innerHeight/2 - window.scrollY) / 50;
 
   hoverCards.forEach(element => {
-    if(Math.abs(element.getBoundingClientRect().top - window.scrollY) < window.innerHeight)
+    if(element.getBoundingClientRect().bottom > 0 && element.getBoundingClientRect().top < window.innerHeight)
     element.style.transform = `rotateY(${xAxisDef}deg) rotateX(${yAxisDef}deg)`;
   });
 
@@ -80,14 +80,13 @@ let elemsToAnimate = document.querySelectorAll('.animateMe')
 
 //makes content appear from the sides as its scrolled to
 function animateScroll() {
-  for (let i = 0; i < sections.length; i++) {//iterates over every section
-    let secTop = sections[i].getBoundingClientRect().top;
+  sections.forEach(section => {//iterates over every section
+    let secTop = section.getBoundingClientRect().top;
+    let secBot = section.getBoundingClientRect().bottom;
 
-    let elems = sections[i].querySelectorAll('.tile') //gets all content boxes to be animated
+    let elems = section.querySelectorAll('.tile') //gets all content boxes to be animated
 
-    //!disappears to early
-    if (secTop > 0 && secTop < window.innerHeight) { //if top bounding box is larger then 0 (top in) but smaller than maximal height(bottom in)
-      console.log(secTop, window.innerHeight, -window.innerHeight/2);
+    if (secTop < window.innerHeight-window.innerHeight/4 && secBot > window.innerHeight/4) { //if top bounding box is larger then 0 (top in) but smaller than maximal height(bottom in)
       elems.forEach(element => { //assignes all content boxes the active class
         element.classList.add("active");
       });
@@ -97,9 +96,9 @@ function animateScroll() {
         element.classList.remove("active");
       });
     }
+  });
 
-  }
-
+  ///singular elems eg. headings
   if(elemsToAnimate)
   elemsToAnimate.forEach(element => {
     let elemTop = element.getBoundingClientRect().top;

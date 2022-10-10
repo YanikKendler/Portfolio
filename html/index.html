@@ -9,10 +9,12 @@
 </head>
 
 <body>
-    <nav>
-        <div class="marker"></div>
+    <div id="background"></div>
 
-        <div class="headings"><div class="main"></div><div class="guides"></div></div>
+    <nav>
+        <div class="marker" aria-hidden="true"></div> <!-- TODO do it -->
+
+        <div class="headings"><div class="main"></div> <div class="guides" aria-hidden="true"></div></div>
 
         <a class="logo" href="index.html">
             <p>Yanik Kendler</p>
@@ -21,6 +23,7 @@
     </nav>
 
     <section id="about" class="tile-container">
+        <div id="link-to-about" aria-hidden="true"></div>
         <div class="text-box tile">
             <h1>about me</h1>
             <hr>
@@ -30,16 +33,18 @@
                 I am currently 17 and three years into my 5 year edu­cation after which I would love to work in the front end develop­ment or design branche.
             </p>
         </div>
-        <div class="img-box hover-card tile"></div>
-        <div class="box1 hover-card tile"></div>
-        <div class="box2 hover-card tile"></div>
-        <div class="box3 hover-card tile"></div>
+        <div class="img-box hover-card tile" aria-hidden="true"></div>
+        <div class="box1 hover-card tile" aria-hidden="true"></div>
+        <div class="box2 hover-card tile" aria-hidden="true"></div>
+        <div class="box3 hover-card tile" aria-hidden="true"></div>
     </section>
 
-    <article id="projects">
+    <main id="projects">
         <div class="header">
+            <div id="link-to-projects" aria-hidden="true"></div>
+
             <h1 class="animateMe">projects</h1>
-            <div class="bouncy" onclick="clickBounce()"></div>
+            <div class="bouncy" onclick="clickBounce()" aria-hidden="true"></div>
         </div>
 
         <section id="gameshow" class="tile-container">
@@ -53,10 +58,10 @@
                 </p>
                 <a href="https://github.com/elYanuki/Gameshow" target="_blank">github.com/elYanuki/Gameshow</a>
             </div>
-            <div class="box1 hover-card tile"></div>
-            <div class="box2 hover-card tile"></div>
-            <div class="box3 hover-card tile"></div>
-            <div class="box4 hover-card tile"></div>
+            <div class="box1 hover-card tile" aria-hidden="true"></div>
+            <div class="box2 hover-card tile" aria-hidden="true"></div>
+            <div class="box3 hover-card tile" aria-hidden="true"></div>
+            <div class="box4 hover-card tile" aria-hidden="true"></div>
         </section>
 
         <section id="photoshop" class="tile-container">
@@ -70,12 +75,12 @@
                 </p>
                 <a href="galery.html" target="_blank">Galery</a>
             </div>
-            <div class="box1 hover-card tile"></div>
-            <div class="box2 hover-card tile"></div>
-            <div class="box3 hover-card tile"></div>
-            <div class="box4 hover-card tile"></div>
-            <div class="box5 hover-card tile"></div>
-            <div class="box6 hover-card tile"></div>
+            <div class="box1 hover-card tile" aria-hidden="true"></div>
+            <div class="box2 hover-card tile" aria-hidden="true"></div>
+            <div class="box3 hover-card tile" aria-hidden="true"></div>
+            <div class="box4 hover-card tile" aria-hidden="true"></div>
+            <div class="box5 hover-card tile" aria-hidden="true"></div>
+            <div class="box6 hover-card tile" aria-hidden="true"></div>
         </section>
 
         <section id="norway" class="tile-container">
@@ -85,6 +90,10 @@
         <section id="world-manager" class="tile-container">
             
         </section>
-    </article>
+    </main>
+
+    <footer>
+        <!-- contact links -->
+    </footer>
 </body>
 </html>
