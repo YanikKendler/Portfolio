@@ -174,3 +174,27 @@ function clickBounce(){
 setInterval(bounce, 30)
 
 //#endregion
+
+//----------- resizes sections for mobile view -----------//
+
+let toSize = document.querySelectorAll('section:not(#about)')
+
+function sizeSections(){
+  if(window.innerWidth > 800){
+    toSize.forEach(element => {
+      element.style.height = ""
+    });
+
+    document.querySelector("#about").style.height = ""
+    return
+  }
+
+  console.log("dings");
+  toSize.forEach(element => {
+    element.style.height = element.querySelector(".text-box").clientHeight + 100 + "px"
+  });
+
+  document.querySelector("#about").style.height = document.querySelector("#about .text-box").clientHeight + document.querySelector("#about .img-box").clientHeight + 50 + "px"
+}
+
+window.addEventListener("resize", sizeSections);

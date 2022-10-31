@@ -110,17 +110,17 @@ body::-webkit-scrollbar{
 }
 
 .text-box p{
-    margin-block: 2vw;
     font-size: 1.3rem;
     font-family: inherit;
     line-height: 170%;
     margin-inline: .5vw;
+    margin-bottom: .5vw;
 }
 
-.text-box a{
-    cursor: pointer;
+.text-box .sub{
     color: var(--light);
-    font-size: clamp(.8rem 3vh 1.2rem);
+    font-size: 1.1rem;
+    line-height: 150%;
     text-decoration: none;
     font-family: inherit;
     transition: all .2s;
@@ -128,9 +128,11 @@ body::-webkit-scrollbar{
     padding-block: .5vw;
     margin-bottom: .5vw;
     font-weight: 500;
+    width: 90%;
 }
-.text-box a:hover{
+.text-box a.sub:hover{
     margin-inline: 1vw;
+    cursor: pointer;
 }
 
 /* #endregion */
@@ -264,7 +266,7 @@ nav .logo p{
 #about .img-box{
     background-image: url(./img/Yanik_Leonding_21_22.jpg);
     background-size: cover;
-    height: 30vh;
+    height: 35vh;
     aspect-ratio: 443 / 664;
     border: 1.2vh solid var(--shade5);
     top: 7vw;
@@ -376,11 +378,6 @@ nav .logo p{
 #projects .text-box p{
     line-height: 190%;
 }
-
-#projects .text-box p{
-    margin-bottom: .5vw;
-}
-
 
 /* #region WorldManager*/
 
@@ -666,7 +663,7 @@ nav .logo p{
 }
 
 /************ Responsive ************/
-@media screen and (max-width: 1100px) { /*pc*/
+@media screen and (max-width: 1100px) { /*weird middle fuck*/
     .text-box{
         max-width: 60% !important;
     }
@@ -679,6 +676,10 @@ nav .logo p{
 
     #about .img-box.active{
         right: 65%;
+    }
+
+    .tile-container{
+        height: 85vh;
     }
 }
 
@@ -708,16 +709,6 @@ nav .logo p{
 
     #about .img-box{
         left: 5vw;
-    }
-
-    .tile-container{
-        height: 105vh;
-    }
-    #about{
-        height: 110vh;
-    }
-    #world-manager{
-        height: 120vh !important;
     }
 
     nav .logo p{
