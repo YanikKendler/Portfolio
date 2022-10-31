@@ -38,8 +38,7 @@ body::-webkit-scrollbar{
 }
 
 .tile-container{
-    overflow-y:initial;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     width: 100%;
     height: 80vh;
@@ -80,17 +79,17 @@ body::-webkit-scrollbar{
     padding: 3.5vh;
     max-width: 40%;
     z-index: 10;
-    font-family: candara;
+    font-family: var(--base-font);
 }
 .text-box.right{
     padding-right: 7.5vw;
-    right: -60vw;
-    border-radius: 1.5vw 0 0 1.5vw;
+    right: -80vw;
+    border-radius: 2vh 0 0 2vh;
 }
 .text-box.left{
     padding-left: 7.5vw;
-    left: -60vw;
-    border-radius: 0 1.5vw 1.5vw 0;
+    left: -80vw;
+    border-radius: 0 2vh 2vh 0;
 }
 .text-box.right.active{
     right: -5vw;
@@ -102,7 +101,7 @@ body::-webkit-scrollbar{
 .text-box h1{
     font-family: inherit;
     font-weight: lighter;
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vh, 3rem);
     margin-inline: .5vw;
 }
 
@@ -121,7 +120,7 @@ body::-webkit-scrollbar{
 .text-box a{
     cursor: pointer;
     color: var(--light);
-    font-size: 1.1rem;
+    font-size: clamp(.8rem 3vh 1.2rem);
     text-decoration: none;
     font-family: inherit;
     transition: all .2s;
@@ -146,7 +145,7 @@ nav{
     align-items: center;
     height: 7vh;    
     width: 100%;
-    font-family: candara;
+    font-family: var(--base-font);
     position:sticky;
     top: 0;
     right: 0;   
@@ -233,7 +232,7 @@ nav .logo:hover p{
 }
 
 nav .logo img{
-    height: 60%;
+    height: 56%;
     width: auto;
 }
 
@@ -251,8 +250,6 @@ nav .logo p{
 
 #about{
     height: 92vh;
-/*     background-color: #e3e2ec;
-    background: linear-gradient(0deg, #cdccd3 0%, #f0effa 90%);    */
 }
 
 #link-to-about{
@@ -262,17 +259,6 @@ nav .logo p{
 
 #about .text-box{
     top: 16vw;
-    background-color: var(--shade2);
-    padding: 2.5vw;
-    padding-right: 7.5vw;
-    border-radius: 1.5vw 0 0 1.5vw;
-    max-width: 40%;
-    z-index: 10;
-    right: -50vw;
-    font-family: candara;
-}
-#about .text-box.active{
-    right: -5vw;
 }
 
 #about .img-box{
@@ -284,7 +270,7 @@ nav .logo p{
     top: 7vw;
     rotate: -5deg;
     z-index: 5;
-    right: -50vw;
+    right: -70vw;
 }
 #about .img-box.active{
     right: 42%;
@@ -296,7 +282,7 @@ nav .logo p{
     top: 13vw;
     background-color: var(--shade1);
     rotate: 10deg;
-    right: -50vw;
+    right: -70vw;
 }
 #about .box1.active{
     right: 13%;
@@ -350,7 +336,7 @@ nav .logo p{
 #projects .header h1{
     padding-block: 8vh;
     font-size: clamp(3rem, 5vw, 5rem); 
-    font-family: candara;
+    font-family: var(--base-font);
     color: rgb(220, 219, 233);
     font-weight: 400;
     opacity: 0;
@@ -377,7 +363,7 @@ nav .logo p{
     z-index: 2;
     transition: top .05s, left .05s, background-color .5s;
     color: #0c209e;
-    font-family: candara;
+    font-family: var(--base-font);
 }
 
 /* #endregion */
@@ -391,19 +377,90 @@ nav .logo p{
     line-height: 190%;
 }
 
-#projects .tile-container{
-    outline: 1px solid red;
-}
-
 #projects .text-box p{
     margin-bottom: .5vw;
 }
+
+
+/* #region WorldManager*/
+
+#world-manager{
+    height: 90vh;
+}
+
+#world-manager .text-box{
+    top: 5vw;
+}
+
+#world-manager .box1{
+    background-color: var(--shade1);
+    width: 30vh;
+    height: 20vh;
+    right: -50vw;
+    rotate: 10deg;
+    top: 10vw;
+}
+#world-manager .box1.active{
+    right: 35vw;
+}
+
+#world-manager .box2{
+    background-color: var(--shade4);
+    bottom: 15vh;
+    width: 25vh;
+    height: 20vh;
+    rotate: -10deg;
+    right: 100vw;
+}
+#world-manager .box2.active{
+    right: 55vw;
+}
+
+#world-manager .box3{
+    background-color: var(--shade3);
+    top: 25vw;
+    width: 8vh;
+    height: 8vh;
+    rotate: 5deg;
+    right: -40vw;
+}
+#world-manager .box3.active{
+    right: 13vw;
+}
+
+#world-manager .box4{
+    width: 15vh;
+    height: 15vh;
+    background-color: var(--shade4);
+    top: 20vw;
+    rotate: -10deg;
+    right: -40vw;
+}
+#world-manager .box4.active{
+    right: 20vw;
+}
+
+#world-manager .box5{
+    top: 8vh;
+    background-color: var(--shade3);
+    width: 15vh;
+    height: 10vh;
+    rotate: 5deg;
+    right: 100vw;
+}
+#world-manager .box5.active{
+    right: 85vw;
+}
+
+/* #endregion */
+
 
 /* #region gameshow*/
 
 #gameshow .text-box{
     top: 10vw;
     bottom: auto;
+    rotate: 1deg;
 }
 
 #gameshow .box1{
@@ -420,14 +477,14 @@ nav .logo p{
 
 #gameshow .box2{
     top: 27vw;
-    right: -20vw;
+    right: -40vw;
     height: 17vh;
     width: 25vh;
     background-color: var(--shade1);
     rotate: 5deg;
 }
 #gameshow .box2.active{
-    right: -4vw;
+    right: -15vw;
 }
 
 #gameshow .box3{
@@ -435,7 +492,7 @@ nav .logo p{
     width: 13vh;
     height: 13vh;
     top: 5vw;
-    right: -20vw;
+    right: -40vw;
     rotate: 30deg;
 }
 #gameshow .box3.active{
@@ -470,7 +527,7 @@ nav .logo p{
     top: 8vw;
     rotate: 5deg;
     z-index: 1;
-    right: -25vw;
+    right: -40vw;
 }
 #photoshop .box1.active{
     right: 40vw;
@@ -482,7 +539,7 @@ nav .logo p{
     top: 23vw;
     background-color: var(--shade3);
     rotate: 10deg;
-    right: 90%;
+    right: 100%;
 }
 #photoshop .box2.active{
     right: 43vw;
@@ -503,7 +560,7 @@ nav .logo p{
 #photoshop .box4{
     width: 20vh;
     height: 20vh;
-    right: -20vw;
+    right: -40vw;
     top: 13vw;
     rotate: -15deg;
     background-color: var(--shade5);
@@ -518,7 +575,7 @@ nav .logo p{
     top: 30vw;
     rotate: 5deg;
     background-color: var(--shade4);
-    right: -20vw;
+    right: -40vw;
 }
 #photoshop .box5.active{
     right: 10vw;
@@ -526,6 +583,75 @@ nav .logo p{
 
 /* #endregion */
 
+
+/* #region norway */
+
+#norway .text-box{
+    top: 10vw;
+}
+
+#norway .box1{
+    width: 20vh;
+    height: 30vh;
+    background-color: var(--shade1);
+    top: 20vw;
+    rotate: 5deg;
+    z-index: 1;
+    right: -40vw;
+}
+#norway .box1.active{
+    right: 47vw;
+}
+
+#norway .box2{
+    width: 15vh;
+    height: 20vh;
+    top: 15vw;
+    background-color: var(--shade3);
+    rotate: -10deg;
+    right: 100%;
+}
+#norway .box2.active{
+    right: 78vw;
+}
+
+#norway .box3{
+    width: 20vh;
+    height: 25vh;
+    top: 18vw;
+    background-color: var(--shade1);
+    rotate: 10deg;
+    right: 100%;
+}
+#norway .box3.active{
+    right: 80vw;
+}
+
+#norway .box4{
+    width: 20vh;
+    height: 20vh;
+    right: -40vw;
+    top: 8vw;
+    rotate: -8deg;
+    background-color: var(--shade5);
+}
+#norway .box4.active{
+    right: 30vw;
+}
+
+#norway .box5{
+    width: 13vh;
+    height: 5vh;
+    top: 5vw;
+    rotate: 10deg;
+    background-color: var(--shade4);
+    right: -40vw;
+}
+#norway .box5.active{
+    right: 10vw;
+}
+
+/* #endregion */
 
 /* #endregion */
 
@@ -540,15 +666,62 @@ nav .logo p{
 }
 
 /************ Responsive ************/
-@media screen and (min-width: 800px) { /*pc*/
-    main{
-        
+@media screen and (max-width: 1100px) { /*pc*/
+    .text-box{
+        max-width: 60% !important;
+    }
+    .text-box.right{
+        right: -90vw;
+    }
+    .text-box.left{
+        left: -90vw;
+    }
+
+    #about .img-box.active{
+        right: 65%;
     }
 }
 
 @media screen and (max-width: 800px) { /*phone*/
-    main{
-        
+    .text-box{
+        max-width: 80% !important;
+    }
+    .text-box.right{
+        right: -90vw;
+    }
+    .text-box.left{
+        left: -90vw;
+    }
+
+    #about .text-box{
+        top: 30vh;
+    }
+    #about .box1{
+        width: 15vh;
+        height: 10vh;
+        top: 15vh;
+    }
+
+    #projects .tile:not(.text-box){
+        display: none;
+    }
+
+    #about .img-box{
+        left: 5vw;
+    }
+
+    .tile-container{
+        height: 105vh;
+    }
+    #about{
+        height: 110vh;
+    }
+    #world-manager{
+        height: 120vh !important;
+    }
+
+    nav .logo p{
+        display: none;
     }
 }
 /************ Variables ************/
@@ -560,4 +733,6 @@ nav .logo p{
     --shade5: #636795;
 
     --light: #aaaccc;
+
+    --base-font: Candara, 'Roboto', sans-serif
 }

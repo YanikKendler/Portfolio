@@ -86,7 +86,7 @@ function animateScroll() {
 
     let elems = section.querySelectorAll('.tile') //gets all content boxes to be animated
 
-    if (secTop < window.innerHeight-window.innerHeight/4 && secBot > window.innerHeight/4) { //if top bounding box is larger then 0 (top in) but smaller than maximal height(bottom in)
+    if (secTop < window.innerHeight-window.innerHeight/4 && secBot > 0) { //if top bounding box is larger then 0 (top in) but smaller than maximal height(bottom in)
       elems.forEach(element => { //assignes all content boxes the active class
         element.classList.add("active");
       });
@@ -103,7 +103,7 @@ function animateScroll() {
   elemsToAnimate.forEach(element => {
     let elemTop = element.getBoundingClientRect().top;
 
-    if (elemTop+window.innerHeight/4 < window.innerHeight && elemTop > -window.innerHeight/10) { //if section is visible onscreen
+    if (elemTop+window.innerHeight/4 < window.innerHeight && elemTop > -window.innerHeight/10) {
       element.classList.add("active")
     }
     else{
