@@ -177,6 +177,8 @@ setInterval(bounce, 30)
 
 //----------- resizes sections for mobile view -----------//
 
+//#region 
+
 let toSize = document.querySelectorAll('section:not(#about)')
 
 function sizeSections(){
@@ -198,3 +200,35 @@ function sizeSections(){
 }
 
 window.addEventListener("resize", sizeSections);
+
+//#endregion
+
+
+//----------- copy contacts -----------//
+
+let copyinfoelem = document.querySelector('#copyinfo')
+
+function copy(type, e){
+  if(type == 0){
+    navigator.clipboard.writeText("yanik.kendler@gmail.com");
+    copyinfo("mail coppied to clipboard", e)
+  }
+  else if(type == 1){
+    navigator.clipboard.writeText("el_Yanuki#9890");
+    copyinfo("discord tag coppied to clipboard", e)
+  }
+}
+
+let copyOut
+function copyinfo(text, e){
+  copyinfoelem.innerText = text
+
+  copyinfoelem.style.top = e.clientY + 20 + "px"
+  copyinfoelem.style.left = e.clientX + "px"
+  copyinfoelem.style.opacity = 1
+
+  clearTimeout(copyOut)
+  copyOut = setTimeout(function(){
+    copyinfoelem.style.opacity = 0
+  },1000)
+}
