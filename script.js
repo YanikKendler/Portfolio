@@ -227,7 +227,7 @@ let copyOut
 function copyinfo(text, e){
   copyinfoelem.innerText = text
 
-  copyinfoelem.style.top = e.clientY + 20 + "px"
+  copyinfoelem.style.top = e.clientY + 20 + window.scrollY + "px"
   copyinfoelem.style.left = e.clientX + "px"
   copyinfoelem.style.opacity = 1
 
