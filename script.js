@@ -13,11 +13,15 @@ function createNav(){
   setTimeout(function(){
   //creates span tags containg individual letters of the headings
   for (let i = 0; i < navtext.length; i++) {
+    if(navtext[i] == "skills")
+      navSpanHtml += `<a class="navitem" href="#" onclick="alert('sry not a thing yet\\n\\nI could have removed the navitem but instead I decidet to code this popup.. dont question me pls')"><div>`
+    else
       navSpanHtml += `<a class="navitem" href="#link-to-${navtext[i]}"><div>`
-      for (let j = 0; j < navtext[i].length; j++) {
-          navSpanHtml += `<span style="animation-delay: ${j*0.05}s">${navtext[i][j]}</span>`
-      }
-      navSpanHtml += "</div></a>"
+      
+    for (let j = 0; j < navtext[i].length; j++) {
+        navSpanHtml += `<span style="animation-delay: ${j*0.05}s">${navtext[i][j]}</span>`
+    }
+    navSpanHtml += "</div></a>"
   }
 
   document.querySelector('nav .headings .main').innerHTML += navSpanHtml //writes spans to main (visible, absoulte positioned) heading
