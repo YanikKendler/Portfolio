@@ -219,7 +219,7 @@ nav .headings .main .navitem div span{
 }
 
 nav .headings .main .navitem:hover div span{
-    color: #35384c;
+    color: rgb(64, 64, 202);
     animation: hover-nav-text .4s ease-in-out;
 }
 
