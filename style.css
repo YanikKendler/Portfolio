@@ -149,7 +149,7 @@ body::-webkit-scrollbar{
     user-select: none;
 }
 .text-box a.sub:hover{
-    margin-inline: 1vw;
+    padding-left: 1vw;
     cursor: pointer;
 }
 .text-box .sub span:hover{
