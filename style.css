@@ -672,6 +672,53 @@ nav .logo p{
 
 /* #endregion */
 
+
+/*---------- skills ----------*/
+
+/* #region*/
+
+#skills{
+    position: relative;
+    background-color: var(--shade4);
+    color: white;
+    font-size: 1.2rem;
+    font-family: var(--base-font);
+}
+
+#skills h1{
+    padding-block: 8vh;
+    font-size: clamp(3rem, 5vw, 5rem); 
+    font-family: var(--base-font);
+    color: rgb(220, 219, 233);
+    font-weight: 400;
+    opacity: 0;
+    margin-left: 0;
+    transition: all .5s;
+    z-index: 5;
+    position: relative;
+    user-select: none;
+    pointer-events: none;
+}
+#skills h1.active{
+    opacity: 1;
+    margin-left: 12vw;
+}
+
+#skills table{
+    margin-inline: 12vw;
+    margin-bottom: 2vw;
+}
+
+#skills table td, th{
+    border: #aaaccc solid 1px;
+    padding: .5rem;
+}
+
+/* #endregion */
+
+
+/************ subpages ************/
+
 /*---------- galery ----------*/
 
 /* #region */
