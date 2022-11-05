@@ -38,8 +38,8 @@ html{
     opacity: 0;
     pointer-events: none;
     transition: all .5s;
-    top: 50%;
-    left: 50%;
+    top: 60%;
+    left: 60%;
 }
 
 /* 
@@ -149,7 +149,7 @@ body::-webkit-scrollbar{
     user-select: none;
 }
 .text-box a.sub:hover{
-    margin-inline: 1vw;
+    padding-left: 1vw;
     cursor: pointer;
 }
 .text-box .sub span:hover{
@@ -219,7 +219,7 @@ nav .headings .main .navitem div span{
 }
 
 nav .headings .main .navitem:hover div span{
-    color: #35384c;
+    color: rgb(64, 64, 202);
     animation: hover-nav-text .4s ease-in-out;
 }
 
