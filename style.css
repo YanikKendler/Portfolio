@@ -683,10 +683,11 @@ nav .logo p{
     color: white;
     font-size: 1.2rem;
     font-family: var(--base-font);
+    padding-bottom: 5vw;
 }
 
 #skills h1{
-    padding-block: 8vh;
+    padding-block: 5vh;
     font-size: clamp(3rem, 5vw, 5rem); 
     font-family: var(--base-font);
     color: rgb(220, 219, 233);
@@ -706,12 +707,26 @@ nav .logo p{
 
 #skills table{
     margin-inline: 12vw;
-    margin-bottom: 2vw;
+    border-collapse: collapse;
+    translate: -50% 0;
+    transition: all .5s;
+    opacity: 0;
+    min-width: 50%;
+}
+#skills table.active{
+    translate: 0 0;
+    opacity: 1;
 }
 
-#skills table td, th{
-    border: #aaaccc solid 1px;
+#skills table td, #skills table th{
+    border: #8889b1 solid .1rem ;
+    border-inline: none;
     padding: .5rem;
+    padding-inline: 3vw;
+    font-size: 1.3rem;
+}
+#skills table td:last-of-type, #skills table th:last-of-type{
+    text-align: right;
 }
 
 /* #endregion */
