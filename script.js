@@ -1,3 +1,19 @@
+let size = "full"
+window.addEventListener("resize", () => {
+  if(window.innerWidth < 800 && size != "small"){
+    size = "small"
+    console.log(size);
+  }
+  else if(window.innerWidth > 800 && window.innerWidth < 1200 && size != "mid"){
+    size = "mid"
+    console.log(size);
+  }
+  else if(window.innerWidth > 1200 && size != "full"){
+    size = "full"
+    console.log(size);
+  }
+})
+
 //----------- nav -----------//
 
 //#region 
@@ -13,10 +29,7 @@ function createNav(){
   setTimeout(function(){
   //creates span tags containg individual letters of the headings
   for (let i = 0; i < navtext.length; i++) {
-    if(navtext[i] == "skills")
-      navSpanHtml += `<a class="navitem" href="#" onclick="alert('sry not a thing yet\\n\\nI could have removed the navitem but instead I decidet to code this popup.. dont question me pls')"><div>`
-    else
-      navSpanHtml += `<a class="navitem" href="#link-to-${navtext[i]}"><div>`
+    navSpanHtml += `<a class="navitem" href="#link-to-${navtext[i]}"><div>`
       
     for (let j = 0; j < navtext[i].length; j++) {
         navSpanHtml += `<span style="animation-delay: ${j*0.05}s">${navtext[i][j]}</span>`
@@ -183,7 +196,7 @@ setInterval(bounce, 30)
 
 //#region 
 
-let toSize = document.querySelectorAll('section:not(#about)')
+let toSize = document.querySelectorAll('section:not(#about, #skills)')
 
 function sizeSections(){
   if(window.innerWidth > 800){
@@ -195,7 +208,6 @@ function sizeSections(){
     return
   }
 
-  console.log("dings");
   toSize.forEach(element => {
     element.style.height = element.querySelector(".text-box").clientHeight + 100 + "px"
   });
@@ -209,6 +221,8 @@ window.addEventListener("resize", sizeSections);
 
 
 //----------- copy contacts -----------//
+
+//#region 
 
 let copyinfoelem = document.querySelector('#copyinfo')
 
@@ -233,3 +247,5 @@ function copyinfo(text, e){
     copyinfoelem.style.opacity = 0
   },1000)
 }
+
+//#endregion

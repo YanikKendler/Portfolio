@@ -5,7 +5,9 @@
   <title>Document</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
-  <link rel="shortcut icon" href="./img/favicon.png" type="image/jpg">
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+
+  <script src="./galery.js" defer></script>
 
   <script src="https://kit.fontawesome.com/7796cb6c97.js" crossorigin="anonymous"></script>
 </head>
@@ -15,10 +17,19 @@
   <h1 id="photoshop-heading">Some of my Photoshop Work</h1>
 
   <main id="galery">
-    <div><img src="./img/photoshop/Aliens-edit-bennyproductions.jpg"></div>
-    <div><img src="./img/photoshop/Vincent auf mini planet.jpg"></div>
+    <div>
+      <img src="./img/photoshop/Aliens-edit-bennyproductions.jpg">
+      <div data-index="0" data-mode="0" class="swap" onmousedown="changeImage(this)"><i class="fa-solid fa-eye"></i></div>
+    </div>
+    <div>
+      <img src="./img/photoshop/Vincent auf mini planet.jpg">
+      <div data-index="1" data-mode="0" class="swap" onmousedown="changeImage(this)"><i class="fa-solid fa-eye"></i></div>
+    </div>
     <div><img src="./img/photoshop/baum.jpg"></div>
-    <div><img src="./img/photoshop/magic-edit.jpg"></div>
+    <div>
+      <img src="./img/photoshop/magic-edit.jpg">
+      <div data-index="2" data-mode="0" class="swap" onmousedown="changeImage(this)"><i class="fa-solid fa-eye"></i></div>
+    </div>
     <div><img src="./img/photoshop/bin cool kann fliegen.jpg"></div>
     <div><img src="./img/photoshop/Beschwörung.jpg"></div>
     <div><img src="./img/photoshop/old and young.jpg"></div>
