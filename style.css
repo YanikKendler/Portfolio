@@ -12,6 +12,12 @@ html{
     scroll-behavior: smooth;
 }
 
+a{
+    text-decoration: none;
+    font: inherit;
+    color: inherit;
+}
+
 /************ Main Style ************/
 
 
@@ -152,6 +158,10 @@ body::-webkit-scrollbar{
     padding-left: 1vw;
     cursor: pointer;
 }
+
+.textbox .sub span{
+    font: inherit;
+}
 .text-box .sub span:hover{
     cursor: pointer;
 }
@@ -285,9 +295,9 @@ nav .logo p{
 }
 
 #about .img-box{
-    background-image: url(./img/Yanik_Leonding_21_22.jpg);
+    background-image: url(./img/Yanik_Schulfoto.jpg);
     background-size: cover;
-    height: 35vh;
+    height: 40vh;
     aspect-ratio: 443 / 664;
     border: 1.2vh solid var(--shade5);
     top: 7vw;

@@ -212,15 +212,12 @@ window.addEventListener("resize", sizeSections);
 
 let copyinfoelem = document.querySelector('#copyinfo')
 
+copyText = ["yanik.kendler@gmail.com", "el_Yanuki#9890", "https://github.com/elYanuki"]
+copyInfo = ["mail", "discord tag", "github link"]
+
 function copy(type, e){
-  if(type == 0){
-    navigator.clipboard.writeText("yanik.kendler@gmail.com");
-    copyinfo("mail coppied to clipboard", e)
-  }
-  else if(type == 1){
-    navigator.clipboard.writeText("el_Yanuki#9890");
-    copyinfo("discord tag coppied to clipboard", e)
-  }
+  navigator.clipboard.writeText(copyText[type]);
+  copyinfo(copyInfo[type] + " coppied to clipboard", e)
 }
 
 let copyOut
