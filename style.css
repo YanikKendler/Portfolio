@@ -325,11 +325,12 @@ nav .logo p{
     background-color: var(--shade3);
     width: 16vh;
     height: 20vh;
-    top: 28vh;
     right: 100vw;
+    top: 18vh;
 }
 #about .box2.active{
     right: 40%;
+    top: 38vh;
 }
 
 #about .box3{
@@ -778,6 +779,37 @@ nav .logo p{
 
 #galery div{
     padding: .5rem;
+    position: relative;
+    transition: scale .5s;
+    /* cursor: zoom-in; */
+}
+#galery div.big{
+    scale: 1.5;
+    /* cursor: zoom-out; */
+    z-index: 10;
+} 
+
+#galery div .swap{
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    cursor: pointer;
+    padding: .1rem;
+}
+
+#galery div .swap i{
+    color: #8085a5;
+    text-shadow: 
+        .05rem .05rem .1rem var(--shadow-color), 
+        -.05rem -.05rem .1rem var(--shadow-color),
+        .05rem -.05rem .1rem var(--shadow-color), 
+        -.05rem .05rem .1rem var(--shadow-color)
+    ;
+    cursor: pointer;
+    font-size: 1rem;
+
+    --shadow-color: rgba(255, 255, 255, 0);
+
 }
 
 #galery img{
@@ -817,7 +849,8 @@ nav .logo p{
     background-color: var(--shade4);
     padding: .7rem;
     padding-top: .5rem;
-    z-index: 5;
+    z-index: 20;
+    box-shadow: 0 0 .5rem .5rem rgba(0, 0, 0, 0.103);
     color: white;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -864,11 +897,15 @@ nav .logo p{
         height: 85vh;
     }
 
+    #skills table{
+        width: calc(100% - 24vw);
+    }
 
     #galery{
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(6, auto);
     }
+
 
     #galery div:nth-of-type(1){
         grid-area: 2 / 1 / 3 / 2;
@@ -907,6 +944,10 @@ nav .logo p{
         left: -90vw;
     }
 
+    #about{
+        height: 85vh;
+    }
+
     #about .text-box{
         top: 30vh;
     }
@@ -931,6 +972,11 @@ nav .logo p{
     #galery{
         grid-template-columns: auto;
         grid-template-rows: repeat(8, auto);
+        width: 90%;
+    }
+
+    #photoshop-heading{
+        width: 90%;
     }
 
     #galery div:nth-of-type(1){
@@ -966,6 +1012,7 @@ nav .logo p{
 /* #endregion */
 
 /************ Variables ************/
+
 :root {
     --shade1: #434663;
     --shade2: #494d6c;
