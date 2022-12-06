@@ -541,14 +541,14 @@ nav .logo p{
 /* #endregion */
 
 
-/* #region photoshop*/
+/* #region norway*/
 
-#photoshop .text-box{
+#norway .text-box{
     top: 10vw;
     rotate: 1deg;
 }
 
-#photoshop .box1{
+#norway .box1{
     width: 34vh;
     height: 17vh;
     background-color: var(--shade1);
@@ -557,11 +557,11 @@ nav .logo p{
     z-index: 1;
     right: -40vw;
 }
-#photoshop .box1.active{
+#norway .box1.active{
     right: 40vw;
 }
 
-#photoshop .box2{
+#norway .box2{
     width: 8vh;
     height: 13vh;
     top: 23vw;
@@ -569,86 +569,16 @@ nav .logo p{
     rotate: 10deg;
     right: 100%;
 }
-#photoshop .box2.active{
+#norway .box2.active{
     right: 43vw;
 }
 
-#photoshop .box3{
+#norway .box3{
     width: 25vh;
     height: 25vh;
-    top: 18vw;
+    top: 23vw;
     background-color: var(--shade1);
     rotate: -5deg;
-    right: 100%;
-}
-#photoshop .box3.active{
-    right: 80vw;
-}
-
-#photoshop .box4{
-    width: 20vh;
-    height: 20vh;
-    right: -40vw;
-    top: 13vw;
-    rotate: -15deg;
-    background-color: var(--shade5);
-}
-#photoshop .box4.active{
-    right: 10vw;
-}
-
-#photoshop .box5{
-    width: 10vh;
-    height: 10vh;
-    top: 30vw;
-    rotate: 5deg;
-    background-color: var(--shade4);
-    right: -40vw;
-}
-#photoshop .box5.active{
-    right: 10vw;
-}
-
-/* #endregion */
-
-
-/* #region norway */
-
-#norway .text-box{
-    top: 10vw;
-}
-
-#norway .box1{
-    width: 20vh;
-    height: 30vh;
-    background-color: var(--shade1);
-    top: 20vw;
-    rotate: 5deg;
-    z-index: 1;
-    right: -40vw;
-}
-#norway .box1.active{
-    right: 47vw;
-}
-
-#norway .box2{
-    width: 15vh;
-    height: 20vh;
-    top: 15vw;
-    background-color: var(--shade3);
-    rotate: -10deg;
-    right: 100%;
-}
-#norway .box2.active{
-    right: 78vw;
-}
-
-#norway .box3{
-    width: 20vh;
-    height: 25vh;
-    top: 18vw;
-    background-color: var(--shade1);
-    rotate: 10deg;
     right: 100%;
 }
 #norway .box3.active{
@@ -659,15 +589,85 @@ nav .logo p{
     width: 20vh;
     height: 20vh;
     right: -40vw;
+    top: 13vw;
+    rotate: -15deg;
+    background-color: var(--shade5);
+}
+#norway .box4.active{
+    right: 10vw;
+}
+
+#norway .box5{
+    width: 10vh;
+    height: 10vh;
+    top: 30vw;
+    rotate: 5deg;
+    background-color: var(--shade4);
+    right: -40vw;
+}
+#norway .box5.active{
+    right: 10vw;
+}
+
+/* #endregion */
+
+
+/* #region photoshop */
+
+#photoshop .text-box{
+    top: 10vw;
+}
+
+#photoshop .box1{
+    width: 20vh;
+    height: 30vh;
+    background-color: var(--shade1);
+    top: 20vw;
+    rotate: 5deg;
+    z-index: 1;
+    right: -40vw;
+}
+#photoshop .box1.active{
+    right: 47vw;
+}
+
+#photoshop .box2{
+    width: 15vh;
+    height: 20vh;
+    top: 15vw;
+    background-color: var(--shade3);
+    rotate: -10deg;
+    right: 100%;
+}
+#photoshop .box2.active{
+    right: 78vw;
+}
+
+#photoshop .box3{
+    width: 20vh;
+    height: 25vh;
+    top: 18vw;
+    background-color: var(--shade1);
+    rotate: 10deg;
+    right: 100%;
+}
+#photoshop .box3.active{
+    right: 80vw;
+}
+
+#photoshop .box4{
+    width: 20vh;
+    height: 20vh;
+    right: -40vw;
     top: 8vw;
     rotate: -8deg;
     background-color: var(--shade5);
 }
-#norway .box4.active{
+#photoshop .box4.active{
     right: 30vw;
 }
 
-#norway .box5{
+#photoshop .box5{
     width: 13vh;
     height: 5vh;
     top: 5vw;
@@ -675,7 +675,7 @@ nav .logo p{
     background-color: var(--shade4);
     right: -40vw;
 }
-#norway .box5.active{
+#photoshop .box5.active{
     right: 10vw;
 }
 
@@ -759,7 +759,7 @@ nav .logo p{
     position:relative;
 }
 
-#photoshop-heading{
+#norway-heading{
     position: relative;
     z-index: 5;
     font-family: var(--base-font);
@@ -975,7 +975,7 @@ nav .logo p{
         width: 90%;
     }
 
-    #photoshop-heading{
+    #norway-heading{
         width: 90%;
     }
 
