@@ -14,6 +14,8 @@ window.addEventListener("resize", () => {
   }
 })
 
+objImage = new Image();
+
 //----------- nav -----------//
 
 //#region 
@@ -137,7 +139,7 @@ createNav()
 
 //#endregion
 
-//----------- bouncy box -----------//
+//----------- bouncy box in project header-----------//
 
 //#region 
 

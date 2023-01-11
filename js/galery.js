@@ -13,6 +13,12 @@ let altSrcs = [
 
 let timeOnClick = Date.now();
 
+for (let i = 0; i < altSrcs.lenght; i++) {
+	let objImage = new Image()
+	
+	objImage.src = altSrcs[i];
+}
+
 //UNUSED make image big onclick
 /* document.querySelectorAll('#galery > div').forEach((elem) => {
 	console.log(elem);
@@ -36,7 +42,6 @@ function changeImage(elem){
 		timeOnClick = Date.now()
 
 		elem.addEventListener("mouseup", () => {
-			
 				if(Date.now() - timeOnClick > 500){
 					elem.parentNode.querySelector("img").src = srcs[index]
 				}
