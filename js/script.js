@@ -65,28 +65,32 @@ function createNav(){
 
 //#region 
 
-let hoverCards = document.querySelectorAll('.hover-card');
-let mainCards = document.querySelectorAll('.main-card') //UNUSED breakes hover effect
+var is_safari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
 
-document.addEventListener('mousemove', function(e) {
-  ///default movement
-  let xAxisDef = (e.pageX - window.innerWidth/2) / 100;
-  let yAxisDef = (e.pageY - window.innerHeight/2 - window.scrollY) / 50;
+if(is_safari == false){
+  let hoverCards = document.querySelectorAll('.hover-card');
+  let mainCards = document.querySelectorAll('.main-card') //UNUSED breakes hover effect
 
-  hoverCards.forEach(element => {
-    if(element.getBoundingClientRect().bottom > 0 && element.getBoundingClientRect().top < window.innerHeight)
-    element.style.transform = `rotateY(${xAxisDef}deg) rotateX(${yAxisDef}deg)`;
+  document.addEventListener('mousemove', function(e) {
+    ///default movement
+    let xAxisDef = (e.pageX - window.innerWidth/2) / 80;
+    let yAxisDef = (e.pageY - window.innerHeight/2 - window.scrollY) / 30;
+
+    hoverCards.forEach(element => {
+      if(element.getBoundingClientRect().bottom > 0 && element.getBoundingClientRect().top < window.innerHeight)
+      element.style.transform = `rotateY(${xAxisDef}deg) rotateX(${yAxisDef}deg)`;
+    });
+
+    //UNUSED text box - little movement
+    /* let xAxisSmall = (e.pageX - window.innerWidth/2) / 90;
+    let yAxisSmall = (e.pageY - window.innerHeight/2 - window.scrollY) / 40;
+
+    mainCards.forEach(element => {
+      if(Math.abs(element.getBoundingClientRect().top - window.scrollY) < window.innerHeight)
+        element.style.transform = `rotateY(${xAxisSmall}deg) rotateX(${yAxisSmall}deg)`;
+    }); */
   });
-
-  //UNUSED text box - little movement
-  /* let xAxisSmall = (e.pageX - window.innerWidth/2) / 90;
-  let yAxisSmall = (e.pageY - window.innerHeight/2 - window.scrollY) / 40;
-
-  mainCards.forEach(element => {
-    if(Math.abs(element.getBoundingClientRect().top - window.scrollY) < window.innerHeight)
-      element.style.transform = `rotateY(${xAxisSmall}deg) rotateX(${yAxisSmall}deg)`;
-  }); */
-});
+}
 
 //#endregion
 
@@ -201,6 +205,7 @@ setInterval(bounce, 30)
 let toSize = document.querySelectorAll('section:not(#about, #skills)')
 
 function sizeSections(){
+  console.log();
   if(window.innerWidth > 800){
     toSize.forEach(element => {
       element.style.height = ""
