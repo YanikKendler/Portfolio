@@ -748,13 +748,6 @@ nav .logo p{
 
 /* #region */
 
-#galery{
-    width: 70%;
-    margin-inline: auto;
-    z-index: 5;
-    position:relative;
-}
-
 .photoshop-heading{
     position: relative;
     z-index: 5;
@@ -771,6 +764,17 @@ nav .logo p{
     font-weight: lighter;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+}
+
+#galery{
+    display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(6, auto);
+
+    width: 70%;
+    margin-inline: auto;
+    z-index: 5;
+    position:relative;
 }
 
 #galery div{
@@ -839,6 +843,18 @@ nav .logo p{
     font-size: 1.7rem;
 }
 
+.span-h-2{
+	grid-column: span 2;
+}
+
+.span-v-4{
+	grid-column: span 4;
+}
+
+.span-v-3{
+	grid-column: span 3;
+}
+
 /* #endregion */
 
 /************ Imports ************/
@@ -879,34 +895,19 @@ nav .logo p{
     }
 
     #galery{
-        grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(6, auto);
+        grid-template-columns: repeat(2, 1fr);
     }
 
-
-    #galery div:nth-of-type(1){
-        grid-area: 2 / 1 / 3 / 2;
+    .span-h-2{
+        grid-column: span 1;
     }
-    #galery div:nth-of-type(3){
-        grid-area: 2 / 2 / 3 / 3;
+    
+    .span-v-4{
+        grid-column: span 2;
     }
-    #galery div:nth-of-type(2){
-        grid-area: 1 / 1 / 2 / 3;
-    }
-    #galery div:nth-of-type(4){
-        grid-area: 3 / 1 / 3 / 3;
-    }
-    #galery div:nth-of-type(5){
-        grid-area: 4 / 1 / 5 / 2;
-    }
-    #galery div:nth-of-type(6){
-        grid-area: 5 / 1 / 5 / 3;
-    }
-    #galery div:nth-of-type(7){
-        grid-area: 4 / 2 / 5 / 3;
-    }
-    #galery div:nth-of-type(10){
-        grid-area: 7 / 1 / 8 / 3;
+    
+    .span-v-3{
+        grid-column: span 1;
     }
 }
 
@@ -919,6 +920,10 @@ nav .logo p{
     }
     .text-box.left{
         left: -90vw;
+    }
+
+    .text-box p{
+        font-size: 1rem; 
     }
 
     #about{
@@ -940,6 +945,7 @@ nav .logo p{
 
     #about .img-box{
         left: 5vw;
+        height: 33vh;
     }
 
     nav .logo p{
@@ -948,37 +954,15 @@ nav .logo p{
 
     #galery{
         grid-template-columns: auto;
-        grid-template-rows: repeat(8, auto);
         width: 90%;
+    }
+
+    .span-h-2, .span-v-4, .span-v-3{
+        grid-column: span 1;
     }
 
     #photoshop-heading{
         width: 90%;
-    }
-
-    #galery div:nth-of-type(1){
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    #galery div:nth-of-type(2){
-        grid-area: 2 / 1 / 3 / 2;
-    }
-    #galery div:nth-of-type(3){
-        grid-area: 3 / 1 / 4 / 2;
-    }
-    #galery div:nth-of-type(4){
-        grid-area: 4 / 1 / 5 / 2;
-    }
-    #galery div:nth-of-type(5){
-        grid-area: 5 / 1 / 6 / 2;
-    }
-    #galery div:nth-of-type(6){
-        grid-area: 6 / 1 / 7 / 2;
-    }
-    #galery div:nth-of-type(7){
-        grid-area: 7 / 1 / 8 / 2;
-    }
-    #galery div:nth-of-type(10){
-        grid-area: 10 / 1 / 11 / 2;
     }
 
     #copyinfo{

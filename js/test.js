@@ -19,7 +19,7 @@ imgSrcs.forEach(item => {
 			img.onload = function(){
 				div.appendChild(img)
 				if(img.height > img.width * 1.1){ //portrait
-					div.classList.add("span-h-4")
+					div.classList.add("span-h-2")
 					images[0].push(div)
 				}
 				else if(img.width > img.height * 1.1){ //landscape
@@ -50,8 +50,12 @@ Promise.all(allImagesDone).then(() => {
 			nextup = (i+1)%2 //swapping from 1 to 0 or the other way round
 		}
 
-		if((i+3)%3 == 0 && images[2][i/3]){
-			
+		if((i+1)%3 == 0 && images[2][imagesUsed[2]] && images[2][imagesUsed[2]+1]){
+			html.push(images[2][imagesUsed[2]])
+			imagesUsed[2]++
+
+			html.push(images[2][imagesUsed[2]])
+			imagesUsed[2]++
 		}
 
 		image = images[nextup][imagesUsed[nextup]]

@@ -29,29 +29,6 @@ a{
 
 /************ Main Style ************/
 
-#galery{
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(6, auto);
-}
-
-main img{
-	object-fit: cover;
-	height: 100%;
-}
-
-.span-h-4{
-	/* grid-row: span 2; */
-	grid-column: span 2;
-}
-
-.span-v-4{
-	grid-column: span 4;
-}
-
-.span-v-3{
-	grid-column: span 3;
-}
 
 /************ Imports ************/
 
