@@ -159,7 +159,7 @@ body::-webkit-scrollbar{
     cursor: pointer;
 }
 
-.textbox .sub span{
+.text-box .sub span{
     font: inherit;
 }
 .text-box .sub span:hover{

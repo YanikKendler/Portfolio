@@ -777,18 +777,6 @@ nav .logo p{
     position:relative;
 }
 
-#galery div{
-    padding: .5vw;
-    position: relative;
-    transition: scale .5s;
-    /* cursor: zoom-in; */
-}
-#galery div.big{
-    scale: 1.5;
-    /* cursor: zoom-out; */
-    z-index: 10;
-} 
-
 #galery div .swap{
     position: absolute;
     bottom: 1rem;
@@ -798,7 +786,7 @@ nav .logo p{
 }
 
 #galery div .swap i{
-    color: #8085a5;
+    color: hsl(232, 17%, 30%);
     text-shadow: 
         .05rem .05rem .1rem var(--shadow-color), 
         -.05rem -.05rem .1rem var(--shadow-color),
@@ -808,8 +796,30 @@ nav .logo p{
     cursor: pointer;
     font-size: 1rem;
 
-    --shadow-color: rgba(255, 255, 255, 0);
+    --shadow-color: hsl(0, 0%, 70%);
+}
 
+#galery div{
+    padding: .5vw;
+    position: relative;
+    transition: scale .5s;
+    /* cursor: zoom-in; */
+}
+/* dont add #galery div - will mess up override from media query */
+.span-v-2{
+    grid-column: span 2;
+}
+.span-v-4{
+    grid-column: span 4;
+}
+.span-v-4.endpiece{
+    grid-column: span 3;
+}
+.span-v-3{
+    grid-column: span 3;
+}
+.span-v-6{
+    grid-column: span 6;
 }
 
 #galery img{
@@ -818,6 +828,7 @@ nav .logo p{
     object-fit: cover;
     border-radius: 1rem;
 }
+
 
 .backarrow{
     position: fixed;
@@ -833,7 +844,7 @@ nav .logo p{
     aspect-ratio: 1;
 }
 
-.fa-arrow-left{
+.backarrow .fa-arrow-left{
     color: white;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -843,18 +854,12 @@ nav .logo p{
     font-size: 1.7rem;
 }
 
-.span-h-2{
-	grid-column: span 2;
-}
-
-.span-v-4{
-	grid-column: span 4;
-}
-
-.span-v-3{
-	grid-column: span 3;
-}
-
+/*
+#galery div.big{
+    scale: 1.5;
+    cursor: zoom-out;
+    z-index: 10;
+} */
 /* #endregion */
 
 /************ Imports ************/
@@ -898,14 +903,18 @@ nav .logo p{
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .span-h-2{
+    .span-v-2{
         grid-column: span 1;
     }
-    
     .span-v-4{
         grid-column: span 2;
     }
-    
+    .span-v-4.endpiece{
+        grid-column: span 2;
+    }
+    .span-v-4.endpiece.krueppel{
+        grid-column: span 1;
+    }
     .span-v-3{
         grid-column: span 1;
     }
@@ -957,7 +966,7 @@ nav .logo p{
         width: 90%;
     }
 
-    .span-h-2, .span-v-4, .span-v-3{
+    #galery div{
         grid-column: span 1;
     }
 
