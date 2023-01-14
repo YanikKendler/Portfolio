@@ -164,7 +164,7 @@ function changeImage(elem, forcePhone = false){
 				else
 					setTimeout(function(){
 						elem.parentNode.querySelector("img").src = "./img/photoshop/" + altSrcs[index]
-					}, 500- (Date.now() - timeOnClick))
+					}, 1000 - (Date.now() - timeOnClick))
 				elem.removeEventListener("mouseup", () => {})
 		})
 

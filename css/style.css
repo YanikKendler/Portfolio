@@ -847,7 +847,6 @@ nav .logo p{
 .backarrow .fa-arrow-left{
     color: white;
     font-size: 1.5rem;
-    font-weight: lighter;
     transition: all .15s;
 }
 .backarrow:hover .fa-arrow-left{
