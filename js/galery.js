@@ -115,11 +115,15 @@ Promise.all(allImagesDone).then(() => { //all srcs have finished (images are now
 
 	document.querySelector('main').append(...html)
 
+	let toutCount = 0
 	document.querySelectorAll("div[data-index]").forEach((elem)=>{
-		changeImage(elem, true)
 		setTimeout(function(){
 			changeImage(elem, true)
-		},200)
+			setTimeout(function(){
+				changeImage(elem, true)
+			},200)
+		},toutCount)
+		toutCount+100
 	})	
 });
 
