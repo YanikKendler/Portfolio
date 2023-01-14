@@ -113,18 +113,14 @@ Promise.all(allImagesDone).then(() => { //all srcs have finished (images are now
 		imagesUsed[2]++
 	}
 
-	document.querySelector('main').append(...html)
-
-	let toutCount = 0
-	document.querySelectorAll("div[data-index]").forEach((elem)=>{
+	/* document.querySelectorAll("div[data-index]").forEach((elem)=>{
+		changeImage(elem, true)
 		setTimeout(function(){
 			changeImage(elem, true)
-			setTimeout(function(){
-				changeImage(elem, true)
-			},200)
-		},toutCount)
-		toutCount+100
-	})	
+		},300)
+	}) */
+
+	document.querySelector('main').append(...html)
 });
 
 function sortBySrc(sortMe){
@@ -150,11 +146,21 @@ let timeOnClick = Date.now();
 //loads images into cach
 //?not sure if this actually works
 //!does not work
-/* for (let i = 0; i < altSrcs.lenght; i++) {
+
+let imagePreload = []
+preloadImage(0)
+function preloadImage(pos){
+	console.log("in");
 	let objImage = new Image()
 	
-	objImage.src = altSrcs[i];
-} */
+	objImage.src = "img/photoshop/alt/" + altSrcs[pos];
+	objImage.onload = ()=>{
+		if(pos+1 < altSrcs.length)
+		preloadImage(pos+1)
+	}
+
+	imagePreload.push(objImage)
+}
 
 function changeImage(elem, forcePhone = false){
 	let index = elem.getAttribute("data-index")
