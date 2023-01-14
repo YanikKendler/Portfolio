@@ -119,7 +119,7 @@ Promise.all(allImagesDone).then(() => { //all srcs have finished (images are now
 		changeImage(elem, true)
 		setTimeout(function(){
 			changeImage(elem, true)
-		},10)
+		},200)
 	})	
 });
 
