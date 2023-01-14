@@ -14,9 +14,9 @@ let imgSrcs = [
 ] 
  
 let altSrcs = [ 
-".Aliens-edit-bennyproductions.jpg", 
-".lone-castle.jpg", 
-".magic-edit.jpg", 
+"Aliens-edit-bennyproductions.jpg", 
+"lone-castle.jpg", 
+"magic-edit.jpg", 
 "Steinerner.jpg", 
 "Thanatos.jpg", 
 "Vincent-auf-mini-planet.jpg", 

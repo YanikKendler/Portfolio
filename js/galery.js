@@ -114,6 +114,13 @@ Promise.all(allImagesDone).then(() => { //all srcs have finished (images are now
 	}
 
 	document.querySelector('main').append(...html)
+
+	document.querySelectorAll("div[data-index]").forEach((elem)=>{
+		changeImage(elem, true)
+		setTimeout(function(){
+			changeImage(elem, true)
+		},10)
+	})	
 });
 
 function sortBySrc(sortMe){
@@ -138,15 +145,16 @@ let timeOnClick = Date.now();
 
 //loads images into cach
 //?not sure if this actually works
-for (let i = 0; i < altSrcs.lenght; i++) {
+//!does not work
+/* for (let i = 0; i < altSrcs.lenght; i++) {
 	let objImage = new Image()
 	
 	objImage.src = altSrcs[i];
-}
+} */
 
-function changeImage(elem){
+function changeImage(elem, forcePhone = false){
 	let index = elem.getAttribute("data-index")
-	if(window.innerWidth > 800){ //pc behaviour
+	if(window.innerWidth > 800 && forcePhone == false){ //pc behaviour
 		timeOnClick = Date.now()
 
 		elem.addEventListener("mouseup", () => {
