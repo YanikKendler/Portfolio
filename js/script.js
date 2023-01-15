@@ -16,7 +16,7 @@ window.addEventListener("resize", () => {
 
 objImage = new Image();
 
-//----------- nav -----------//
+//----------- generate nav -----------//
 
 //#region 
 
@@ -221,6 +221,8 @@ function sizeSections(){
 
   document.querySelector("#about").style.height = document.querySelector("#about .text-box").clientHeight + document.querySelector("#about .img-box").clientHeight + 50 + "px"
 }
+
+sizeSections()
 
 window.addEventListener("resize", sizeSections);
 

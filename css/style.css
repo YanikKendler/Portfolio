@@ -73,7 +73,7 @@ body::-webkit-scrollbar{
     box-shadow: -.3vw .6vw 1vw .5vw rgba(0, 0, 0, 0.2);
     border-radius: 3vh;
     transition: right .6s ease-out, left .6s ease-out, opacity 1s;
-    opacity: 0.5;
+    opacity: 0;
     color: white;
 }
 .tile.active{
@@ -341,6 +341,7 @@ nav .logo p{
     top: 21vw;
     rotate: 30deg;
     right: 100vw;
+    opacity: 0;
 }
 #about .box3.active{
     right: 70%;
@@ -715,28 +716,80 @@ nav .logo p{
     margin-left: 12vw;
 }
 
-#skills table{
-    margin-inline: 12vw;
-    border-collapse: collapse;
-    translate: -50% 0;
-    transition: all .5s;
-    opacity: 0;
-    min-width: 50%;
-}
-#skills table.active{
-    translate: 0 0;
-    opacity: 1;
+#skills .container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 80%;
+    margin-inline: auto;
+    overflow-x: hidden;
 }
 
-#skills table td, #skills table th{
-    border: #8889b1 solid .1rem ;
-    border-inline: none;
-    padding: .5rem;
-    padding-inline: 3vw;
-    font-size: 1.3rem;
+#skills .container .skill{
+    padding: 1.5rem;
+    aspect-ratio: 1;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all .5s;
 }
-#skills table td:last-of-type, #skills table th:last-of-type{
-    text-align: right;
+#skills .container.active .skill{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#skills .container .skill .content{
+    background: radial-gradient(circle, var(--shade2) 0%, var(--shade3) 100%);
+    box-sizing: border-box;
+    padding: 1rem;
+    display: grid;
+    place-content: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    container: article / inline-size;
+
+    width: 100%;
+    height: 100%;
+
+    box-shadow: .1rem .1rem .3rem .2rem rgba(0, 0, 0, 0.2);
+}
+ 
+
+#skills .container p, #skills .container img{
+    transition: all .3s ease;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+#skills .container .skill p{
+    opacity: 0;
+    text-align: center;
+    height: fit-content;
+    margin-block: auto;
+    font-weight: 600;
+    transform: translateY(100%) scale(0.5);
+    transition-delay: 0s;
+    font-size: 1.5rem;
+    color: var(--light);
+
+    --minFontSize: 14px;
+    font-size: max(
+        var(--minFontSize),
+        calc(calc(100/8) * 1.5cqw)
+    );
+}
+#skills .container .skill:hover p{
+    opacity: 1;
+    transform: translateY(-20%) scale(1);
+    transition-delay: .1s;
+}
+
+#skills .container .skill img{
+    opacity: 1;
+    transform: translateY(0%) scale(1);
+    transition-delay: .2s;
+}
+#skills .container .skill:hover img{
+    opacity: .7;
+    transform: translateY(40%) scale(0.4);
+    transition-delay: 0s;
 }
 
 /* #endregion */
@@ -894,6 +947,10 @@ nav .logo p{
         height: 85vh;
     }
 
+    #skills .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     #skills table{
         width: calc(100% - 24vw);
     }
@@ -931,7 +988,7 @@ nav .logo p{
     }
 
     .text-box p{
-        font-size: 1rem; 
+        font-size: 1.15rem; 
     }
 
     #about{
@@ -947,7 +1004,7 @@ nav .logo p{
         top: 15vh;
     }
 
-    #projects .tile:not(.text-box){
+    #projects .tile:not(.text-box), #about .box2{
         display: none;
     }
 
@@ -976,6 +1033,10 @@ nav .logo p{
     #copyinfo{
         transform: translateX(0);
     }
+
+    #skills .container{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* #endregion */
@@ -989,7 +1050,7 @@ nav .logo p{
     --shade4: #626485;
     --shade5: #636795;
 
-    --light: #aaaccc;
+    --light: hsl(236, 25%, 76%);
 
     --base-font: Candara, 'Roboto', sans-serif
 }
