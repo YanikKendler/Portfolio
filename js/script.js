@@ -115,7 +115,7 @@ function animateScroll() {
       });
     }
     else{
-      elems.forEach(element => { //assignes all content boxes the active class
+      elems.forEach(element => { //removes all content boxes the active class
         element.classList.remove("active");
       });
     }
