@@ -731,7 +731,7 @@ nav .logo p{
     transform: translateX(100%);
     transition: all .5s;
 }
-#skills .container.active .skill{
+#skills .container .skill.active{
     opacity: 1;
     transform: translateX(0);
 }
@@ -790,6 +790,10 @@ nav .logo p{
     opacity: .7;
     transform: translateY(40%) scale(0.4);
     transition-delay: 0s;
+}
+
+#skills .info{
+    display: none;
 }
 
 /* #endregion */
@@ -857,6 +861,10 @@ nav .logo p{
     position: relative;
     transition: scale .5s;
     /* cursor: zoom-in; */
+}
+
+#galery div.preview{
+    max-height: 30vh;
 }
 /* dont add #galery div - will mess up override from media query */
 .span-v-2{
@@ -974,6 +982,11 @@ nav .logo p{
     .span-v-3{
         grid-column: span 1;
     }
+
+    #skills .container .skill.animateMe:nth-last-of-type(1), #skills .container .skill.animateMe:nth-last-of-type(2){
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @media screen and (max-width: 800px) { /*phone*/
@@ -1036,6 +1049,20 @@ nav .logo p{
 
     #skills .container{
         grid-template-columns: repeat(2, 1fr);
+    }
+    #skills .container .skill{
+        padding: 5vw;
+    }
+
+    #skills .info{
+        color: var(--light);
+        margin-left: 12vw;
+        display: block;
+        transform: translateY(-150%);
+        opacity: 0;
+    }
+    #skills .info.active{
+        opacity: 1;
     }
 }
 
