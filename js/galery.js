@@ -11,7 +11,7 @@ let allImagesDone = []
 //loop over all srcs and add them to the fitting list
 imgSrcs.forEach(item => {
 		let img = new Image()
-		img.src = "./img/photoshop/" + item
+		img.src = "../img/photoshop/" + item
 
 		let div = document.createElement("div")
 
@@ -119,7 +119,8 @@ Promise.all(allImagesDone).then(() => { //all srcs have finished (images are now
 			changeImage(elem, true)
 		},300)
 	}) */
-
+	
+	document.querySelector('main').innerHTML = ""
 	document.querySelector('main').append(...html)
 });
 
@@ -153,7 +154,7 @@ function preloadImage(pos){
 	console.log("in");
 	let objImage = new Image()
 	
-	objImage.src = "img/photoshop/alt/" + altSrcs[pos];
+	objImage.src = "../img/photoshop/alt/" + altSrcs[pos];
 	objImage.onload = ()=>{
 		if(pos+1 < altSrcs.length)
 		preloadImage(pos+1)
@@ -169,25 +170,25 @@ function changeImage(elem, forcePhone = false){
 
 		elem.addEventListener("mouseup", () => {
 				if(Date.now() - timeOnClick > 500){
-					elem.parentNode.querySelector("img").src = "./img/photoshop/" + altSrcs[index]
+					elem.parentNode.querySelector("img").src = "../img/photoshop/" + altSrcs[index]
 				}
 				else
 					setTimeout(function(){
-						elem.parentNode.querySelector("img").src = "./img/photoshop/" + altSrcs[index]
+						elem.parentNode.querySelector("img").src = "../img/photoshop/" + altSrcs[index]
 					}, 500 - (Date.now() - timeOnClick))
 				elem.removeEventListener("mouseup", () => {})
 		})
 
-		elem.parentNode.querySelector("img").src = "./img/photoshop/alt/" + altSrcs[index];
+		elem.parentNode.querySelector("img").src = "../img/photoshop/alt/" + altSrcs[index];
 	}
 	else{ //phone behaviour
 		if(elem.parentNode.querySelector("img").getAttribute("data-mode") == 0){
 			elem.parentNode.querySelector("img").setAttribute("data-mode", 1)
-			elem.parentNode.querySelector("img").src = "./img/photoshop/" + altSrcs[index]
+			elem.parentNode.querySelector("img").src = "../img/photoshop/" + altSrcs[index]
 		}
 		else{
 			elem.parentNode.querySelector("img").setAttribute("data-mode", 0)
-			elem.parentNode.querySelector("img").src = "./img/photoshop/alt/" + altSrcs[index];
+			elem.parentNode.querySelector("img").src = "../img/photoshop/alt/" + altSrcs[index];
 		}
 	}
 }
