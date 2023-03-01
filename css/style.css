@@ -75,9 +75,14 @@ body::-webkit-scrollbar{
     transition: right .6s ease-out, left .6s ease-out, opacity 1s;
     opacity: 0;
     color: white;
+    transition: all .3s;
 }
 .tile.active{
     opacity: 1;
+}
+.tile.tile:not(.text-box):not(.img-box):hover{
+    transition-delay: 0s;
+    transform: rotate3d(1, 1, 1, 10deg);
 }
 
 .tile:nth-of-type(2){
