@@ -12,6 +12,10 @@ html{
     scroll-behavior: smooth;
 }
 
+::selection{
+    background-color: var(--shade5);
+}
+
 a{
     text-decoration: none;
     font: inherit;
