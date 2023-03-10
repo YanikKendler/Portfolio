@@ -13,7 +13,8 @@ html{
 }
 
 ::selection{
-    background-color: var(--shade5);
+    background-color: hsl(234, 100%, 81%);
+    color: hsl(234, 58%, 17%);
 }
 
 a{
@@ -36,7 +37,7 @@ a{
 }
 
 #copyinfo{
-    color: white;
+    color: hsl(0, 0%, 90%);
     background-color: var(--shade4);
     border-radius: .5rem;
     padding: .5rem;
@@ -80,13 +81,31 @@ body::-webkit-scrollbar{
     opacity: 0;
     color: white;
     transition: all .3s;
+    overflow: hidden;
 }
 .tile.active{
     opacity: 1;
+    transition-delay: 0s !important;
 }
-.tile.tile:not(.text-box):not(.img-box):hover{
-    transition-delay: 0s;
-    transform: rotate3d(1, 1, 1, 10deg);
+.tile:not(.text-box):not(.img-box)::after{
+    content: "";
+    position: absolute;
+    aspect-ratio: 1;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    opacity: 0;
+    border-radius: 50%;
+    filter: blur(5px);
+}
+.tile.hovered::after{
+    animation: tilehover .8s ease;
+}
+
+.tile:not(.text-box):not(.img-box){
+    translate: var(--x) var(--y) ;
 }
 
 .tile:nth-of-type(2){
@@ -170,9 +189,12 @@ body::-webkit-scrollbar{
 .text-box .sub span{
     font: inherit;
     margin-right: 1rem;
+    display: inline-block;
+    transition: all .2s;
 }
 .text-box .sub span:hover{
     cursor: pointer;
+    color: hsl(236, 30%, 70%);
 }
 
 /* #endregion */
@@ -778,7 +800,7 @@ nav .logo p{
     font-size: 1.5rem;
     color: var(--light);
 
-    --minFontSize: 14px;
+    --minFontSize: 1rem;
     font-size: max(
         var(--minFontSize),
         calc(calc(100/8) * 1.5cqw)
@@ -852,13 +874,14 @@ nav .logo p{
 }
 
 #galery div .swap i{
-    color: hsl(232, 17%, 30%);
-    text-shadow: 
+    color: rgb(255, 255, 255); 
+    mix-blend-mode:difference;
+    /* text-shadow: 
         .05rem .05rem .1rem var(--shadow-color), 
         -.05rem -.05rem .1rem var(--shadow-color),
         .05rem -.05rem .1rem var(--shadow-color), 
         -.05rem .05rem .1rem var(--shadow-color)
-    ;
+    ; */
     cursor: pointer;
     font-size: 1rem;
 
@@ -941,6 +964,29 @@ nav .logo p{
     100% { bottom: 50%; color: #35384c; }
 }
 
+@keyframes tilehover {
+    from{
+        width: 0%;
+        opacity: .08;
+    }
+    to{
+        width: 200%;
+        opacity: 0;
+    }
+}
+
+@keyframes hoverUser {
+    0%{
+        transform: translateY(0rem) scale(1);
+    }
+    50%{
+        transform: translateY(-.3rem) scale(1.03);
+    }
+    100%{
+        transform: translateY(0rem) scale(1);
+    }
+}
+
 /************ Responsive ************/
 
 /* #region */
@@ -990,6 +1036,10 @@ nav .logo p{
     }
     .span-v-3{
         grid-column: span 1;
+    }
+
+    #skills .container{
+        width: 90%;
     }
 
     #skills .container .skill.animateMe:nth-last-of-type(1), #skills .container .skill.animateMe:nth-last-of-type(2){
@@ -1080,11 +1130,11 @@ nav .logo p{
 /************ Variables ************/
 
 :root {
-    --shade1: #434663;
-    --shade2: #494d6c;
-    --shade3: #595b75;
-    --shade4: #626485;
-    --shade5: #636795;
+    --shade1: hsl(234, 19%, 33%);
+    --shade2: hsl(233, 19%, 35%);
+    --shade3: hsl(236, 14%, 40%);
+    --shade4: hsl(237, 15%, 45%);
+    --shade5: hsl(235, 20%, 49%);
 
     --light: hsl(236, 25%, 76%);
 

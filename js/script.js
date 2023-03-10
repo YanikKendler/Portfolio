@@ -64,33 +64,47 @@ function createNav(){
 //----------- rotate elements on mouse move -----------//
 
 //#region 
+let lastPos = {x:0, y:0}
+let removeClass
 
-var is_safari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
+document.querySelectorAll('.tile:not(.text-box):not(.img-box)').forEach((elem)=>{
+  elem.addEventListener('mousemove', function(e) {
+    if(lastPos.x > e.clientX+10){ //right to left
+      elem.style.setProperty("--x", "-.5rem")
+      console.log("left")
+    }
+    else if(lastPos.x < e.clientX-10){//left to right
+      elem.style.setProperty("--x", ".5rem")
+      console.log("right")
+    }
+    if(lastPos.y > e.clientY+10){//bottom to top
+      elem.style.setProperty("--y", "-.5rem")
+      console.log("top")
+    }
+    else if(lastPos.y < e.clientY-10){//top to bottom
+      elem.style.setProperty("--y", ".5rem")
+      console.log("bottom")
+    }
 
-if(is_safari == false){
-  let hoverCards = document.querySelectorAll('.hover-card');
-  let mainCards = document.querySelectorAll('.main-card') //UNUSED breakes hover effect
+  	if(elem.classList.contains("hovered")){
+    }
+    else{
+      elem.classList.add("hovered")
+      setTimeout(function(){
+        elem.classList.remove("hovered")
+      },500)
+    }
 
-  document.addEventListener('mousemove', function(e) {
-    ///default movement
-    let xAxisDef = (e.pageX - window.innerWidth/2) / 80;
-    let yAxisDef = (e.pageY - window.innerHeight/2 - window.scrollY) / 30;
-
-    hoverCards.forEach(element => {
-      if(element.getBoundingClientRect().bottom > 0 && element.getBoundingClientRect().top < window.innerHeight)
-      element.style.transform = `rotateY(${xAxisDef}deg) rotateX(${yAxisDef}deg)`;
-    });
-
-    //UNUSED text box - little movement
-    /* let xAxisSmall = (e.pageX - window.innerWidth/2) / 90;
-    let yAxisSmall = (e.pageY - window.innerHeight/2 - window.scrollY) / 40;
-
-    mainCards.forEach(element => {
-      if(Math.abs(element.getBoundingClientRect().top - window.scrollY) < window.innerHeight)
-        element.style.transform = `rotateY(${xAxisSmall}deg) rotateX(${yAxisSmall}deg)`;
-    }); */
+    lastPos.x = e.clientX
+    lastPos.y = e.clientY
   });
-}
+  elem.addEventListener("mouseleave", () => {
+    removeClass = setTimeout(function(){
+      elem.style.setProperty("--y", "0rem")
+      elem.style.setProperty("--x", "0rem")
+    },1000)
+  })
+})
 
 //#endregion
 
@@ -102,6 +116,8 @@ let sections = document.querySelectorAll(".tile-container");
 let elemsToAnimate = document.querySelectorAll('.animateMe')
 
 //makes content appear from the sides as its scrolled to
+//? would be better done with intersectObserver
+
 function animateScroll() {
   sections.forEach(section => {//iterates over every section
     let secTop = section.getBoundingClientRect().top;
@@ -114,11 +130,6 @@ function animateScroll() {
         element.classList.add("active");
       });
     }
-    else{
-      elems.forEach(element => { //removes all content boxes the active class
-        element.classList.remove("active");
-      });
-    }
   });
 
   ///singular elems eg. headings
@@ -128,9 +139,6 @@ function animateScroll() {
 
     if (elemTop+window.innerHeight/4 < window.innerHeight && elemTop > -window.innerHeight/10) {
       element.classList.add("active")
-    }
-    else{
-      element.classList.remove("active")
     }
   });
 }
@@ -229,9 +237,20 @@ window.addEventListener("resize", sizeSections);
 //#endregion
 
 
-//----------- copy contacts -----------//
+//----------- contacts -----------//
 
 //#region 
+
+document.querySelectorAll('.text-box .sub span').forEach((elem)=>{
+  elem.addEventListener("mouseenter", ()=>{
+    elem.style.animation = 'hoverUser .3s ease-in-out'
+    setTimeout(function(){
+      elem.addEventListener("mouseleave", ()=>{
+        elem.style.animation = ''
+      })
+    },300)
+  })
+})
 
 let copyinfoelem = document.querySelector('#copyinfo')
 
