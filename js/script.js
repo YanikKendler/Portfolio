@@ -248,7 +248,7 @@ document.querySelectorAll('.text-box .sub span').forEach((elem)=>{
       elem.addEventListener("mouseleave", ()=>{
         elem.style.animation = ''
       })
-    },300)
+    },600)
   })
 })
 
