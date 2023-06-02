@@ -61,6 +61,34 @@ function createNav(){
 
 //#endregion
 
+//----------- generate skills -----------//
+let skills = [
+  {name: "javascript", time: new Date("1-8-2021")},
+  {name: "nodejs", time: new Date("1-8-2021")},
+  {name: "HTML", time: new Date("1-8-2020")},
+  {name: "CSS", time: new Date("1-8-2020")},
+  {name: "PHP", time: new Date("1-8-2022")},
+  {name: "photoshop", time: new Date("1-1-2019")},
+  {name: "premiere", time: new Date("1-8-2021")},
+  {name: "aftereffects", time: new Date("1-1-2023")},
+  {name: "java", time: new Date("1-8-2020")},
+  {name: "sql", time: new Date("1-8-2022")},
+]
+generateSkills()
+function generateSkills(){
+  let html = ""
+  skills.forEach((skill)=>{
+    let relativeTime = new Date(Date.now() - skill.time.getTime())
+    html += `<div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/${skill.name}.png" alt="${skill.name}">
+                    <p>${relativeTime.getFullYear()-1970 > 0 ? relativeTime.getFullYear()-1970 + " year" + (relativeTime.getFullYear()-1970 > 1 ? "s" : "") :  relativeTime.getMonth() + " months"}</p>
+                </div>
+            </div>`
+  })
+  document.querySelector("#skills .container").innerHTML = html
+}
+
 //----------- rotate elements on mouse move -----------//
 
 //#region 
@@ -236,39 +264,28 @@ window.addEventListener("resize", sizeSections);
 
 //#endregion
 
-
 //----------- contacts -----------//
 
-//#region 
-
-document.querySelectorAll('.text-box .sub span').forEach((elem)=>{
-  elem.addEventListener("mouseenter", ()=>{
-    elem.style.animation = 'hoverUser .3s ease-in-out'
-    setTimeout(function(){
-      elem.addEventListener("mouseleave", ()=>{
-        elem.style.animation = ''
-      })
-    },600)
-  })
-})
-
+//#region
 let copyinfoelem = document.querySelector('#copyinfo')
 
 copyText = ["yanik.kendler@gmail.com", "el_Yanuki#9890", "https://github.com/elYanuki"]
 copyInfo = ["mail", "discord tag", "github link"]
 
-function copy(type, e){
+function copy(type, elem){
   navigator.clipboard.writeText(copyText[type]);
-  copyinfo(copyInfo[type] + " coppied to clipboard", e)
+  copyinfo(copyInfo[type] + " coppied to clipboard", elem)
 }
 
 let copyOut
-function copyinfo(text, e){
+function copyinfo(text, elem){
   copyinfoelem.innerText = text
 
-  copyinfoelem.style.top = e.clientY + 20 + window.scrollY + "px"
-  copyinfoelem.style.left = e.clientX + "px"
-  copyinfoelem.style.opacity = 1
+  let boundingBox = elem.getBoundingClientRect()
+
+  copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px"
+  copyinfoelem.style.left = boundingBox.left + "px"
+  copyinfoelem.style.opacity = "1"
 
   clearTimeout(copyOut)
   copyOut = setTimeout(function(){
