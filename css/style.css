@@ -184,7 +184,7 @@ body::-webkit-scrollbar{
     gap: .5rem;
 }
 .text-box a.sub:hover{
-    padding-left: 1vw;
+    padding-left: .5vw;
     cursor: pointer;
 }
 
