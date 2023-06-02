@@ -89,7 +89,7 @@ function generateSkills(){
   document.querySelector("#skills .container").innerHTML = html
 }
 
-//----------- rotate elements on mouse move -----------//
+//----------- move elements on mouse over -----------//
 
 //#region 
 let lastPos = {x:0, y:0}
@@ -99,19 +99,15 @@ document.querySelectorAll('.tile:not(.text-box):not(.img-box)').forEach((elem)=>
   elem.addEventListener('mousemove', function(e) {
     if(lastPos.x > e.clientX+10){ //right to left
       elem.style.setProperty("--x", "-.5rem")
-      console.log("left")
     }
     else if(lastPos.x < e.clientX-10){//left to right
       elem.style.setProperty("--x", ".5rem")
-      console.log("right")
     }
     if(lastPos.y > e.clientY+10){//bottom to top
       elem.style.setProperty("--y", "-.5rem")
-      console.log("top")
     }
     else if(lastPos.y < e.clientY-10){//top to bottom
       elem.style.setProperty("--y", ".5rem")
-      console.log("bottom")
     }
 
   	if(elem.classList.contains("hovered")){
