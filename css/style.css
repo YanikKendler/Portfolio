@@ -43,11 +43,10 @@ a{
     padding: .5rem;
     position: absolute;
     z-index: 100;
-    transform: translateX(-50%);
     font-family: var(--base-font);
     opacity: 0;
     pointer-events: none;
-    transition: all .5s;
+    transition: opacity .5s;
     top: 60%;
     left: 60%;
 }
@@ -179,22 +178,28 @@ body::-webkit-scrollbar{
     margin-bottom: .5vw;
     font-weight: 500;
     width: 90%;
-    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: .5rem;
 }
 .text-box a.sub:hover{
-    padding-left: 1vw;
+    padding-left: .5vw;
     cursor: pointer;
 }
 
 .text-box .sub span{
     font: inherit;
-    margin-right: 1rem;
     display: inline-block;
     transition: all .2s;
+    position: relative;
 }
 .text-box .sub span:hover{
     cursor: pointer;
-    color: hsl(236, 30%, 70%);
+}
+
+.text-box .sub:has(span:hover) span:not(:hover){
+    color: hsl(236, 16%, 63%);
 }
 
 /* #endregion */
@@ -958,12 +963,6 @@ nav .logo p{
 
 /************ Keyframes ************/
 
-@keyframes hover-nav-text {
-    0% { bottom: 50%; color: #35384c; }
-    50% { bottom: 1.5rem; color: #0c209e;}
-    100% { bottom: 50%; color: #35384c; }
-}
-
 @keyframes tilehover {
     from{
         width: 0%;
@@ -1100,10 +1099,6 @@ nav .logo p{
 
     #photoshop-heading{
         width: 90%;
-    }
-
-    #copyinfo{
-        transform: translateX(0);
     }
 
     #skills .container{
