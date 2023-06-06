@@ -70,6 +70,7 @@ body::-webkit-scrollbar{
     height: 80vh;
     transform-style: preserve-3d;
     perspective: 500vh;
+    outline: 1px solid red;
 }
 
 .tile{
@@ -174,8 +175,6 @@ body::-webkit-scrollbar{
     font-family: inherit;
     transition: all .2s;
     margin-inline: .5vw;
-    padding-block: .5vw;
-    margin-bottom: .5vw;
     font-weight: 500;
     width: 90%;
     display: flex;
@@ -445,6 +444,13 @@ nav .logo p{
 
 #projects .text-box p{
     line-height: 190%;
+}
+
+
+/* #region Revenge*/
+
+#revenge .text-box{
+    top: 8vw;
 }
 
 /* #region WorldManager*/
