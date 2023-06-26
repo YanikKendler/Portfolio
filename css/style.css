@@ -63,7 +63,6 @@ a {
   height: 80vh;
   transform-style: preserve-3d;
   perspective: 500vh;
-  outline: 1px solid red;
 }
 
 .tile-container .tile {
@@ -174,11 +173,10 @@ a {
   margin-block: 0.5vw;
 }
 .tile-container .tile.text-box p {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-family: inherit;
   line-height: 170%;
   margin-inline: 0.5vw;
-  margin-bottom: 0.5vw;
 }
 .tile-container .tile.text-box .sub {
   color: var(--light);
@@ -193,22 +191,27 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 0.5rem;
+  gap: 0.2rem;
 }
-.tile-container .tile.text-box .sub span {
+.tile-container .tile.text-box .sub .text {
   font: inherit;
   display: inline-block;
   transition: all 0.2s;
   position: relative;
+  font-size: 1rem;
 }
-.tile-container .tile.text-box .sub span:hover {
+.tile-container .tile.text-box .sub .text:hover {
   cursor: pointer;
+}
+.tile-container .tile.text-box .sub .icon {
+  margin-top: 0.5rem;
+  display: none;
 }
 .tile-container .tile.text-box a.sub:hover {
   padding-left: 0.5vw;
   cursor: pointer;
 }
-.tile-container .tile.text-box .sub:has(span:hover) span:not(:hover) {
+.tile-container .tile.text-box .sub:has(p:hover) p:not(:hover) {
   color: hsl(236, 16%, 63%);
 }
 
@@ -418,10 +421,10 @@ nav .logo img p {
 }
 
 /*/ general style for projects area text box */
-#projects .text-box {
+.text-box {
   max-width: 50%;
 }
-#projects .text-box p {
+.text-box p {
   line-height: 190%;
 }
 
@@ -748,6 +751,7 @@ nav .logo img p {
 
 #petpal .text-box {
   top: 10vh;
+  rotate: -1deg;
 }
 #petpal .box1 {
   width: 10vw;
@@ -759,6 +763,50 @@ nav .logo img p {
 }
 #petpal .box1.active {
   right: 50vw;
+}
+#petpal .box2 {
+  width: 6vw;
+  height: 6vw;
+  background-color: var(--shade2);
+  top: 33vh;
+  rotate: 1deg;
+  right: 100vw;
+}
+#petpal .box2.active {
+  right: 58vw;
+}
+#petpal .box3 {
+  width: 10vh;
+  height: 8vh;
+  background-color: var(--shade4);
+  top: 42vh;
+  rotate: 8deg;
+  left: -40vw;
+}
+#petpal .box3.active {
+  left: 10vw;
+}
+#petpal .box4 {
+  width: 18vh;
+  height: 11vh;
+  background-color: var(--shade5);
+  top: 50vh;
+  rotate: 15deg;
+  left: -40vw;
+}
+#petpal .box4.active {
+  left: 12vw;
+}
+#petpal .box5 {
+  width: 30vw;
+  height: 10vh;
+  background-color: var(--shade3);
+  top: 40vh;
+  rotate: 5deg;
+  right: -30vw;
+}
+#petpal .box5.active {
+  right: 5vw;
 }
 
 /*---------- skills ----------*/
@@ -897,14 +945,23 @@ nav .logo img p {
 /************ Responsive ************/
 /* #region */
 @media screen and (max-width: 1100px) { /*weird middle fuck*/
-  .text-box {
-    max-width: 60% !important;
+  .tile-container .tile.text-box {
+    max-width: 60%;
   }
-  .text-box.right {
+  .tile-container .tile.text-box:not(.active).right {
     right: -90vw;
   }
-  .text-box.left {
+  .tile-container .tile.text-box:not(.active).left {
     left: -90vw;
+  }
+  .tile-container .tile.text-box .sub .text {
+    display: none;
+  }
+  .tile-container .tile.text-box .sub .icon {
+    display: block;
+  }
+  .tile-container .tile.text-box p {
+    font-size: 1.15rem;
   }
   #about .img-box.active {
     right: 65%;
@@ -914,6 +971,10 @@ nav .logo img p {
   }
   #skills .container {
     grid-template-columns: repeat(4, 1fr);
+    width: 90%;
+  }
+  #skills .container .skill {
+    padding: 3vw;
   }
   #skills table {
     width: calc(100% - 24vw);
@@ -936,17 +997,14 @@ nav .logo img p {
   .span-v-3 {
     grid-column: span 1;
   }
-  #skills .container {
-    width: 90%;
-  }
   #skills .container .skill.animateMe:nth-last-of-type(1), #skills .container .skill.animateMe:nth-last-of-type(2) {
     opacity: 1;
     transform: translateX(0);
   }
 }
-@media screen and (max-width: 800px) { /*phone*/
-  .text-box {
-    max-width: 80% !important;
+@media screen and (max-width: 700px) { /*phone*/
+  .tile-container .tile.text-box {
+    max-width: 80%;
   }
   .text-box.right {
     right: -90vw;
@@ -954,8 +1012,8 @@ nav .logo img p {
   .text-box.left {
     left: -90vw;
   }
-  .text-box p {
-    font-size: 1.15rem;
+  .tile-container .tile.text-box p {
+    font-size: 1.05rem;
   }
   #about {
     height: 85vh;
@@ -989,10 +1047,10 @@ nav .logo img p {
     width: 90%;
   }
   #skills .container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   #skills .container .skill {
-    padding: 5vw;
+    padding: 2vw;
   }
   #skills .info {
     color: var(--light);

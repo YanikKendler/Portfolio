@@ -66,7 +66,6 @@ a{
     height: 80vh;
     transform-style: preserve-3d;
     perspective: 500vh;
-    outline: 1px solid red;
 }
 
 .tile-container .tile {
@@ -192,11 +191,10 @@ a{
     }
 
     p {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         font-family: inherit;
         line-height: 170%;
         margin-inline: .5vw;
-        margin-bottom: .5vw;
     }
 
     .sub {
@@ -212,18 +210,24 @@ a{
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-        gap: .5rem;
+        gap: .2rem;
 
-        span {
+        .text {
             font: inherit;
             display: inline-block;
             transition: all .2s;
             position: relative;
+            font-size: 1rem;
 
             &:hover {
                 cursor: pointer;
             }
 
+        }
+
+        .icon{
+            margin-top: .5rem;
+            display: none;
         }
     }
 
@@ -233,7 +237,7 @@ a{
     }
 
 
-    .sub:has(span:hover) span:not(:hover) {
+    .sub:has(p:hover) p:not(:hover) {
         color: hsl(236, 16%, 63%);
     }
 }
@@ -489,7 +493,7 @@ nav {
 //endregion
 
 /*/ general style for projects area text box */
-#projects .text-box{
+.text-box{
     max-width: 50%;
 
     p{
@@ -881,6 +885,7 @@ nav {
 #petpal{
     .text-box{
         top: 10vh;
+        rotate: -1deg;
     }
 
     .box1{
@@ -893,6 +898,58 @@ nav {
 
         &.active{
             right: 50vw;
+        }
+    }
+
+    .box2{
+        width: 6vw;
+        height: 6vw;
+        background-color: var(--shade2);
+        top: 33vh;
+        rotate: 1deg;
+        right: 100vw;
+
+        &.active{
+            right: 58vw;
+        }
+    }
+
+    .box3{
+        width: 10vh;
+        height: 8vh;
+        background-color: var(--shade4);
+        top: 42vh;
+        rotate: 8deg;
+        left: -40vw;
+
+        &.active{
+            left: 10vw;
+        }
+    }
+
+    .box4{
+        width: 18vh;
+        height: 11vh;
+        background-color: var(--shade5);
+        top: 50vh;
+        rotate: 15deg;
+        left: -40vw;
+
+        &.active{
+            left: 12vw;
+        }
+    }
+
+    .box5{
+        width: 30vw;
+        height: 10vh;
+        background-color: var(--shade3);
+        top: 40vh;
+        rotate: 5deg;
+        right: -30vw;
+
+        &.active{
+            right: 5vw;
         }
     }
 }
@@ -1057,26 +1114,47 @@ nav {
 /* #region */
 
 @media screen and (max-width: 1100px) { /*weird middle fuck*/
-    .text-box{
-        max-width: 60% !important;
+    .tile-container .tile.text-box{
+        max-width: 60%;
+
+        &:not(.active){
+            &.right{
+                right: -90vw;
+            }
+            &.left{
+                left: -90vw;
+            }
+        }
+
+        .sub{
+            .text{
+                display: none;
+            }
+
+            .icon{
+                display: block;
+            }
+        }
     }
-    .text-box.right{
-        right: -90vw;
-    }
-    .text-box.left{
-        left: -90vw;
+
+    .tile-container .tile.text-box p{
+        font-size: 1.15rem;
     }
 
     #about .img-box.active{
         right: 65%;
     }
 
-    .tile-container{
+    .tile-container {
         height: 85vh;
     }
 
     #skills .container{
         grid-template-columns: repeat(4, 1fr);
+        width: 90%;
+    }
+    #skills .container .skill{
+        padding: 3vw;
     }
 
     #skills table{
@@ -1103,19 +1181,15 @@ nav {
         grid-column: span 1;
     }
 
-    #skills .container{
-        width: 90%;
-    }
-
     #skills .container .skill.animateMe:nth-last-of-type(1), #skills .container .skill.animateMe:nth-last-of-type(2){
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-@media screen and (max-width: 800px) { /*phone*/
-    .text-box{
-        max-width: 80% !important;
+@media screen and (max-width: 700px) { /*phone*/
+    .tile-container .tile.text-box{
+        max-width: 80%;
     }
     .text-box.right{
         right: -90vw;
@@ -1124,8 +1198,8 @@ nav {
         left: -90vw;
     }
 
-    .text-box p{
-        font-size: 1.15rem;
+    .tile-container .tile.text-box p{
+        font-size: 1.05rem;
     }
 
     #about{
@@ -1168,10 +1242,10 @@ nav {
     }
 
     #skills .container{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     #skills .container .skill{
-        padding: 5vw;
+        padding: 2vw;
     }
 
     #skills .info{
