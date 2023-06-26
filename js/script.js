@@ -31,7 +31,7 @@ function createNav(){
   setTimeout(function(){
   //creates span tags containg individual letters of the headings
   for (let i = 0; i < navtext.length; i++) {
-    navSpanHtml += `<a class="navitem" href="#link-to-${navtext[i]}"><div>`
+    navSpanHtml += `<a class="navitem" href="#${navtext[i]}"><div>`
       
     for (let j = 0; j < navtext[i].length; j++) {
         navSpanHtml += `<span style="animation-delay: ${j*0.05}s">${navtext[i][j]}</span>`

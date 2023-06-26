@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Yanik Kendler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/jpg">
     <script src='./js/script.js' defer></script>
 
@@ -29,7 +29,6 @@
     </nav>
 
     <section id="about" class="tile-container">
-        <div id="link-to-about" aria-hidden="true"></div>
         <div class="text-box tile right">
             <h1>Yanik Kendler</h1>
             <hr>
@@ -43,19 +42,18 @@
                 <span onmousedown="copy(0, this)" title="mail">yanik.kendler@gmail.com</span>
                 <span title="github"><a href="https://github.com/elYanuki" target="_blank">github/elYanuki</a></span>
                 <span title="youtube"><a href="https://www.youtube.com/@elYanuki" target="_blank">youtube/Yanik</a></span>
-                <span onmousedown="copy(1, this)" title="discord">el_Yanuki#9890</span>
+                <span onmousedown="copy(1, this)" title="discord">discord/el_yanuki</span>
             </span>
         </div>
         <div class="img-box hover-card tile" aria-hidden="true"></div>
         <div class="box1 hover-card tile" aria-hidden="true"></div>
         <div class="box2 hover-card tile" aria-hidden="true"></div>
         <div class="box3 hover-card tile" aria-hidden="true"></div>
+        <div class="box4 hover-card tile" aria-hidden="true"></div>
     </section>
 
     <main id="projects">
         <div class="header">
-            <div id="link-to-projects" aria-hidden="true"></div>
-
             <h1 class="animateMe">projects</h1>
             <div class="bouncy" onclick="clickBounce()" aria-hidden="true"></div>
         </div>
@@ -70,6 +68,40 @@
                     The "master" can add questions to the gameboard, select them, start a timer, add players and assign them scores and more. All actions are displayed by the "display" client.
                 </p>
                 <a class="sub" href="https://github.com/elYanuki/Gameshow" target="_blank">github.com/elYanuki/Gameshow</a>
+            </div>
+            <div class="box1 hover-card tile" aria-hidden="true"></div>
+            <div class="box2 hover-card tile" aria-hidden="true"></div>
+            <div class="box3 hover-card tile" aria-hidden="true"></div>
+            <div class="box4 hover-card tile" aria-hidden="true"></div>
+        </section>
+
+        <section id="revenge" class="tile-container">
+            <div class="text-box tile left">
+                <h1>Revenge</h1>
+                <hr>
+                <p>
+                    An eight minute long short film I created with two friends in the span of 2 months for a school project.
+                    <br>
+                    We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Aditionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.
+                </p>
+                <a class="sub" href="https://youtu.be/Z6PDqlk2Nf8" target="_blank">Revenge video on YouTube</a>
+            </div>
+            <div class="box1 hover-card tile" aria-hidden="true"></div>
+            <div class="box2 hover-card tile" aria-hidden="true"></div>
+            <div class="box3 hover-card tile" aria-hidden="true"></div>
+            <div class="box4 hover-card tile" aria-hidden="true"></div>
+        </section>
+
+        <section id="stopmotion" class="tile-container">
+            <div class="text-box tile right">
+                <h1>Lego Stop-Motion</h1>
+                <hr>
+                <p>
+                    A short one minute Lego video that perfectly loops. We tried to make all animations as smooth and possible and perfect the scenery for each shot.
+                    <br>
+                    In the end we spent about 16 hours each, just moving minifigures by 3 millimeters and taking a picture. We then also coincidentally got into contact with a retired music professor from Michigan that was willing to create custom music for the video.
+                </p>
+                <a class="sub" href="https://youtu.be/D0YVtJUaNP4" target="_blank">Stop-Motion video on YouTube</a>
             </div>
             <div class="box1 hover-card tile" aria-hidden="true"></div>
             <div class="box2 hover-card tile" aria-hidden="true"></div>
@@ -135,35 +167,54 @@
             <div class="box6 hover-card tile" aria-hidden="true"></div>
         </section>
 
-        <section id="skills">
-            <div id="link-to-skills" aria-hidden="true"></div>
-            <h1 class="animateMe">skills</h1>
-            <p class="info animateMe">click logo for more info</p>
+        <section id="petpal" class="tile-container">
+            <div class="text-box tile right">
+                <h1>PetPal</h1>
+                <hr>
+                <p>
+                    This is a school project from 2023. It is a App that allows animal shelters to manage their animals by storing their data, assigning them to rooms and owners and filtering for animals.
+                    <br>
+                    The Frontend is vanilla JavaScript and SCSS, the backend is a PHP API usign MariaDB :/
+                </p>
+                <a class="sub" href="https://github.com/elYanuki/PetPal" target="_blank">github.com/elYanuki/PetPal</a>
+            </div>
+            <div class="box1 hover-card tile" aria-hidden="true"></div>
+            <div class="box2 hover-card tile" aria-hidden="true"></div>
+            <div class="box3 hover-card tile" aria-hidden="true"></div>
+            <div class="box4 hover-card tile" aria-hidden="true"></div>
+            <div class="box5 hover-card tile" aria-hidden="true"></div>
+            <div class="box6 hover-card tile" aria-hidden="true"></div>
+        </section>
+    </main>
 
-            <div class="container animateMe">
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/javascript.png" alt="javascript">
-                        <p>1.5 years</p>
-                    </div>
+    <section id="skills">
+        <div id="link-to-skills" aria-hidden="true"></div>
+        <h1 class="animateMe">skills</h1>
+        <p class="info animateMe">click logo for more info</p>
+
+        <div class="container animateMe">
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/javascript.png" alt="javascript">
+                    <p>1.5 years</p>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/nodejs.png" alt="NodeJS">
-                        <p>1.5 years</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/nodejs.png" alt="NodeJS">
+                    <p>1.5 years</p>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/html.png" alt="html">
-                        <p>2.5 years</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/html.png" alt="html">
+                    <p>2.5 years</p>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/css.png" alt="css">
-                        <p>2.5 years</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/css.png" alt="css">
+                    <p>2.5 years</p>
                 </div>
                 <div class="skill animateMe">
                     <div class="content">
@@ -171,23 +222,23 @@
                         <p>6 months</p>
                     </div>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/photoshop.png" alt="photoshop">
-                        <p>3.5 years</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/photoshop.png" alt="photoshop">
+                    <p>3.5 years</p>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/premiere.png" alt="premiere">
-                        <p>1.5 years</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/premiere.png" alt="premiere">
+                    <p>1.5 years</p>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/java.png" alt="java">
-                        <p>2.5 years</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/java.png" alt="java">
+                    <p>2.5 years</p>
                 </div>
                 <div class="skill animateMe">
                     <div class="content">
@@ -195,13 +246,14 @@
                         <p>6 months</p>
                     </div>
                 </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/english.png" alt="english">
-                        <p>level b2+</p>
-                    </div>
+            </div>
+            <div class="skill animateMe">
+                <div class="content">
+                    <img src="./img/skills/english.png" alt="english">
+                    <p>level b2+</p>
                 </div>
             </div>
-    </main>
+        </div>
+    </section>
 </body>
 </html>
