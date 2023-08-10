@@ -82,7 +82,7 @@ function generateSkills(){
     console.log(relativeTime, Date.now(), skill.time.getTime())
     html += `<div class="skill animateMe">
                 <div class="content">
-                    <img src="./img/skills/${skill.name}.png" alt="${skill.name}">
+                    <img src="./img/skills/${skill.name.toLowerCase()}.png" alt="${skill.name}">
                     <p>${relativeTime.getFullYear()-1970 > 0 ? relativeTime.getFullYear()-1970 + " year" + (relativeTime.getFullYear()-1970 > 1 ? "s" : "") :  relativeTime.getMonth() + " months"}</p>
                 </div>
             </div>`
