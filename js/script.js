@@ -79,6 +79,7 @@ function generateSkills(){
   let html = ""
   skills.forEach((skill)=>{
     let relativeTime = new Date(Date.now() - skill.time.getTime())
+    console.log(relativeTime, Date.now(), skill.time.getTime())
     html += `<div class="skill animateMe">
                 <div class="content">
                     <img src="./img/skills/${skill.name}.png" alt="${skill.name}">
