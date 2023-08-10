@@ -63,16 +63,16 @@ function createNav(){
 
 //----------- generate skills -----------//
 let skills = [
-  {name: "javascript", time: new Date("1-8-2021")},
-  {name: "nodejs", time: new Date("1-8-2021")},
-  {name: "HTML", time: new Date("1-8-2020")},
-  {name: "CSS", time: new Date("1-8-2020")},
-  {name: "PHP", time: new Date("1-8-2022")},
-  {name: "photoshop", time: new Date("1-1-2019")},
-  {name: "premiere", time: new Date("1-8-2021")},
-  {name: "aftereffects", time: new Date("1-1-2023")},
-  {name: "java", time: new Date("1-8-2020")},
-  {name: "sql", time: new Date("1-8-2022")},
+  {name: "javascript", time: new Date("1/8/2021")},
+  {name: "nodejs", time: new Date("1/8/2021")},
+  {name: "HTML", time: new Date("1/8/2020")},
+  {name: "CSS", time: new Date("1/8/2020")},
+  {name: "PHP", time: new Date("1/8/2022")},
+  {name: "photoshop", time: new Date("1/1/2019")},
+  {name: "premiere", time: new Date("1/8/2021")},
+  {name: "aftereffects", time: new Date("1/1/2023")},
+  {name: "java", time: new Date("1/8/2020")},
+  {name: "sql", time: new Date("1/8/2022")},
 ]
 generateSkills()
 function generateSkills(){
