@@ -246,8 +246,6 @@ a{
 
 /*---------- nav ----------*/
 
-//region nav
-
 nav {
     display: flex;
     justify-content: flex-start;
@@ -261,6 +259,7 @@ nav {
     left: 0;
     background-color: #f0effa;
     z-index: 100;
+    box-shadow: 0 .5rem .5rem 0 rgba(21, 60, 152, 0.1);
 
     .headings {
         height: inherit;
@@ -286,7 +285,6 @@ nav {
 
                 &:hover div span {
                     color: rgb(64, 64, 202);
-                    animation: hover-nav-text .4s ease-in-out;
                 }
 
                 div {
@@ -297,7 +295,6 @@ nav {
                     span {
                         font-family: inherit;
                         position: absolute;
-                        bottom: 0rem;
                         padding-block: 1vw;
                         bottom: 50%;
                         font-size: inherit;
@@ -352,8 +349,6 @@ nav {
         }
     }
 }
-
-//endregion
 
 /*---------- about ----------*/
 
@@ -1101,12 +1096,6 @@ nav {
     100%{
         transform: translateY(0rem) scale(1);
     }
-}
-
-@keyframes hover-nav-text {
-    0% { bottom: 50%; color: #35384c; }
-    50% { bottom: 1rem; color: #0c209e;}
-    100% { bottom: 50%; color: #35384c; }
 }
 
 /************ Responsive ************/

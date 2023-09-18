@@ -26,37 +26,61 @@ let navtext = ["about", "projects", "skills"]
 let navSpanHtml = ""
 
 function createNav(){
+  //this may actually cause problems.. idonno why this is here
   scrollTo(0,0)
 
   setTimeout(function(){
-  //creates span tags containg individual letters of the headings
-  for (let i = 0; i < navtext.length; i++) {
-    navSpanHtml += `<a class="navitem" href="#${navtext[i]}"><div>`
-      
-    for (let j = 0; j < navtext[i].length; j++) {
-        navSpanHtml += `<span style="animation-delay: ${j*0.05}s">${navtext[i][j]}</span>`
+    //creates span tags containg individual letters of the headings
+    for (let i = 0; i < navtext.length; i++) {
+      let spans = ""
+
+      for (let j = 0; j < navtext[i].length; j++) {
+        spans += `<span>${navtext[i][j]}</span>`
+      }
+
+      navSpanHtml += `<a class="navitem" href="#${navtext[i]}"><div>${spans}</div></a>`
     }
-    navSpanHtml += "</div></a>"
-  }
 
-  document.querySelector('nav .headings .main').innerHTML += navSpanHtml //writes spans to main (visible, absoulte positioned) heading
-  document.querySelector('nav .headings .guides').innerHTML = navSpanHtml //writes spans to guide(invisible, normal) heading
+    document.querySelector('nav .headings .main').innerHTML = navSpanHtml //writes spans to main (visible, absolute positioned) heading
+    document.querySelector('nav .headings .guides').innerHTML = navSpanHtml //writes spans to guide(invisible, normal) heading
 
-  let guideSpans = document.querySelectorAll("nav .headings .guides span")
-  let spans = document.querySelectorAll("nav .headings .main span")
+    let guideSpans = document.querySelectorAll("nav .headings .guides span")
+    let mainSpans = document.querySelectorAll("nav .headings .main span")
 
-  ///alignes absolute positioned main spans the same as guides (not on top of each other)
-  for (let i = 0; i < guideSpans.length; i++) {
-      let rect = guideSpans[i].getBoundingClientRect(); //cbounding rect for current span
-      spans[i].style.left = rect.left + 'px';
-  }
+    ///alignes absolute positioned main spans the same as guides (not on top of each other)
+    for (let i = 0; i < guideSpans.length; i++) {
+        let rect = guideSpans[i].getBoundingClientRect(); //cbounding rect for current span
+        mainSpans[i].style.left = rect.left + 'px';
+    }
 
-  let mainDivs = document.querySelectorAll('.headings .main .navitem div')
+    let mainDivs = document.querySelectorAll('.headings .main .navitem div')
 
-  for (let i = 0; i < mainDivs.length; i++) { //sets container divs sizes to the right width (copied from guides)
-    mainDivs[i].style.width = document.querySelectorAll('.headings .guides .navitem div')[i].clientWidth + "px"
-  }
-},0)
+    for (let i = 0; i < mainDivs.length; i++) { //sets container divs sizes to the right width (copied from guides)
+      mainDivs[i].style.width = document.querySelectorAll('.headings .guides .navitem div')[i].clientWidth + "px"
+    }
+
+    document.querySelectorAll('nav .headings .main .navitem').forEach(elem => {
+      elem.addEventListener("mouseenter", function (){
+        let spanElements = elem.querySelectorAll('div span')
+
+        for (const [index, span] of spanElements.entries()) {
+          setTimeout(function(){
+            span.animate(
+                [
+                  { bottom: "50%", color: "#35384c"},
+                  { bottom: "1rem", color: "#0c209e"},
+                  { bottom: "50%", color: "#35384c"}
+                ],
+                {
+                  duration: 400,
+                  easing: "ease-in-out"
+                }
+            )
+          },index*50)
+        }
+      })
+    })
+  })
 }
 
 //#endregion
@@ -79,7 +103,6 @@ function generateSkills(){
   let html = ""
   skills.forEach((skill)=>{
     let relativeTime = new Date(Date.now() - skill.time.getTime())
-    console.log(relativeTime, Date.now(), skill.time.getTime())
     html += `<div class="skill animateMe">
                 <div class="content">
                     <img src="./img/skills/${skill.name.toLowerCase()}.png" alt="${skill.name}">
