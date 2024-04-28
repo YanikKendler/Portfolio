@@ -224,6 +224,7 @@ main .project{
         background: linear-gradient(90deg, var(--color-a) 0%, var(--color-b) 100%);
         inset: 0;
         cursor: pointer;
+        z-index: 1;
     }
 
     .header{

@@ -1,9 +1,21 @@
 //TODO handle touchscreens
-window.addEventListener("mousemove", (e) => {
-    let mouseblob = document.querySelector("div.mouseblob") as HTMLElement
+function throttle(callback, delay) {
+    let lastCall = 0;
+    return function (...args) {
+        const now = new Date().getTime();
+        if (now - lastCall < delay) {
+            return;
+        }
+        lastCall = now;
+        callback(...args);
+    };
+}
+
+window.addEventListener("mousemove", throttle((e) => {
+    let mouseblob = document.querySelector("div.mouseblob") as HTMLElement;
     mouseblob.style.left = e.pageX + "px";
     mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
-})
+}, 100));
 
 function showProjectText(headerElem: HTMLElement){
     let projectElement = headerElem.parentElement
@@ -104,8 +116,8 @@ const projectData: Project[] = [
         }
     },
     {
-        name: "PetPal",
-        type: "Web App • School Project",
+        name: "Gameshow",
+        type: "Web App",
         description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
         link: {
             name: "watch the video",
@@ -114,6 +126,19 @@ const projectData: Project[] = [
         color: {
             a: "#778CC0",
             b: "#DEAEFB"
+        }
+    },
+    {
+        name: "PetPal",
+        type: "Web App",
+        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        link: {
+            name: "watch the video",
+            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+        },
+        color: {
+            a: "#72BCCC",
+            b: "#B9DEEE"
         }
     }
 ]
