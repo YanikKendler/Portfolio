@@ -27,7 +27,7 @@ var projectData = [
     {
         name: "No Tomorrow",
         type: "Short Film",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "text missing",
         link: {
             name: "watch the video",
             url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
@@ -40,10 +40,11 @@ var projectData = [
     {
         name: "Revenge",
         type: "Short Film",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "An short film I created with two friends in the span of 2 months for a school project.\n" +
+            "We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Aditionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.",
         link: {
             name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            url: "https://www.youtube.com/watch?v=Z6PDqlk2Nf8"
         },
         color: {
             a: "#CD5334",
@@ -53,7 +54,7 @@ var projectData = [
     {
         name: "Wildlife Photography",
         type: "Image Gallery",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "text missing",
         link: {
             name: "take a look",
             url: "#"
@@ -79,10 +80,10 @@ var projectData = [
     {
         name: "Photoshop",
         type: "Image Gallery",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "I like to create photo manipulations based on stock pictures or my own and add lights, shadows, textures etc.\n" + "Using this technique I create fantasy and Sci-fi themed artwork.",
         link: {
-            name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            name: "take a look",
+            url: "./gallery/index.html"
         },
         color: {
             a: "#B5347A",
@@ -92,10 +93,11 @@ var projectData = [
     {
         name: "Lego Stop Motion",
         type: "School Project",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "A short one minute Lego video that perfectly loops. We tried to make all animations as smooth and possible and perfect the scenery for each shot.\n" +
+            "In the end we spent about 16 hours each, just moving minifigures by 3 millimeters and taking a picture. Then we coincidentally got into contact with a retired music professor from Michigan that was willing to create custom music for the video.",
         link: {
             name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            url: "https://www.youtube.com/watch?v=D0YVtJUaNP4"
         },
         color: {
             a: "#F78E69",
@@ -105,10 +107,11 @@ var projectData = [
     {
         name: "Gameshow",
         type: "Web App",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "A NodeJS based gameshow which allows you to stream one client to a TV and control the gameshow using your phone. The question-sets will be stored on the server and can easily be customized.\n" +
+            "The \"gamemaster\" can add questions to the gameboard, select them, start a timer, add players and assign them scores and more. All actions are displayed by the \"display\" client.",
         link: {
-            name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            name: "github.com/elYanuki/Gameshow",
+            url: "https://github.com/elYanuki/Gameshow"
         },
         color: {
             a: "#778CC0",
@@ -118,10 +121,11 @@ var projectData = [
     {
         name: "PetPal",
         type: "Web App",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "This is a school project from 2023. It is a App that allows animal shelters to manage their animals by storing their data, assigning them to rooms and owners and filtering for animals.\n" +
+            "The Frontend is vanilla JavaScript and SCSS, the backend is a PHP API using MariaDB :/",
         link: {
-            name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            name: "github.com/elYanuki/PetPal",
+            url: "https://github.com/elYanuki/PetPal"
         },
         color: {
             a: "#72BCCC",
@@ -133,7 +137,7 @@ generateProjectElements();
 function generateProjectElements() {
     var projectHtml = "";
     projectData.forEach(function (project, i) {
-        projectHtml += "\n            <div class=\"project\" style=\"\n                --color-a: ".concat(project.color.a, "; \n                --color-b: ").concat(project.color.b, "; \n                --color-a-contrast: ").concat(overlayBlendMode('#000000', project.color.a), "; \n                --color-b-contrast: ").concat(overlayBlendMode('#000000', project.color.b), "\n            \">\n                <div class=\"header\" onclick=\"showProjectText(this)\">\n                    <p class=\"number\">").concat(("0" + (i + 1)).slice(-2), "</p>\n    \n                    <div class=\"title\">\n                        <h3>").concat(project.name, "</h3>\n                        <p class=\"type\">").concat(project.type, "</p>\n                    </div>\n                    \n                    <i class=\"fa-solid fa-angles-right\"></i>\n                </div>\n                <div class=\"text-container\">\n                    <p>").concat(project.description, "</p>\n                    <a href=\"").concat(project.link.url, "\" target=\"_blank\">").concat(project.link.name, "</a>\n                </div>\n                <div class=\"background\" onclick=\"showProjectText(this)\"></div>\n            </div>\n        ");
+        projectHtml += "\n            <div class=\"project\" style=\"\n                --color-a: ".concat(project.color.a, "; \n                --color-b: ").concat(project.color.b, "; \n                --color-a-contrast: ").concat(overlayBlendMode('#000000', project.color.a), "; \n                --color-b-contrast: ").concat(overlayBlendMode('#000000', project.color.b), ";\n                --color-mix: ").concat(mixHexColors(project.color.a, project.color.b, 0.2), ";\n                --color-mix-bright: ").concat(mixHexColors(project.color.a, project.color.b, 0.7), ";\n            \">\n                <div class=\"header\" onclick=\"showProjectText(this)\">\n                    <p class=\"number\">").concat(("0" + (i + 1)).slice(-2), "</p>\n    \n                    <div class=\"title\">\n                        <h3>").concat(project.name, "</h3>\n                        <p class=\"type\">").concat(project.type, "</p>\n                    </div>\n                    \n                    <i class=\"fa-solid fa-angles-right\"></i>\n                </div>\n                <div class=\"text-container\">\n                    <p>").concat(project.description, "</p>\n                    <a href=\"").concat(project.link.url, "\" target=\"_blank\">").concat(project.link.name, "</a>\n                </div>\n                <div class=\"background\" onclick=\"showProjectText(this)\"></div>\n            </div>\n        ");
     });
     var projectContainer = document.querySelector('main');
     projectContainer.innerHTML = projectHtml;
@@ -163,4 +167,35 @@ function overlayBlendMode(color1Hex, color2Hex) {
         b: Math.round(overlay(color1.b / 255, color2.b / 255) * 255)
     };
     return rgbToHex(blendedColor);
+}
+function mixHexColors(color1Hex, color2Hex, alpha) {
+    if (alpha === void 0) { alpha = 1; }
+    // Convert hexadecimal color strings to RGB
+    var color1 = hexToRgb(color1Hex);
+    var color2 = hexToRgb(color2Hex);
+    // Mix the RGB components
+    var mixedColor = {
+        r: Math.round((color1.r + color2.r) / 2),
+        g: Math.round((color1.g + color2.g) / 2),
+        b: Math.round((color1.b + color2.b) / 2)
+    };
+    // Convert the mixed RGB color back to hexadecimal
+    return "rgba(".concat(mixedColor.r, ", ").concat(mixedColor.g, ", ").concat(mixedColor.b, ", ").concat(alpha, ")");
+}
+var copyinfoelem = document.querySelector('#copyinfo');
+function copy(elem, name, username) {
+    navigator.clipboard.writeText(username);
+    copyinfo(name + " copied to clipboard", elem);
+}
+var copyOut;
+function copyinfo(text, elem) {
+    copyinfoelem.innerText = text;
+    var boundingBox = elem.getBoundingClientRect();
+    copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px";
+    copyinfoelem.style.left = boundingBox.left + boundingBox.width / 2 + "px";
+    copyinfoelem.style.opacity = "1";
+    clearTimeout(copyOut);
+    copyOut = setTimeout(function () {
+        copyinfoelem.style.opacity = "0";
+    }, 1000);
 }

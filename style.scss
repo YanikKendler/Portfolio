@@ -92,6 +92,15 @@ header .content{
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
+
+            i{
+                margin-right: .1rem;
+            }
+
+            a{
+                text-decoration: none;
+                border-bottom: 1px solid white;
+            }
         }
 
         .blob1{
@@ -178,7 +187,7 @@ main .project{
     border-radius: 1rem;
     overflow: hidden;
     max-height: 9rem;
-    transition: max-height 500ms, outline-color 200ms;
+    transition: max-height 500ms, outline-color 200ms, box-shadow 200ms;
     position: relative;
     padding: 3px;
     box-sizing: border-box;
@@ -188,6 +197,13 @@ main .project{
     --color-b: #595858;
     --color-a-contrast: white;
     --color-b-contrast: white;
+    --color-mix: gray;
+    --color-mix-bright: white;
+
+    background: linear-gradient(90deg, var(--color-a) 0%, var(--color-b) 100%);
+    cursor: pointer;
+
+    box-shadow: 0 0 .5rem .5rem var(--color-mix);
 
     &.open{
         max-height: 500px;
@@ -206,14 +222,17 @@ main .project{
         }
     }
 
-    &:not(.open):hover{
-        outline: 2px solid white;
+    &:not(.open):hover {
+        outline: 2px solid #d2d2d2;
 
-        .fa-angles-right{
+        .fa-angles-right {
             color: white;
             filter: brightness(100%);
         }
+
+        box-shadow: 0 0 .5rem .5rem var(--color-mix-bright);
     }
+
 
     &:first-of-type .header .number{
         letter-spacing: 0.7rem;
@@ -221,9 +240,7 @@ main .project{
 
     .background{
         position: absolute;
-        background: linear-gradient(90deg, var(--color-a) 0%, var(--color-b) 100%);
         inset: 0;
-        cursor: pointer;
         z-index: 1;
     }
 
@@ -232,8 +249,6 @@ main .project{
         display: flex;
         gap: 2rem;
         align-items: center;
-        position: relative;
-        z-index: 5;
         color: black;
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%);
         cursor: pointer;
@@ -248,12 +263,14 @@ main .project{
             width: 10rem;
             text-align: right;
             color: var(--color-a-contrast);
+            /*color: black;
+            mix-blend-mode: overlay;*/
         }
 
         .type{
             font-size: 1.25rem;
             font-weight: 300;
-            margin-top: -.7rem;
+            margin-top: -.5rem;
             margin-left: .3rem;
         }
 
@@ -280,6 +297,7 @@ main .project{
         }
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         transition: clip-path 300ms ease-out, margin 300ms ease-out;
+        cursor: initial;
 
         p{
             opacity: 0;
@@ -313,7 +331,7 @@ main .project{
                 opacity: 0;
                 z-index: -1;
                 border-radius: .3rem;
-                transition: scale .2s ease-out, opacity .2s ease-out;
+                transition: scale .2s ease-in-out, opacity .2s ease-in-out;
                 filter: brightness(90%);
             }
 
@@ -323,4 +341,19 @@ main .project{
             }
         }
     }
+}
+
+#copyinfo{
+    color: hsl(0, 0%, 90%);
+    background-color: black;
+    border-radius: .5rem;
+    padding: .5rem;
+    position: absolute;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s;
+    translate: -50% 0;
+    top: 60%;
+    left: 60%;
 }
