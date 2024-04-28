@@ -15,8 +15,8 @@ html {
 }
 
 ::selection {
-  background-color: hsl(234, 100%, 81%);
-  color: hsl(234, 58%, 17%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
 }
 
 a {
@@ -154,7 +154,7 @@ main {
   padding-left: 15%;
   padding-right: 15%;
   padding-top: 2rem;
-  padding-bottom: 10rem;
+  padding-bottom: 15rem;
   flex-direction: column;
   background-color: hsl(0, 0%, 7%);
 }
@@ -162,30 +162,48 @@ main {
 main .project {
   border-radius: 1rem;
   overflow: hidden;
-  max-height: 10rem;
-  transition: max-height 500ms;
-  outline-offset: -5px;
+  max-height: 9rem;
+  transition: max-height 500ms, outline-color 200ms;
   position: relative;
   padding: 3px;
   box-sizing: border-box;
+  outline: 1px solid transparent;
+  --color-a: gray;
+  --color-b: #595858;
+  --color-a-contrast: white;
+  --color-b-contrast: white;
 }
 main .project.open {
   max-height: 500px;
 }
-main .project.open .text-container p {
+main .project.open .text-container p, main .project.open .text-container a {
   opacity: 1;
 }
-main .project.open .header {
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 47%); /*TODO move this to text container but reversed*/
+main .project.open .text-container {
+  clip-path: polygon(0 1.5rem, 100% 0, 100% 100%, 0% 100%);
+  margin-top: -1rem;
 }
-main .project::before {
-  content: "";
+main .project.open .fa-angles-right {
+  rotate: 90deg;
+}
+main .project:not(.open):hover {
+  outline: 2px solid white;
+}
+main .project:not(.open):hover .fa-angles-right {
+  color: white;
+  filter: brightness(100%);
+}
+main .project:first-of-type .header .number {
+  letter-spacing: 0.7rem;
+}
+main .project .background {
   position: absolute;
-  background: linear-gradient(90deg, #228D78 0%, #ABF658 100%);
+  background: linear-gradient(90deg, var(--color-a) 0%, var(--color-b) 100%);
   inset: 0;
+  cursor: pointer;
 }
 main .project .header {
-  height: 10rem;
+  height: 9rem;
   display: flex;
   gap: 2rem;
   align-items: center;
@@ -193,6 +211,7 @@ main .project .header {
   z-index: 5;
   color: black;
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%);
+  cursor: pointer;
 }
 main .project .header h3 {
   font-size: 4rem;
@@ -202,21 +221,68 @@ main .project .header .number {
   font-size: 6rem;
   width: 10rem;
   text-align: right;
-  mix-blend-mode: overlay;
+  color: var(--color-a-contrast);
+}
+main .project .header .type {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-top: -0.7rem;
+  margin-left: 0.3rem;
+}
+main .project .header .fa-angles-right {
+  margin-right: 3rem;
+  margin-left: auto;
+  font-size: 2rem;
+  color: var(--color-b-contrast);
+  filter: contrast(50%) brightness(120%);
+  transition: rotate 300ms, filter 300ms, color 300ms;
 }
 main .project .text-container {
   background-color: hsl(0, 0%, 7%);
   position: relative;
   z-index: 5;
   border-radius: 0 0 13px 13px;
-  padding-block: 0.5rem;
   padding-left: 12rem;
   padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: clip-path 300ms ease-out, margin 300ms ease-out;
 }
 main .project .text-container p {
   opacity: 0;
   transition: opacity 500ms;
-  max-width: 60ch;
+  max-width: 70ch;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 150%;
+}
+main .project .text-container a {
+  font-weight: 500;
+  display: block;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.5rem;
+  margin-left: -0.5rem;
+  opacity: 0;
+  transition: opacity 500ms, color 0.2s, background-color 0.2s;
+  width: fit-content;
+  position: relative;
+}
+main .project .text-container a:before {
+  content: "";
+  background-color: var(--color-a);
+  position: absolute;
+  inset: 0;
+  scale: 0;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 0.3rem;
+  transition: scale 0.2s ease-out, opacity 0.2s ease-out;
+  filter: brightness(90%);
+}
+main .project .text-container a:hover::before {
+  scale: 1;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
