@@ -101,6 +101,7 @@
   place-content: center;
   height: 3rem;
   aspect-ratio: 1;
+  text-decoration: none;
 }
 
 .backarrow .fa-arrow-left {

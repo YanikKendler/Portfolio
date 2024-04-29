@@ -55,7 +55,13 @@ header{
 
 header .content{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
+
+    @media screen and (max-width: 800px){
+        margin-top: -1rem;
+    }
 
     .image-container{
         display: grid;
@@ -74,6 +80,12 @@ header .content{
             grid-area: 1/1/2/2;
             translate: -1rem 1.5rem;
         }
+
+        @media screen and (max-width: 800px){
+            img{
+                height: 38vh;
+            }
+        }
     }
 
     .text-container{
@@ -82,7 +94,7 @@ header .content{
         justify-content: center;
 
         p{
-            max-width: 55ch;
+            max-width: min(55ch, 90vw);
             font-size: 1.1rem;
             line-height: 140%; /* 1.4rem */
             font-weight: 400;
@@ -90,6 +102,7 @@ header .content{
 
         div.links{
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-top: 1rem;
 
@@ -100,6 +113,28 @@ header .content{
             a{
                 text-decoration: none;
                 border-bottom: 1px solid white;
+            }
+        }
+
+        @media screen and (max-width: 800px){
+            p{
+                font-size: 1rem;
+            }
+
+            h1{
+                font-size: 3.5rem;
+            }
+
+            div.links span{
+                display: none;
+            }
+
+            div.links a{
+                font-size: 1.2rem;
+            }
+
+            div.links a:has(i) {
+                border: none;
             }
         }
 
@@ -141,6 +176,12 @@ header h2{
     -webkit-text-stroke-color: white;
     color: transparent;
     margin-bottom: -4rem;
+
+    @media screen and (max-width: 800px){
+        font-size: 5rem;
+        margin-bottom: -2.5rem;
+        left: 5%;
+    }
 }
 
 div.mouseblob{
@@ -154,6 +195,12 @@ div.mouseblob{
     translate: -50% -50%;
     transition: top 100ms, left 100ms;
     opacity: 15%;
+
+    @media (pointer:coarse) {
+        display: none;
+        top: 0;
+        left: 0;
+    }
 }
 
 @keyframes mouseblob {
@@ -181,13 +228,18 @@ main{
     }
     flex-direction: column;
     background-color: hsl(0, 0, 7%);
+
+    @media screen and (max-width: 800px){
+        padding-inline: 4vw;
+        padding-bottom: 5rem;
+    }
 }
 
 main .project{
     border-radius: 1rem;
     overflow: hidden;
     max-height: 9rem;
-    transition: max-height 500ms, outline-color 200ms, box-shadow 200ms;
+    transition: max-height 500ms, outline-color 200ms, box-shadow 200ms, filter 100ms;
     position: relative;
     padding: 3px;
     box-sizing: border-box;
@@ -206,7 +258,7 @@ main .project{
     box-shadow: 0 0 .5rem .5rem var(--color-mix);
 
     &.open{
-        max-height: 500px;
+        max-height: 100vh;
 
         .text-container p, .text-container a{
             opacity: 1;
@@ -222,17 +274,26 @@ main .project{
         }
     }
 
-    &:not(.open):hover {
-        outline: 2px solid #d2d2d2;
+    @media screen and (max-width: 800px){
+        max-height: 8rem;
 
-        .fa-angles-right {
-            color: white;
-            filter: brightness(100%);
+        .header{
+            height: 8rem !important;
         }
-
-        box-shadow: 0 0 .5rem .5rem var(--color-mix-bright);
     }
 
+    @media not (pointer:coarse) {
+        &:not(.open):hover {
+            outline: 2px solid #d2d2d2;
+
+            .fa-angles-right {
+                color: white;
+                filter: brightness(100%);
+            }
+
+            box-shadow: 0 0 .5rem .5rem var(--color-mix-bright);
+        }
+    }
 
     &:first-of-type .header .number{
         letter-spacing: 0.7rem;
@@ -256,6 +317,7 @@ main .project{
         h3{
             font-size: 4rem;
             font-weight: 400;
+            line-height: 90%;
         }
 
         .number{
@@ -270,7 +332,6 @@ main .project{
         .type{
             font-size: 1.25rem;
             font-weight: 300;
-            margin-top: -.5rem;
             margin-left: .3rem;
         }
 
@@ -281,6 +342,35 @@ main .project{
             color: var(--color-b-contrast);
             filter: contrast(50%) brightness(120%);
             transition: rotate 300ms, filter 300ms, color 300ms;
+        }
+
+
+        @media screen and (max-width: 800px){
+            gap: .5rem;
+            padding-left: .5rem;
+
+            .number{
+                font-size: 1.5rem;
+                width: fit-content;
+                position: absolute;
+                top: .5rem;
+                letter-spacing: initial !important;
+
+                display: none;
+            }
+
+            h3{
+                font-size: 2.5rem;
+            }
+
+            .type{
+                font-size: 1rem;
+            }
+
+            .fa-angles-right{
+                margin-right: 1rem;
+                font-size: 1.5rem;
+            }
         }
     }
 
@@ -340,6 +430,10 @@ main .project{
                 opacity: 1;
             }
         }
+
+        @media screen and (max-width: 800px){
+            padding-inline: 1rem;
+        }
     }
 }
 
@@ -356,4 +450,8 @@ main .project{
     translate: -50% 0;
     top: 60%;
     left: 60%;
+
+    @media screen and (max-width: 800px){
+        font-size: 1.2rem;
+    }
 }

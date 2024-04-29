@@ -14,23 +14,34 @@ function throttle(callback, delay) {
         callback.apply(void 0, args);
     };
 }
-window.addEventListener("mousemove", throttle(function (e) {
-    var mouseblob = document.querySelector("div.mouseblob");
-    mouseblob.style.left = e.pageX + "px";
-    mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
-}, 100));
+if (!window.matchMedia("(pointer: coarse)").matches) {
+    window.addEventListener("mousemove", throttle(function (e) {
+        var mouseblob = document.querySelector("div.mouseblob");
+        mouseblob.style.left = e.pageX + "px";
+        mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
+    }, 100));
+    console.log("notouch");
+}
 function showProjectText(headerElem) {
     var projectElement = headerElem.parentElement;
     projectElement.classList.toggle("open");
+    projectElement.style.filter = "brightness(115%)";
+    setTimeout(function () {
+        projectElement.style.filter = "brightness(100%)";
+    }, 200);
+    setTimeout(function () {
+        if (projectElement.classList.contains("open"))
+            projectElement.querySelector("h3").scrollIntoView();
+    }, 200);
 }
 var projectData = [
     {
         name: "No Tomorrow",
         type: "Short Film",
-        description: "text missing",
+        description: "My second short film, created in late 2023 and early 2024. It was my first time writing a proper script and writing and directing dialogue. I also got to use my own camera for the first time and borrowed a lighting equipment from our school. Text missing",
         link: {
             name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            url: "https://www.youtube.com/watch?v=knO1qgE0RfI"
         },
         color: {
             a: "#228D78",
@@ -40,7 +51,7 @@ var projectData = [
     {
         name: "Revenge",
         type: "Short Film",
-        description: "An short film I created with two friends in the span of 2 months for a school project.\n" +
+        description: "My first short film I created with two friends in the span of 2 months for a school project.\n" +
             "We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Aditionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.",
         link: {
             name: "watch the video",
@@ -54,10 +65,11 @@ var projectData = [
     {
         name: "Wildlife Photography",
         type: "Image Gallery",
-        description: "text missing",
+        description: "In 2023 i bought myself a proper full frame camera, in the first place for making films but then I started to ",
         link: {
             name: "take a look",
-            url: "#"
+            url: "#",
+            target: "_self"
         },
         color: {
             a: "#669D31",
@@ -83,7 +95,8 @@ var projectData = [
         description: "I like to create photo manipulations based on stock pictures or my own and add lights, shadows, textures etc.\n" + "Using this technique I create fantasy and Sci-fi themed artwork.",
         link: {
             name: "take a look",
-            url: "./gallery/index.html"
+            url: "./gallery/index.html",
+            target: "_self"
         },
         color: {
             a: "#B5347A",
@@ -137,7 +150,7 @@ generateProjectElements();
 function generateProjectElements() {
     var projectHtml = "";
     projectData.forEach(function (project, i) {
-        projectHtml += "\n            <div class=\"project\" style=\"\n                --color-a: ".concat(project.color.a, "; \n                --color-b: ").concat(project.color.b, "; \n                --color-a-contrast: ").concat(overlayBlendMode('#000000', project.color.a), "; \n                --color-b-contrast: ").concat(overlayBlendMode('#000000', project.color.b), ";\n                --color-mix: ").concat(mixHexColors(project.color.a, project.color.b, 0.2), ";\n                --color-mix-bright: ").concat(mixHexColors(project.color.a, project.color.b, 0.7), ";\n            \">\n                <div class=\"header\" onclick=\"showProjectText(this)\">\n                    <p class=\"number\">").concat(("0" + (i + 1)).slice(-2), "</p>\n    \n                    <div class=\"title\">\n                        <h3>").concat(project.name, "</h3>\n                        <p class=\"type\">").concat(project.type, "</p>\n                    </div>\n                    \n                    <i class=\"fa-solid fa-angles-right\"></i>\n                </div>\n                <div class=\"text-container\">\n                    <p>").concat(project.description, "</p>\n                    <a href=\"").concat(project.link.url, "\" target=\"_blank\">").concat(project.link.name, "</a>\n                </div>\n                <div class=\"background\" onclick=\"showProjectText(this)\"></div>\n            </div>\n        ");
+        projectHtml += "\n            <div class=\"project\" style=\"\n                --color-a: ".concat(project.color.a, "; \n                --color-b: ").concat(project.color.b, "; \n                --color-a-contrast: ").concat(overlayBlendMode('#000000', project.color.a), "; \n                --color-b-contrast: ").concat(overlayBlendMode('#000000', project.color.b), ";\n                --color-mix: ").concat(mixHexColors(project.color.a, project.color.b, 0.2), ";\n                --color-mix-bright: ").concat(mixHexColors(project.color.a, project.color.b, 0.7), ";\n            \">\n                <div class=\"header\" onclick=\"showProjectText(this)\">\n                    <p class=\"number\">").concat(("0" + (i + 1)).slice(-2), "</p>\n    \n                    <div class=\"title\">\n                        <h3>").concat(project.name, "</h3>\n                        <p class=\"type\">").concat(project.type, "</p>\n                    </div>\n                    \n                    <i class=\"fa-solid fa-angles-right\"></i>\n                </div>\n                <div class=\"text-container\">\n                    <p>").concat(project.description, "</p>\n                    <a href=\"").concat(project.link.url, "\" target=\"").concat(project.link.target || '_blank', "\">").concat(project.link.name, "</a>\n                </div>\n                <div class=\"background\" onclick=\"showProjectText(this)\"></div>\n            </div>\n        ");
     });
     var projectContainer = document.querySelector('main');
     projectContainer.innerHTML = projectHtml;
@@ -191,8 +204,14 @@ var copyOut;
 function copyinfo(text, elem) {
     copyinfoelem.innerText = text;
     var boundingBox = elem.getBoundingClientRect();
-    copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px";
-    copyinfoelem.style.left = boundingBox.left + boundingBox.width / 2 + "px";
+    if (window.innerWidth > 800) {
+        copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px";
+        copyinfoelem.style.left = boundingBox.left + boundingBox.width / 2 + "px";
+    }
+    else {
+        copyinfoelem.style.top = window.innerHeight - copyinfoelem.clientHeight - 30 + "px";
+        copyinfoelem.style.left = window.innerWidth / 2 + boundingBox.width / 2 + "px";
+    }
     copyinfoelem.style.opacity = "1";
     clearTimeout(copyOut);
     copyOut = setTimeout(function () {

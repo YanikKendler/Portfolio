@@ -11,15 +11,27 @@ function throttle(callback, delay) {
     };
 }
 
-window.addEventListener("mousemove", throttle((e) => {
-    let mouseblob = document.querySelector("div.mouseblob") as HTMLElement;
-    mouseblob.style.left = e.pageX + "px";
-    mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
-}, 100));
+if(!window.matchMedia("(pointer: coarse)").matches) {
+    window.addEventListener("mousemove", throttle((e) => {
+        let mouseblob = document.querySelector("div.mouseblob") as HTMLElement;
+        mouseblob.style.left = e.pageX + "px";
+        mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
+    }, 100))
+    console.log("notouch")
+}
 
 function showProjectText(headerElem: HTMLElement){
     let projectElement = headerElem.parentElement
     projectElement.classList.toggle("open")
+    projectElement.style.filter = "brightness(115%)"
+    setTimeout(() => {
+        projectElement.style.filter = "brightness(100%)"
+    },200)
+
+    setTimeout(() => {
+        if(projectElement.classList.contains("open"))
+        projectElement.querySelector("h3").scrollIntoView()
+    },200)
 }
 
 interface Project {
@@ -28,7 +40,8 @@ interface Project {
     description: string,
     link: {
         name: string,
-        url: string
+        url: string,
+        target?: string
     }
     color: {
         a: string,
@@ -40,10 +53,10 @@ const projectData: Project[] = [
     {
         name: "No Tomorrow",
         type: "Short Film",
-        description: "text missing",
+        description: "My second short film, created in late 2023 and early 2024. It was my first time writing a proper script and writing and directing dialogue. I also got to use my own camera for the first time and borrowed a lighting equipment from our school. Text missing",
         link: {
             name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            url: "https://www.youtube.com/watch?v=knO1qgE0RfI"
         },
         color: {
             a: "#228D78",
@@ -53,7 +66,7 @@ const projectData: Project[] = [
     {
         name: "Revenge",
         type: "Short Film",
-        description: "An short film I created with two friends in the span of 2 months for a school project.\n" +
+        description: "My first short film I created with two friends in the span of 2 months for a school project.\n" +
             "We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Aditionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.",
         link: {
             name: "watch the video",
@@ -67,10 +80,11 @@ const projectData: Project[] = [
     {
         name: "Wildlife Photography",
         type: "Image Gallery",
-        description: "text missing",
+        description: "In 2023 i bought myself a proper full frame camera, in the first place for making films but then I started to ",
         link: {
             name: "take a look",
-            url: "#"
+            url: "#",
+            target: "_self"
         },
         color: {
             a: "#669D31",
@@ -96,7 +110,8 @@ const projectData: Project[] = [
         description: "I like to create photo manipulations based on stock pictures or my own and add lights, shadows, textures etc.\n" + "Using this technique I create fantasy and Sci-fi themed artwork.",
         link: {
             name: "take a look",
-            url: "./gallery/index.html"
+            url: "./gallery/index.html",
+            target: "_self"
         },
         color: {
             a: "#B5347A",
@@ -172,7 +187,7 @@ function generateProjectElements(){
                 </div>
                 <div class="text-container">
                     <p>${project.description}</p>
-                    <a href="${project.link.url}" target="_blank">${project.link.name}</a>
+                    <a href="${project.link.url}" target="${project.link.target || '_blank'}">${project.link.name}</a>
                 </div>
                 <div class="background" onclick="showProjectText(this)"></div>
             </div>
@@ -251,8 +266,15 @@ function copyinfo(text, elem: HTMLElement){
 
     let boundingBox = elem.getBoundingClientRect()
 
-    copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px"
-    copyinfoelem.style.left = boundingBox.left + boundingBox.width/2 + "px"
+    if(window.innerWidth > 800) {
+        copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px"
+        copyinfoelem.style.left = boundingBox.left + boundingBox.width/2 + "px"
+    }
+    else{
+        copyinfoelem.style.top = window.innerHeight - copyinfoelem.clientHeight - 30 + "px"
+        copyinfoelem.style.left = window.innerWidth/2 + boundingBox.width/2 + "px"
+    }
+
     copyinfoelem.style.opacity = "1"
 
     clearTimeout(copyOut)
