@@ -4,270 +4,65 @@
     <meta charset="UTF-8">
     <title>Yanik Kendler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/jpg">
-    <script src='./js/script.js' defer></script>
+    <script src='script.js' defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/7796cb6c97.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="background"></div>
-    <div id="copyinfo">you are not supposed to see this</div>
-
-    <nav>
-        <div class="marker" aria-hidden="true"></div> <!-- TODO do it -->
-
-        <div class="headings"><div class="main"></div> <div class="guides" aria-hidden="true"></div></div>
-
-        <a class="logo" href="./index.html">
-            <p>Yanik Kendler</p>
-            <img src="./img/logo.png" alt="YK-logo">
-        </a>
-    </nav>
-
-    <section id="about" class="tile-container">
-        <div class="text-box tile right">
-            <h1>Yanik Kendler</h1>
-            <hr>
-            <p>
-                I'm a student at a higher technical college for IT and media technology in Austria.
-                <br>
-                I am currently 18 and three years into my 5 year education after which I would love to work in front end development, video production or design.
-                <br>
-            </p>
-            <div class="sub">
-                <p onmousedown="copy(0, this)" title="mail">
-                    <span class="text">yanik.kendler@gmail.com</span>
-                    <i class="icon fa-solid fa-envelope"></i>
+    <header>
+        <div class="content">
+            <div class="image-container">
+                <img src="./img/Yanik-Kendler.png" alt="Picture Yanik Kendler">
+                <div class="dotgrid"></div>
+            </div>
+            <div class="text-container">
+                <h1>Yanik Kendler</h1>
+                <p>
+                    I'm a student at a higher technical college for IT and media technology in Austria. I am currently
+                    18
+                    and three years into my 5 year education after which I would love to work in front end development,
+                    video production or design.
                 </p>
-                <p title="github"><a href="https://github.com/elYanuki" target="_blank">
-                    <span class="text">github/elYanuki</span>
-                    <i class="icon fa-brands fa-github"></i>
-                </a></p>
-                <p title="youtube"><a href="https://www.youtube.com/@elYanuki" target="_blank">
-                    <span class="text">youtube/Yanik</span>
-                    <i class="icon fa-brands fa-youtube"></i>
-                </a></p>
-                <p onmousedown="copy(1, this)" title="discord">
-                    <span class="text">discord/el_yanuki</span>
-                    <i class="icon fa-brands fa-discord"></i>
-                </p>
+                <div class="links">
+                    <a href="mailto:yanik.kendler@gmail.com" target="_blank">
+<!--
+                        <i class="fa-solid fa-envelope"></i>
+-->
+                        <span>yanik.kendler@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/elYanuki" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        <span>/elYanuki</span>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCBsfWhl8Fz-Ct6jgX-pWQGQ" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>/YanikKendler</span>
+                    </a>
+                    <a href="#" onclick="copy(this, 'discord username', 'el_yanuki')" style="--hov-col: #515be6">
+                        <i class="fa-brands fa-discord"></i>
+                        <span>/el_yanuki</span>
+                    </a>
+                </div>
+
+                <div class="blob1"></div>
+                <div class="blob2"></div>
             </div>
         </div>
-        <div class="img-box hover-card tile" aria-hidden="true"></div>
-        <div class="box1 hover-card tile" aria-hidden="true"></div>
-        <div class="box2 hover-card tile" aria-hidden="true"></div>
-        <div class="box3 hover-card tile" aria-hidden="true"></div>
-        <div class="box4 hover-card tile" aria-hidden="true"></div>
-    </section>
+        <h2>projects</h2>
+    </header>
 
-    <main id="projects">
-        <div class="header">
-            <h1 class="animateMe">projects</h1>
-            <div class="bouncy" onclick="clickBounce()" aria-hidden="true"></div>
-        </div>
+    <main>
 
-        <section id="gameshow" class="tile-container">
-            <div class="text-box tile right">
-                <h1>Gameshow</h1>
-                <hr>
-                <p>
-                    A NodeJS based gameshow which allows you to stream one client to a TV and control the gameshow using your phone. The question-sets will be stored on the server and can easily be customized.
-                    <br>
-                    The "master" can add questions to the gameboard, select them, start a timer, add players and assign them scores and more. All actions are displayed by the "display" client.
-                </p>
-                <a class="sub" href="https://github.com/elYanuki/Gameshow" target="_blank">github.com/elYanuki/Gameshow</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-        </section>
-
-        <section id="revenge" class="tile-container">
-            <div class="text-box tile left">
-                <h1>Revenge</h1>
-                <hr>
-                <p>
-                    An short film I created with two friends in the span of 2 months for a school project.
-                    <br>
-                    We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Aditionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.
-                </p>
-                <a class="sub" href="https://youtu.be/Z6PDqlk2Nf8" target="_blank">Revenge video on YouTube</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-        </section>
-
-        <section id="stopmotion" class="tile-container">
-            <div class="text-box tile right">
-                <h1>Lego Stop-Motion</h1>
-                <hr>
-                <p>
-                    A short one minute Lego video that perfectly loops. We tried to make all animations as smooth and possible and perfect the scenery for each shot.
-                    <br>
-                    In the end we spent about 16 hours each, just moving minifigures by 3 millimeters and taking a picture. Then we coincidentally got into contact with a retired music professor from Michigan that was willing to create custom music for the video.
-                </p>
-                <a class="sub" href="https://youtu.be/D0YVtJUaNP4" target="_blank">Stop-Motion video on YouTube</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-        </section>
-
-        <section id="world-manager" class="tile-container">
-            <div class="text-box tile left">
-                <h1>World Manager</h1>
-                <hr>
-                <p>
-                    An ElectronJS based desktop app meant to store a wiki and the corresponding map for fictional worlds. 
-                    <br>
-                    You can create a world and upload an image to be used as the map, which you can add markers to. The markers come in 3 different sizes and can be moved around and renamed. When clicked they link to a wiki entry. The wiki is based on the editorJS libary and allows you to create new pages and add elements like headings, tables, lists and so on.
-                </p>
-                <a class="sub" href="https://github.com/elYanuki/WorldManager" target="_blank">github.com/elYanuki/Worldmanager</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-            <div class="box5 hover-card tile" aria-hidden="true"></div>
-            <div class="box6 hover-card tile" aria-hidden="true"></div>
-        </section>
-        
-        <section id="photoshop" class="tile-container">
-            <div class="text-box tile right">
-                
-                <h1>Photoshop</h1>
-                <hr>
-                <p>
-                    I like to create photo manipulations based on stock pictures or my own and add lights, shadows, textures etc.
-                    <br>
-                    Using this technique I create fantasy and Sci-fi themed artwork.
-                </p>
-                <a class="sub" href="./gallery/index.html">Galerie</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-            <div class="box5 hover-card tile" aria-hidden="true"></div>
-            <div class="box6 hover-card tile" aria-hidden="true"></div>
-        </section>
-
-        <section id="norway" class="tile-container">
-            <div class="text-box tile left">
-                <h1>Norway</h1>
-                <hr>
-                <p>
-                    In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks.
-                    <br>
-                    I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.
-                </p>
-                <a class="sub" href="https://youtu.be/knO1qgE0RfI" target="_blank">Norway Video</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-            <div class="box5 hover-card tile" aria-hidden="true"></div>
-            <div class="box6 hover-card tile" aria-hidden="true"></div>
-        </section>
-
-        <section id="petpal" class="tile-container">
-            <div class="text-box tile right">
-                <h1>PetPal</h1>
-                <hr>
-                <p>
-                    This is a school project from 2023. It is a App that allows animal shelters to manage their animals by storing their data, assigning them to rooms and owners and filtering for animals.
-                    <br>
-                    The Frontend is vanilla JavaScript and SCSS, the backend is a PHP API usign MariaDB :/
-                </p>
-                <a class="sub" href="https://github.com/elYanuki/PetPal" target="_blank">github.com/elYanuki/PetPal</a>
-            </div>
-            <div class="box1 hover-card tile" aria-hidden="true"></div>
-            <div class="box2 hover-card tile" aria-hidden="true"></div>
-            <div class="box3 hover-card tile" aria-hidden="true"></div>
-            <div class="box4 hover-card tile" aria-hidden="true"></div>
-            <div class="box5 hover-card tile" aria-hidden="true"></div>
-            <div class="box6 hover-card tile" aria-hidden="true"></div>
-        </section>
     </main>
 
-    <section id="skills">
-        <div id="link-to-skills" aria-hidden="true"></div>
-        <h1 class="animateMe">skills</h1>
-        <p class="info animateMe">click logo for more info</p>
-
-        <div class="container animateMe">
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/javascript.png" alt="javascript">
-                    <p>1.5 years</p>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/nodejs.png" alt="NodeJS">
-                    <p>1.5 years</p>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/html.png" alt="html">
-                    <p>2.5 years</p>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/css.png" alt="css">
-                    <p>2.5 years</p>
-                </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/php.png" alt="php">
-                        <p>6 months</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/photoshop.png" alt="photoshop">
-                    <p>3.5 years</p>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/premiere.png" alt="premiere">
-                    <p>1.5 years</p>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/java.png" alt="java">
-                    <p>2.5 years</p>
-                </div>
-                <div class="skill animateMe">
-                    <div class="content">
-                        <img src="./img/skills/sql.png" alt="sql">
-                        <p>6 months</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill animateMe">
-                <div class="content">
-                    <img src="./img/skills/english.png" alt="english">
-                    <p>level b2+</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="mouseblob"></div>
+    <div id="copyinfo">you are not supposed to see this</div>
 </body>
 </html>

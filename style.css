@@ -1,0 +1,420 @@
+/************ Generall ************/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+::selection {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+}
+
+a {
+  font: inherit;
+  color: inherit;
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
+  font-weight: 400;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  font-size: 4.6875rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+header {
+  width: 100%;
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+header .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+@media screen and (max-width: 800px) {
+  header .content {
+    margin-top: -1rem;
+  }
+}
+header .content .image-container {
+  display: grid;
+}
+header .content .image-container img {
+  height: 50vh;
+  grid-area: 1/1/2/2;
+  z-index: 5;
+}
+header .content .image-container .dotgrid {
+  background-image: radial-gradient(#999 8%, transparent 0);
+  background-size: 30px 30px;
+  width: 100%;
+  height: 100%;
+  grid-area: 1/1/2/2;
+  translate: -1rem 1.5rem;
+}
+@media screen and (max-width: 800px) {
+  header .content .image-container img {
+    height: 38vh;
+  }
+}
+header .content .text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header .content .text-container p {
+  max-width: min(55ch, 90vw);
+  font-size: 1.1rem;
+  line-height: 140%; /* 1.4rem */
+  font-weight: 400;
+}
+header .content .text-container div.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+header .content .text-container div.links i {
+  margin-right: 0.1rem;
+  transition: color 0.2s;
+}
+header .content .text-container div.links a {
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+header .content .text-container div.links a:hover {
+  border-bottom: 2px solid white;
+  margin-bottom: -1px;
+  text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2), -3px -3px 3px rgba(255, 255, 255, 0.2), 3px -3px 3px rgba(255, 255, 255, 0.2), -3px 3px 3px rgba(255, 255, 255, 0.2);
+  /*i{
+      color: var(--hov-col)
+  }*/
+}
+@media screen and (max-width: 800px) {
+  header .content .text-container p {
+    font-size: 1rem;
+  }
+  header .content .text-container h1 {
+    font-size: 3.5rem;
+  }
+  header .content .text-container div.links span {
+    display: none;
+  }
+  header .content .text-container div.links a {
+    font-size: 1.2rem;
+  }
+  header .content .text-container div.links a:has(i) {
+    border: none;
+  }
+}
+header .content .text-container .blob1 {
+  width: 19rem;
+  height: 19rem;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(125, 180, 124, 0.35) 0%, rgba(210, 254, 243, 0.35) 100%);
+  filter: blur(75px);
+  pointer-events: none;
+  translate: -50%;
+}
+header .content .text-container .blob2 {
+  width: 12rem;
+  height: 15rem;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotate(-19.86deg);
+  background: linear-gradient(180deg, rgba(100, 158, 244, 0.25) 0%, rgba(163, 230, 245, 0.25) 100%);
+  filter: blur(75px);
+  pointer-events: none;
+  translate: 100% 50%;
+}
+
+header h2 {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  font-size: 8rem;
+  font-weight: 400;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+  color: transparent;
+  margin-bottom: -4rem;
+}
+@media screen and (max-width: 800px) {
+  header h2 {
+    font-size: 5rem;
+    margin-bottom: -2.5rem;
+    left: 5%;
+  }
+}
+
+div.mouseblob {
+  width: 19rem;
+  height: 15rem;
+  background: linear-gradient(180deg, rgb(235, 228, 157) 0%, rgb(241, 155, 53) 100%);
+  filter: blur(75px);
+  animation: mouseblob 15s infinite;
+  position: absolute;
+  pointer-events: none;
+  translate: -50% -50%;
+  transition: top 100ms, left 100ms;
+  opacity: 15%;
+}
+@media (pointer: coarse) {
+  div.mouseblob {
+    display: none;
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes mouseblob {
+  from {
+    rotate: 0deg;
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  to {
+    rotate: 360deg;
+    scale: 1;
+  }
+}
+main {
+  display: flex;
+  gap: 1rem;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 2rem;
+  padding-bottom: 15rem;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 7%);
+}
+@media screen and (max-width: 800px) {
+  main {
+    padding-inline: 4vw;
+    padding-bottom: 5rem;
+  }
+}
+
+main .project {
+  border-radius: 1rem;
+  overflow: hidden;
+  max-height: 9rem;
+  transition: max-height 500ms, outline-color 200ms, box-shadow 200ms, filter 100ms;
+  position: relative;
+  padding: 3px;
+  box-sizing: border-box;
+  outline: 1px solid transparent;
+  --color-a: gray;
+  --color-b: #595858;
+  --color-a-contrast: white;
+  --color-b-contrast: white;
+  --color-mix: gray;
+  --color-mix-bright: white;
+  background: linear-gradient(90deg, var(--color-a) 0%, var(--color-b) 100%);
+  cursor: pointer;
+  box-shadow: 0 0 0.5rem 0.5rem var(--color-mix);
+}
+main .project.open {
+  max-height: 100vh;
+}
+main .project.open .text-container p, main .project.open .text-container a {
+  opacity: 1;
+}
+main .project.open .text-container {
+  clip-path: polygon(0 1.5rem, 100% 0, 100% 100%, 0% 100%);
+  margin-top: -1rem;
+}
+main .project.open .fa-angles-right {
+  rotate: 90deg;
+}
+@media screen and (max-width: 800px) {
+  main .project {
+    max-height: 8rem;
+  }
+  main .project .header {
+    height: 8rem !important;
+  }
+}
+@media not (pointer: coarse) {
+  main .project:not(.open):hover {
+    outline: 2px solid #d2d2d2;
+    box-shadow: 0 0 0.5rem 0.5rem var(--color-mix-bright);
+  }
+  main .project:not(.open):hover .fa-angles-right {
+    color: white;
+    filter: brightness(100%);
+  }
+}
+main .project:first-of-type .header .number {
+  letter-spacing: 0.7rem;
+}
+main .project .background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+main .project .header {
+  height: 9rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  color: black;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%);
+  cursor: pointer;
+}
+main .project .header h3 {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 90%;
+}
+main .project .header .number {
+  font-size: 6rem;
+  width: 10rem;
+  text-align: right;
+  color: var(--color-a-contrast);
+  /*color: black;
+  mix-blend-mode: overlay;*/
+}
+main .project .header .type {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-left: 0.3rem;
+}
+main .project .header .fa-angles-right {
+  margin-right: 3rem;
+  margin-left: auto;
+  font-size: 2rem;
+  color: var(--color-b-contrast);
+  filter: contrast(50%) brightness(120%);
+  transition: rotate 300ms, filter 300ms, color 300ms;
+}
+@media screen and (max-width: 800px) {
+  main .project .header {
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  main .project .header .number {
+    font-size: 1.5rem;
+    width: fit-content;
+    position: absolute;
+    top: 0.5rem;
+    letter-spacing: initial !important;
+    display: none;
+  }
+  main .project .header h3 {
+    font-size: 2.5rem;
+  }
+  main .project .header .type {
+    font-size: 1rem;
+  }
+  main .project .header .fa-angles-right {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+}
+main .project .text-container {
+  background-color: hsl(0, 0%, 7%);
+  position: relative;
+  z-index: 5;
+  border-radius: 0 0 13px 13px;
+  padding-left: 12rem;
+  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: clip-path 300ms ease-out, margin 300ms ease-out;
+  cursor: initial;
+}
+main .project .text-container p {
+  opacity: 0;
+  transition: opacity 500ms;
+  max-width: 70ch;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 150%;
+}
+main .project .text-container a {
+  font-weight: 500;
+  display: block;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.5rem;
+  margin-left: -0.5rem;
+  opacity: 0;
+  transition: opacity 500ms, color 0.2s, background-color 0.2s;
+  width: fit-content;
+  position: relative;
+}
+main .project .text-container a:before {
+  content: "";
+  background-color: var(--color-a);
+  position: absolute;
+  inset: 0;
+  scale: 0;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 0.3rem;
+  transition: scale 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  filter: brightness(90%);
+}
+main .project .text-container a:hover::before {
+  scale: 1;
+  opacity: 1;
+}
+@media screen and (max-width: 800px) {
+  main .project .text-container {
+    padding-inline: 1rem;
+  }
+}
+
+#copyinfo {
+  color: hsl(0, 0%, 90%);
+  background-color: black;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  translate: -50% 0;
+  top: 60%;
+  left: 60%;
+}
+@media screen and (max-width: 800px) {
+  #copyinfo {
+    font-size: 1.2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
