@@ -50,7 +50,7 @@ interface Project {
 }
 
 const projectData: Project[] = [
-    {
+    /*{
         name: "No Tomorrow",
         type: "Short Film",
         description: "My second short film, created in late 2023 and early 2024. It was my first time writing a proper script and writing and directing dialogue. I also got to use my own camera for the first time and borrowed a lighting equipment from our school. Text missing",
@@ -62,7 +62,7 @@ const projectData: Project[] = [
             a: "#228D78",
             b: "#ABF658"
         }
-    },
+    },*/
     {
         name: "Revenge",
         type: "Short Film",
@@ -77,7 +77,7 @@ const projectData: Project[] = [
             b: "#FBBA40"
         }
     },
-    {
+    /*{
         name: "Wildlife Photography",
         type: "Image Gallery",
         description: "In 2023 i bought myself a proper full frame camera, in the first place for making films but then I started to ",
@@ -90,7 +90,7 @@ const projectData: Project[] = [
             a: "#669D31",
             b: "#ACBB80"
         }
-    },
+    },*/
     {
         name: "Norway 2022",
         type: "Travel Video",
@@ -100,8 +100,10 @@ const projectData: Project[] = [
             url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
         },
         color: {
-            a: "#B782E9",
-            b: "#FBD6F3"
+            /*a: "#B782E9",
+            b: "#FBD6F3"*/
+            a: "#669D31",
+            b: "#ACBB80"
         }
     },
     {

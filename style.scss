@@ -108,11 +108,23 @@ header .content{
 
             i{
                 margin-right: .1rem;
+                transition: color .2s;
             }
 
             a{
                 text-decoration: none;
                 border-bottom: 1px solid white;
+                transition: color .2s, text-shadow .2s;
+
+                &:hover {
+                    border-bottom: 2px solid white;
+                    margin-bottom: -1px;
+                    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2), -3px -3px 3px rgba(255, 255, 255, 0.2), 3px -3px 3px rgba(255, 255, 255, 0.2), -3px 3px 3px rgba(255, 255, 255, 0.2);
+
+                    /*i{
+                        color: var(--hov-col)
+                    }*/
+                }
             }
         }
 
