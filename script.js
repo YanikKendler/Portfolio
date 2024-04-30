@@ -30,7 +30,7 @@ function showProjectText(headerElem) {
         projectElement.style.filter = "brightness(100%)";
     }, 200);
     setTimeout(function () {
-        if (projectElement.classList.contains("open"))
+        if (projectElement.classList.contains("open") && window.matchMedia("(pointer: coarse)").matches)
             projectElement.querySelector("h3").scrollIntoView();
     }, 200);
 }

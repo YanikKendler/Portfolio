@@ -29,8 +29,8 @@ function showProjectText(headerElem: HTMLElement){
     },200)
 
     setTimeout(() => {
-        if(projectElement.classList.contains("open"))
-        projectElement.querySelector("h3").scrollIntoView()
+        if(projectElement.classList.contains("open") && window.matchMedia("(pointer: coarse)").matches)
+            projectElement.querySelector("h3").scrollIntoView()
     },200)
 }
 
