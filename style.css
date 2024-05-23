@@ -70,6 +70,8 @@ header .content .image-container img {
   height: 50vh;
   grid-area: 1/1/2/2;
   z-index: 5;
+  width: fit-content;
+  object-fit: contain;
 }
 header .content .image-container .dotgrid {
   background-image: radial-gradient(#999 8%, transparent 0);

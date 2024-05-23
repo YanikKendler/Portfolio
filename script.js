@@ -137,7 +137,7 @@ var projectData = [
         name: "PetPal",
         type: "Web App",
         description: "This is a school project from 2022. It is an App that allows animal shelters to manage their animals by storing their data, assigning them to rooms and owners and filtering for animals.\n" +
-            "The Frontend is vanilla JavaScript and SCSS, the backend is a PHP API using MariaDB :/",
+            "The Frontend is vanilla JavaScript and SCSS, the backend is PHP with MariaDB :/",
         link: {
             name: "github.com/elYanuki/PetPal",
             url: "https://github.com/elYanuki/PetPal"
