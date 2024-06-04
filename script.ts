@@ -1,7 +1,7 @@
 //TODO handle touchscreens
-function throttle(callback, delay) {
+function throttle(callback: (...args: any) => void, delay: number) {
     let lastCall = 0;
-    return function (...args) {
+    return function (...args: any) {
         const now = new Date().getTime();
         if (now - lastCall < delay) {
             return;
@@ -12,7 +12,7 @@ function throttle(callback, delay) {
 }
 
 if(!window.matchMedia("(pointer: coarse)").matches) {
-    window.addEventListener("mousemove", throttle((e) => {
+    window.addEventListener("mousemove", throttle((e: MouseEvent) => {
         let mouseblob = document.querySelector("div.mouseblob") as HTMLElement;
         mouseblob.style.left = e.pageX + "px";
         mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
@@ -77,20 +77,20 @@ const projectData: Project[] = [
             b: "#FBBA40"
         }
     },
-    /*{
+    {
         name: "Wildlife Photography",
         type: "Image Gallery",
-        description: "In 2023 i bought myself a proper full frame camera, in the first place for making films but then I started to ",
+        description: "In 2023 I bought myself a proper full frame camera, in the first place for making films. But I have always loved spending time in nature: so a few months later I got a telephoto lens and started taking pictures of all the animals around us.",
         link: {
             name: "take a look",
-            url: "#",
+            url: "./wildlife/index.html",
             target: "_self"
         },
         color: {
             a: "#669D31",
             b: "#ACBB80"
         }
-    },*/
+    },
     {
         name: "Norway 2022",
         type: "Travel Video",
@@ -100,10 +100,8 @@ const projectData: Project[] = [
             url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
         },
         color: {
-            /*a: "#B782E9",
-            b: "#FBD6F3"*/
-            a: "#669D31",
-            b: "#ACBB80"
+            a: "#B782E9",
+            b: "#FBD6F3"
         }
     },
     {
@@ -112,7 +110,7 @@ const projectData: Project[] = [
         description: "I like to create photo manipulations based on stock pictures or my own and add lights, shadows, textures etc.\n" + "Using this technique I create fantasy and Sci-fi themed artwork.",
         link: {
             name: "take a look",
-            url: "./gallery/index.html",
+            url: "./photoshop/index.html",
             target: "_self"
         },
         color: {
@@ -239,7 +237,7 @@ function overlayBlendMode(color1Hex: string, color2Hex: string): string {
     return rgbToHex(blendedColor);
 }
 
-function mixHexColors(color1Hex, color2Hex, alpha = 1) {
+function mixHexColors(color1Hex: string, color2Hex: string, alpha = 1) {
     // Convert hexadecimal color strings to RGB
     const color1 = hexToRgb(color1Hex);
     const color2 = hexToRgb(color2Hex);
@@ -257,13 +255,13 @@ function mixHexColors(color1Hex, color2Hex, alpha = 1) {
 
 let copyinfoelem = document.querySelector('#copyinfo') as HTMLElement
 
-function copy(elem: HTMLElement, name, username){
+function copy(elem: HTMLElement, name: string, username: string){
     navigator.clipboard.writeText(username);
     copyinfo(name + " copied to clipboard", elem)
 }
 
-let copyOut
-function copyinfo(text, elem: HTMLElement){
+let copyOut: number
+function copyinfo(text: string, elem: HTMLElement){
     copyinfoelem.innerText = text
 
     let boundingBox = elem.getBoundingClientRect()

@@ -1,40 +1,37 @@
+"use strict";
 //TODO handle touchscreens
 function throttle(callback, delay) {
-    var lastCall = 0;
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        var now = new Date().getTime();
+    let lastCall = 0;
+    return function (...args) {
+        const now = new Date().getTime();
         if (now - lastCall < delay) {
             return;
         }
         lastCall = now;
-        callback.apply(void 0, args);
+        callback(...args);
     };
 }
 if (!window.matchMedia("(pointer: coarse)").matches) {
-    window.addEventListener("mousemove", throttle(function (e) {
-        var mouseblob = document.querySelector("div.mouseblob");
+    window.addEventListener("mousemove", throttle((e) => {
+        let mouseblob = document.querySelector("div.mouseblob");
         mouseblob.style.left = e.pageX + "px";
         mouseblob.style.top = Math.min(e.pageY, document.body.clientHeight - mouseblob.clientHeight) + "px";
     }, 100));
     console.log("notouch");
 }
 function showProjectText(headerElem) {
-    var projectElement = headerElem.parentElement;
+    let projectElement = headerElem.parentElement;
     projectElement.classList.toggle("open");
     projectElement.style.filter = "brightness(115%)";
-    setTimeout(function () {
+    setTimeout(() => {
         projectElement.style.filter = "brightness(100%)";
     }, 200);
-    setTimeout(function () {
+    setTimeout(() => {
         if (projectElement.classList.contains("open") && window.matchMedia("(pointer: coarse)").matches)
             projectElement.querySelector("h3").scrollIntoView();
     }, 200);
 }
-var projectData = [
+const projectData = [
     /*{
         name: "No Tomorrow",
         type: "Short Film",
@@ -62,20 +59,20 @@ var projectData = [
             b: "#FBBA40"
         }
     },
-    /*{
+    {
         name: "Wildlife Photography",
         type: "Image Gallery",
-        description: "In 2023 i bought myself a proper full frame camera, in the first place for making films but then I started to ",
+        description: "In 2023 I bought myself a proper full frame camera, in the first place for making films. But I have always loved spending time in nature: so a few months later I got a telephoto lens and started taking pictures of all the animals around us.",
         link: {
             name: "take a look",
-            url: "#",
+            url: "./wildlife/index.html",
             target: "_self"
         },
         color: {
             a: "#669D31",
             b: "#ACBB80"
         }
-    },*/
+    },
     {
         name: "Norway 2022",
         type: "Travel Video",
@@ -85,10 +82,8 @@ var projectData = [
             url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
         },
         color: {
-            /*a: "#B782E9",
-            b: "#FBD6F3"*/
-            a: "#669D31",
-            b: "#ACBB80"
+            a: "#B782E9",
+            b: "#FBD6F3"
         }
     },
     {
@@ -97,7 +92,7 @@ var projectData = [
         description: "I like to create photo manipulations based on stock pictures or my own and add lights, shadows, textures etc.\n" + "Using this technique I create fantasy and Sci-fi themed artwork.",
         link: {
             name: "take a look",
-            url: "./gallery/index.html",
+            url: "./photoshop/index.html",
             target: "_self"
         },
         color: {
@@ -150,62 +145,86 @@ var projectData = [
 ];
 generateProjectElements();
 function generateProjectElements() {
-    var projectHtml = "";
-    projectData.forEach(function (project, i) {
-        projectHtml += "\n            <div class=\"project\" style=\"\n                --color-a: ".concat(project.color.a, "; \n                --color-b: ").concat(project.color.b, "; \n                --color-a-contrast: ").concat(overlayBlendMode('#000000', project.color.a), "; \n                --color-b-contrast: ").concat(overlayBlendMode('#000000', project.color.b), ";\n                --color-mix: ").concat(mixHexColors(project.color.a, project.color.b, 0.2), ";\n                --color-mix-bright: ").concat(mixHexColors(project.color.a, project.color.b, 0.7), ";\n            \">\n                <div class=\"header\" onclick=\"showProjectText(this)\">\n                    <p class=\"number\">").concat(("0" + (i + 1)).slice(-2), "</p>\n    \n                    <div class=\"title\">\n                        <h3>").concat(project.name, "</h3>\n                        <p class=\"type\">").concat(project.type, "</p>\n                    </div>\n                    \n                    <i class=\"fa-solid fa-angles-right\"></i>\n                </div>\n                <div class=\"text-container\">\n                    <p>").concat(project.description, "</p>\n                    <a href=\"").concat(project.link.url, "\" target=\"").concat(project.link.target || '_blank', "\">").concat(project.link.name, "</a>\n                </div>\n                <div class=\"background\" onclick=\"showProjectText(this)\"></div>\n            </div>\n        ");
+    let projectHtml = ``;
+    projectData.forEach((project, i) => {
+        projectHtml += `
+            <div class="project" style="
+                --color-a: ${project.color.a}; 
+                --color-b: ${project.color.b}; 
+                --color-a-contrast: ${overlayBlendMode('#000000', project.color.a)}; 
+                --color-b-contrast: ${overlayBlendMode('#000000', project.color.b)};
+                --color-mix: ${mixHexColors(project.color.a, project.color.b, 0.2)};
+                --color-mix-bright: ${mixHexColors(project.color.a, project.color.b, 0.7)};
+            ">
+                <div class="header" onclick="showProjectText(this)">
+                    <p class="number">${("0" + (i + 1)).slice(-2)}</p>
+    
+                    <div class="title">
+                        <h3>${project.name}</h3>
+                        <p class="type">${project.type}</p>
+                    </div>
+                    
+                    <i class="fa-solid fa-angles-right"></i>
+                </div>
+                <div class="text-container">
+                    <p>${project.description}</p>
+                    <a href="${project.link.url}" target="${project.link.target || '_blank'}">${project.link.name}</a>
+                </div>
+                <div class="background" onclick="showProjectText(this)"></div>
+            </div>
+        `;
     });
-    var projectContainer = document.querySelector('main');
+    let projectContainer = document.querySelector('main');
     projectContainer.innerHTML = projectHtml;
 }
 function hexToRgb(hex) {
     // Remove '#' if present
     hex = hex.replace('#', '');
     // Convert to RGB
-    var bigint = parseInt(hex, 16);
-    var r = (bigint >> 16) & 255;
-    var g = (bigint >> 8) & 255;
-    var b = bigint & 255;
-    return { r: r, g: g, b: b };
+    const bigint = parseInt(hex, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return { r, g, b };
 }
 function rgbToHex(color) {
     return "#" + ((1 << 24) + (color.r << 16) + (color.g << 8) + color.b).toString(16).slice(1);
 }
 function overlayBlendMode(color1Hex, color2Hex) {
-    var color1 = hexToRgb(color1Hex);
-    var color2 = hexToRgb(color2Hex);
-    var overlay = function (base, blend) {
+    const color1 = hexToRgb(color1Hex);
+    const color2 = hexToRgb(color2Hex);
+    const overlay = (base, blend) => {
         return blend <= 0.5 ? 2 * base * blend : 1 - 2 * (1 - base) * (1 - blend);
     };
-    var blendedColor = {
+    const blendedColor = {
         r: Math.round(overlay(color1.r / 255, color2.r / 255) * 255),
         g: Math.round(overlay(color1.g / 255, color2.g / 255) * 255),
         b: Math.round(overlay(color1.b / 255, color2.b / 255) * 255)
     };
     return rgbToHex(blendedColor);
 }
-function mixHexColors(color1Hex, color2Hex, alpha) {
-    if (alpha === void 0) { alpha = 1; }
+function mixHexColors(color1Hex, color2Hex, alpha = 1) {
     // Convert hexadecimal color strings to RGB
-    var color1 = hexToRgb(color1Hex);
-    var color2 = hexToRgb(color2Hex);
+    const color1 = hexToRgb(color1Hex);
+    const color2 = hexToRgb(color2Hex);
     // Mix the RGB components
-    var mixedColor = {
+    const mixedColor = {
         r: Math.round((color1.r + color2.r) / 2),
         g: Math.round((color1.g + color2.g) / 2),
         b: Math.round((color1.b + color2.b) / 2)
     };
     // Convert the mixed RGB color back to hexadecimal
-    return "rgba(".concat(mixedColor.r, ", ").concat(mixedColor.g, ", ").concat(mixedColor.b, ", ").concat(alpha, ")");
+    return `rgba(${mixedColor.r}, ${mixedColor.g}, ${mixedColor.b}, ${alpha})`;
 }
-var copyinfoelem = document.querySelector('#copyinfo');
+let copyinfoelem = document.querySelector('#copyinfo');
 function copy(elem, name, username) {
     navigator.clipboard.writeText(username);
     copyinfo(name + " copied to clipboard", elem);
 }
-var copyOut;
+let copyOut;
 function copyinfo(text, elem) {
     copyinfoelem.innerText = text;
-    var boundingBox = elem.getBoundingClientRect();
+    let boundingBox = elem.getBoundingClientRect();
     if (window.innerWidth > 800) {
         copyinfoelem.style.top = boundingBox.top + 40 + window.scrollY + "px";
         copyinfoelem.style.left = boundingBox.left + boundingBox.width / 2 + "px";
@@ -216,7 +235,7 @@ function copyinfo(text, elem) {
     }
     copyinfoelem.style.opacity = "1";
     clearTimeout(copyOut);
-    copyOut = setTimeout(function () {
+    copyOut = setTimeout(() => {
         copyinfoelem.style.opacity = "0";
     }, 1000);
 }

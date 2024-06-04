@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
+  <script src="../GalleryEngine.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../gallery.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <script src="https://kit.fontawesome.com/7796cb6c97.js" crossorigin="anonymous"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      generateGallery(
+              document.querySelector('main'),
+              "../img/photoshop/",
+              [
+                {src:"Aliens-edit-bennyproductions.jpg", alt: true},
+                {src:"baum.jpg"},
+                {src:"Beschwoerung.jpg"},
+                {src:"binCoolKann fliegen.jpg"},
+                {src:"Dude-ohne-gesicht.jpg"},
+                {src:"lone-castle.jpg", alt: true},
+                {src:"magic-edit.jpg", alt: true},
+                {src:"Map.jpg"},
+                {src:"old-and-young.jpg"},
+                {src:"Steinerner.jpg", alt: true},
+                {src:"Thanatos.jpg", alt: true},
+                {src:"Vincent-auf-mini-planet.jpg", alt: true},
+              ]
+      )
+    })
+  </script>
+  <style>
+    :root{
+      --color-a: #B5347A;
+      --color-b: #FD8BA5;
+    }
+  </style>
+</head>
+<body>
+	<a class="backarrow" href="../index.html"><i class="fa-solid fa-arrow-left"></i></a>
+
+  <h1 class="photoshop-heading">Some of my Photoshop Work</h1>
+
+  <main id="gallery">
+    <div class="span-v-4 preview"><img src="../img/photoshop/loading.gif"></div>
+    <div class="span-v-2 preview"><img src="../img/photoshop/loading.gif"></div>
+    <div class="span-v-2 preview"><img src="../img/photoshop/loading.gif"></div>
+    <div class="span-v-4 preview"><img src="../img/photoshop/loading.gif"></div>
+  </main>
+
+  <div id="background"></div>
+</body>
+</html>
