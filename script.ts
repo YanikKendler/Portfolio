@@ -50,19 +50,19 @@ interface Project {
 }
 
 const projectData: Project[] = [
-    /*{
+    {
         name: "No Tomorrow",
         type: "Short Film",
-        description: "My second short film, created in late 2023 and early 2024. It was my first time writing a proper script and writing and directing dialogue. I also got to use my own camera for the first time and borrowed a lighting equipment from our school. Text missing",
+        description: "My second short film, created in late 2023 and early 2024. It was my first time writing a proper script and writing and directing dialogue. I also got to use my own camera for the first time and borrowed lighting equipment from our school. It was a leap into the unknown but I learned a ton about filmmaking and the result is a 22 minute long short film I am quite proud of.",
         link: {
-            name: "watch the video",
-            url: "https://www.youtube.com/watch?v=knO1qgE0RfI"
+            name: "watch the film",
+            url: "https://youtu.be/qDVY-5UF4PY?si=AjPJY8Xzmsz3th1Q"
         },
         color: {
             a: "#228D78",
             b: "#ABF658"
         }
-    },*/
+    },
     {
         name: "Revenge",
         type: "Short Film",

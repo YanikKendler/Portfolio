@@ -4,7 +4,7 @@ body {
   background-color: hsl(0, 0%, 7%) !important;
 }
 
-.photoshop-heading {
+.heading {
   position: relative;
   z-index: 5;
   font-family: "Red Hat Text", sans-serif;
