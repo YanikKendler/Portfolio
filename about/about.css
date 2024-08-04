@@ -1,0 +1,45 @@
+body {
+  background-color: black;
+}
+
+h1 {
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  font-size: 4.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  display: flex;
+  position: relative;
+  margin: 10rem;
+  color: white;
+}
+h1 span.there {
+  margin-left: 1rem;
+}
+h1 .animated {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+h1 .animated .dot {
+  aspect-ratio: 1;
+  width: 0.6rem;
+  background-color: #DF00C9;
+  position: absolute;
+  bottom: 4rem;
+  animation: hi-there 3s forwards;
+  animation-delay: 1s;
+  transform-origin: center;
+  mix-blend-mode: screen;
+}
+h1 .animated .dot-i {
+  display: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/*# sourceMappingURL=about.css.map */
