@@ -74,12 +74,12 @@ const projectData = [
         }
     },
     {
-        name: "Norway 2022",
+        name: "23 Tage Norwegen",
         type: "Travel Video",
-        description: "In the summer of 2022 my family and me visited Norway with our small camping van. We got there by ferry and drove around the southern part of the country for 3 weeks. I recorded hours of video footage of the trip and cut it down to 15 minutes. Of course, I also added music, voiceovers, titels, color correction, etc. resulting in a nice video documentary of our journey.",
+        description: "In the summer of 2024 my family and me visited Norway with our small camping van for 23 Days. I brought my camera along and created a nice, 26 minute video documentation of our Trip. I managed a nice back and forth between calm beauty shots and more exciting adventures like sleeping out in the mountains or going puffin watching by speedboat. This was also the first video I edited in davinci resolve and dove a little deeper into color grading and proper pacing.",
         link: {
             name: "watch the video",
-            url: "https://youtu.be/knO1qgE0RfI?si=fL8zWNN-pJXoGPlb"
+            url: "https://youtu.be/ssFkT_poFdg?si=O7kg-oYM4-5hoGth"
         },
         color: {
             a: "#B782E9",
