@@ -123,11 +123,20 @@ header .content{
                     margin-bottom: -1px;
                     text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2), -3px -3px 3px rgba(255, 255, 255, 0.2), 3px -3px 3px rgba(255, 255, 255, 0.2), -3px 3px 3px rgba(255, 255, 255, 0.2);
 
+                    span{
+                    }
+
                     /*i{
                         color: var(--hov-col)
                     }*/
                 }
             }
+        }
+
+        div.buttons{
+            display: flex;
+            margin-top: 2rem;
+            gap: 1rem;
         }
 
         @media screen and (max-width: 800px){
@@ -198,7 +207,6 @@ header h2{
     }
 }
 
-/*TODO is for some reason above the page content suddenly*/
 div.mouseblob{
     width: 19rem;
     height: 15rem;
@@ -210,7 +218,7 @@ div.mouseblob{
     translate: -50% -50%;
     transition: top 100ms, left 100ms;
     opacity: 15%;
-    z-index: 1;
+    z-index: 0;
 
     @media (pointer:coarse) {
         display: none;
@@ -469,5 +477,44 @@ main .project{
 
     @media screen and (max-width: 800px){
         font-size: 1.2rem;
+    }
+}
+
+button{
+    padding: .3rem 1rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    border: .15rem solid transparent;
+    --color: white;
+    --hov-col: #eaeaea;
+    /*transition: border .2s;*/
+    /*height: fit-content;*/
+    transition: scale .1s;
+
+    &:hover{
+        cursor: pointer;
+        /*border-width: .2rem;
+        margin: -.05rem;*/
+        scale: 1.025;
+        transform-origin: center center;
+    }
+
+    &.primary{
+        background-color: var(--color);
+
+        &:hover{
+            background-color: var(--hov-col);
+        }
+    }
+
+    &.secondary{
+        background-color: transparent;
+        border-color: var(--color);
+        color: var(--color);
+
+        &:hover{
+            border-color: var(--hov-col);
+            color: var(--hov-col);
+        }
     }
 }

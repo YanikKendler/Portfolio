@@ -120,6 +120,11 @@ header .content .text-container div.links a:hover {
       color: var(--hov-col)
   }*/
 }
+header .content .text-container div.buttons {
+  display: flex;
+  margin-top: 2rem;
+  gap: 1rem;
+}
 @media screen and (max-width: 800px) {
   header .content .text-container p {
     font-size: 1rem;
@@ -178,7 +183,6 @@ header h2 {
   }
 }
 
-/*TODO is for some reason above the page content suddenly*/
 div.mouseblob {
   width: 19rem;
   height: 15rem;
@@ -190,7 +194,7 @@ div.mouseblob {
   translate: -50% -50%;
   transition: top 100ms, left 100ms;
   opacity: 15%;
-  z-index: 1;
+  z-index: 0;
 }
 @media (pointer: coarse) {
   div.mouseblob {
@@ -419,6 +423,40 @@ main .project .text-container a:hover::before {
   #copyinfo {
     font-size: 1.2rem;
   }
+}
+
+button {
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: 0.15rem solid transparent;
+  --color: white;
+  --hov-col: #eaeaea;
+  /*transition: border .2s;*/
+  /*height: fit-content;*/
+  transition: scale 0.1s;
+}
+button:hover {
+  cursor: pointer;
+  /*border-width: .2rem;
+  margin: -.05rem;*/
+  scale: 1.025;
+  transform-origin: center center;
+}
+button.primary {
+  background-color: var(--color);
+}
+button.primary:hover {
+  background-color: var(--hov-col);
+}
+button.secondary {
+  background-color: transparent;
+  border-color: var(--color);
+  color: var(--color);
+}
+button.secondary:hover {
+  border-color: var(--hov-col);
+  color: var(--hov-col);
 }
 
 /*# sourceMappingURL=style.css.map */

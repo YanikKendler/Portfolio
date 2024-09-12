@@ -1,47 +1,97 @@
 body{
-  background-color: black;
-}
-
-h1{
-  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-  font-size: 4.6875rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0rem;
-  display: flex;
-  position: relative;
-  margin: 10rem;
+  background-color: hsl(0, 0%, 10%);
   color: white;
-
-  span.there{
-    margin-left: 1rem;
-  }
-
-  .animated{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-
-    .dot{
-      aspect-ratio: 1;
-      width: .6rem;
-      background-color: #DF00C9;
-      position: absolute;
-      bottom: 4rem;
-      animation: hi-there 3s forwards;
-      animation-delay: 1s;
-      transform-origin: center;
-      mix-blend-mode: screen;
-    }
-
-    .dot-i{
-      display: none;
-    }
-  }
+  font-family: "Red Hat Text", sans-serif;
+  padding-block: 3rem;
 }
 
 *{
   padding: 0;
   margin: 0;
+}
+
+h1,h2,h3,h4{
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  margin-top: .5em;
+  margin-bottom: .2em;
+}
+
+h1{
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+
+h2{
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+p{
+  width: min(50ch, 90%);
+  font-size: 1.25rem;
+  line-height: 150%;
+}
+
+a{
+  font-weight: 500;
+  display: inline-block;
+  --size-h: .2rem;
+  --size-v: .4rem;
+  padding: var(--size-h) var(--size-v);
+  margin: calc(var(--size-h) * -1) calc(var(--size-v) * -1);
+  transition: all .2s;
+  width: fit-content;
+  position: relative;
+  color: #eaeaea;
+  text-decoration-color: white;
+
+  &:before{
+    content: "";
+    background-color: #007e9a;
+    position: absolute;
+    inset: 0;
+    scale: 0;
+    opacity: 0;
+    z-index: -1;
+    border-radius: .3rem;
+    transition: scale .2s ease-in-out, opacity .2s ease-in-out;
+    filter: brightness(90%);
+  }
+
+  &:hover {
+    color: white;
+    text-decoration-color: transparent;
+
+    &::before {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+}
+
+.content{
+  padding-left: 20vw;
+
+  @media screen and (max-width: 800px){
+    padding-left: 0;
+    padding-inline: 5%;
+  }
+}
+
+.back{
+  position: fixed;
+  height: 2.5rem;
+  top: .5rem;
+  left: .5rem;
+  margin: 0;
+  padding: .5rem;
+  background-color: hsl(0, 0%, 10%);
+  z-index: 100;
+  border-radius: .5rem;
+
+  img{
+    height: 100%;
+    width: 100%;
+    filter: invert(1);
+  }
 }
