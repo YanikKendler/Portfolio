@@ -27,7 +27,7 @@ h2 {
 }
 
 p {
-  width: min(50ch, 90%);
+  width: min(60ch, 90%);
   font-size: 1.25rem;
   line-height: 150%;
 }
@@ -43,7 +43,7 @@ a {
   width: fit-content;
   position: relative;
   color: #eaeaea;
-  text-decoration-color: white;
+  text-decoration-color: #eaeaea;
 }
 a:before {
   content: "";
