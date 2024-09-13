@@ -132,14 +132,22 @@ header .content .text-container div.buttons {
   header .content .text-container h1 {
     font-size: 3.5rem;
   }
+  header .content .text-container div.links {
+    justify-content: space-between;
+  }
   header .content .text-container div.links span {
     display: none;
   }
   header .content .text-container div.links a {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-end;
   }
   header .content .text-container div.links a:has(i) {
     border: none;
+  }
+  header .content .text-container div.links i {
+    font-size: 1.2rem;
   }
 }
 header .content .text-container .blob1 {
@@ -341,10 +349,11 @@ main .project .header .fa-angles-right {
     display: none;
   }
   main .project .header h3 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   main .project .header .type {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    margin-left: 0;
   }
   main .project .header .fa-angles-right {
     margin-right: 1rem;

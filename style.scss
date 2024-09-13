@@ -148,16 +148,26 @@ header .content{
                 font-size: 3.5rem;
             }
 
-            div.links span{
-                display: none;
-            }
+            div.links {
+                justify-content: space-between;
 
-            div.links a{
-                font-size: 1.2rem;
-            }
+                span {
+                    display: none;
+                }
 
-            div.links a:has(i) {
-                border: none;
+                a {
+                    font-size: 1rem;
+                    display: flex;
+                    align-items: flex-end;
+
+                    &:has(i) {
+                        border: none;
+                    }
+                }
+
+                i{
+                    font-size: 1.2rem;
+                }
             }
         }
 
@@ -384,11 +394,12 @@ main .project{
             }
 
             h3{
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .type{
-                font-size: 1rem;
+                font-size: 1.2rem;
+                margin-left: 0;
             }
 
             .fa-angles-right{

@@ -282,3 +282,12 @@ function copyinfo(text: string, elem: HTMLElement){
         copyinfoelem.style.opacity = "0"
     },1000)
 }
+
+window.addEventListener("resize", sizeImageForSafari)
+
+sizeImageForSafari()
+function sizeImageForSafari(){
+    let image:HTMLElement = document.querySelector('#picture-yanik')
+    let ratio = image.clientHeight / 1440
+    image.style.width = 1105 * ratio + "px"
+}
