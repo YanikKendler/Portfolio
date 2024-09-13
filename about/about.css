@@ -10,6 +10,21 @@ body {
   margin: 0;
 }
 
+.FYI {
+  width: 60%;
+  margin-inline: auto;
+  color: #cbcbcb;
+  background-color: #262626;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+@media screen and (max-width: 800px) {
+  .FYI {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+
 h1, h2, h3, h4 {
   font-family: "Red Hat Display", "Red Hat Text", sans-serif;
   margin-top: 0.5em;
@@ -27,7 +42,7 @@ h2 {
 }
 
 p {
-  width: min(60ch, 90%);
+  width: min(60ch, 95%);
   font-size: 1.25rem;
   line-height: 150%;
 }
@@ -71,8 +86,7 @@ a:hover::before {
 }
 @media screen and (max-width: 800px) {
   .content {
-    padding-left: 0;
-    padding-inline: 5%;
+    padding-left: 5%;
   }
 }
 
