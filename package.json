@@ -6,9 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "module": "esnext",
+  "target": "es2019",
+  "declaration": true,
   "author": "yanik kendler",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.4.5"
-  }
+  },
+  "include": [
+    "**/*"
+  ]
 }

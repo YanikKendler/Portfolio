@@ -82,9 +82,8 @@ const projectData: Project[] = [
         type: "Image Gallery",
         description: "In 2023 I bought myself a proper full frame camera, in the first place for making films. But I have always loved spending time in nature: so a few months later I got a telephoto lens and started taking pictures of all the animals around us.",
         link: {
-            name: "take a look",
-            url: "./wildlife/index.html",
-            target: "_self"
+            name: "take a look on instagram",
+            url: "https://www.instagram.com/yanik.kendler/",
         },
         color: {
             a: "#669D31",

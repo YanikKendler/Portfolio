@@ -50,6 +50,13 @@ header {
   place-content: center;
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 900px) {
+  header {
+    align-content: space-between;
+    padding-top: 2rem;
+  }
 }
 
 header .content {
@@ -58,19 +65,21 @@ header .content {
   justify-content: center;
   gap: 1rem;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   header .content {
-    margin-top: -1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
   }
 }
 header .content .image-container {
   display: grid;
+  width: fit-content;
 }
 header .content .image-container img {
   height: 50vh;
   grid-area: 1/1/2/2;
   z-index: 5;
-  width: fit-content;
   object-fit: contain;
 }
 header .content .image-container .dotgrid {
@@ -81,9 +90,19 @@ header .content .image-container .dotgrid {
   grid-area: 1/1/2/2;
   translate: -1rem 1.5rem;
 }
+@media screen and (max-width: 1200px) {
+  header .content .image-container img {
+    height: 45vh;
+  }
+}
 @media screen and (max-width: 800px) {
   header .content .image-container img {
     height: 38vh;
+  }
+}
+@media screen and (max-width: 400px) {
+  header .content .image-container img {
+    height: 30vh;
   }
 }
 header .content .text-container {
@@ -127,7 +146,7 @@ header .content .text-container div.buttons {
 }
 @media screen and (max-width: 800px) {
   header .content .text-container p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   header .content .text-container h1 {
     font-size: 3.5rem;
@@ -235,6 +254,11 @@ main {
   flex-direction: column;
   background-color: hsl(0, 0%, 7%);
 }
+@media screen and (max-width: 1350px) {
+  main {
+    padding-inline: 8%;
+  }
+}
 @media screen and (max-width: 800px) {
   main {
     padding-inline: 4vw;
@@ -310,13 +334,13 @@ main .project .header {
   cursor: pointer;
 }
 main .project .header h3 {
-  font-size: 4rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 400;
   line-height: 90%;
 }
 main .project .header .number {
-  font-size: 6rem;
-  width: 10rem;
+  font-size: clamp(3rem, 8vw, 6rem);
+  width: 2.5ch;
   text-align: right;
   color: var(--color-a-contrast);
   /*color: black;
@@ -326,6 +350,7 @@ main .project .header .type {
   font-size: 1.25rem;
   font-weight: 300;
   margin-left: 0.3rem;
+  margin-top: 0.2rem;
 }
 main .project .header .fa-angles-right {
   margin-right: 3rem;
@@ -341,15 +366,12 @@ main .project .header .fa-angles-right {
     padding-left: 0.5rem;
   }
   main .project .header .number {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;
     width: fit-content;
     position: absolute;
-    top: 0.5rem;
-    letter-spacing: initial !important;
+    top: .5rem;
+    letter-spacing: initial !important;*/
     display: none;
-  }
-  main .project .header h3 {
-    font-size: 2.2rem;
   }
   main .project .header .type {
     font-size: 1.2rem;
@@ -440,16 +462,16 @@ button {
   font-weight: 500;
   border: 0.15rem solid transparent;
   --color: white;
-  --hov-col: #eaeaea;
+  --hov-col: rgb(242, 171, 85);
   /*transition: border .2s;*/
   /*height: fit-content;*/
-  transition: scale 0.1s;
+  transition: scale 0.1s, background-color 0.2s, color 0.2s;
 }
 button:hover {
   cursor: pointer;
   /*border-width: .2rem;
   margin: -.05rem;*/
-  scale: 1.025;
+  /*scale: 1.025;*/
   transform-origin: center center;
 }
 button.primary {
