@@ -111,7 +111,6 @@ h1 {
     background-position: 500px 500px;
   }
 }
-/* dont add #photoshop div - will mess up override from media query */
 .span-v-2 {
   grid-column: span 2;
 }
