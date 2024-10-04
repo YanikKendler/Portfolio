@@ -102,7 +102,7 @@ const projectData = [
     {
         name: "Lego Stop Motion",
         type: "School Project",
-        description: "A short one minute Lego video that perfectly loops. We tried to make all animations as smooth and possible and perfect the scenery for each shot.\n" +
+        description: "A short one minute Lego video that perfectly loops. We tried to make all animations as smooth as possible and perfect the scenery for each shot.\n" +
             "In the end we spent about 16 hours each, just moving minifigures by 3 millimeters and taking a picture. Then we coincidentally got into contact with a retired music professor from Michigan that was willing to create custom music for the video.",
         link: {
             name: "watch the video",
