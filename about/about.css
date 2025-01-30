@@ -50,10 +50,10 @@ p {
 a {
   font-weight: 500;
   display: inline-block;
-  --size-h: .2rem;
-  --size-v: .4rem;
-  padding: var(--size-h) var(--size-v);
-  margin: calc(var(--size-h) * -1) calc(var(--size-v) * -1);
+  --size-h: .3rem;
+  --size-v: .2rem;
+  padding: var(--size-v) var(--size-h);
+  margin: calc(var(--size-v) * -1) calc(var(--size-h) * -1);
   transition: all 0.2s;
   width: fit-content;
   position: relative;

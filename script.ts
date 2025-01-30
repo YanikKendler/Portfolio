@@ -82,9 +82,8 @@ const projectData: Project[] = [
         type: "Image Gallery",
         description: "In 2023 I bought myself a proper full frame camera, in the first place for making films. But I have always loved spending time in nature: so a few months later I got a telephoto lens and started taking pictures of all the animals around us.",
         link: {
-            name: "take a look",
-            url: "./wildlife/index.html",
-            target: "_self"
+            name: "take a look on instagram",
+            url: "https://www.instagram.com/yanik.kendler/",
         },
         color: {
             a: "#669D31",
@@ -121,7 +120,7 @@ const projectData: Project[] = [
     {
         name: "Lego Stop Motion",
         type: "School Project",
-        description: "A short one minute Lego video that perfectly loops. We tried to make all animations as smooth and possible and perfect the scenery for each shot.\n" +
+        description: "A short one minute Lego video that perfectly loops. We tried to make all animations as smooth as possible and perfect the scenery for each shot.\n" +
             "In the end we spent about 16 hours each, just moving minifigures by 3 millimeters and taking a picture. Then we coincidentally got into contact with a retired music professor from Michigan that was willing to create custom music for the video.",
         link: {
             name: "watch the video",
@@ -281,4 +280,13 @@ function copyinfo(text: string, elem: HTMLElement){
     copyOut = setTimeout(() =>{
         copyinfoelem.style.opacity = "0"
     },1000)
+}
+
+window.addEventListener("resize", sizeImageForSafari)
+
+sizeImageForSafari()
+function sizeImageForSafari(){
+    let image:HTMLElement = document.querySelector('#picture-yanik')
+    let ratio = image.clientHeight / 1440
+    image.style.width = 1105 * ratio + "px"
 }
