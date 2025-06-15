@@ -53,7 +53,7 @@ const projectData: Project[] = [
     {
         name: "The Ghost Hunter",
         type: "Short Film",
-        description: "This is the first short film that I felt was really well rounded off. With a 9 minute runtime it's the optimal length for a short film, where its not getting boring or overly complicated to make but also gave me enough room to tell a captivating story. With its thriller theme I had to make use of lots of interesting techniques like creating rain, lighting a gasoline fire indoors, 3d printing props and lots of visual effects and compositing tricks.",
+        description: "This is my first short film that I felt was really well-rounded. With a 9-minute runtime, it's long enough to tell a captivating story without becoming boring or overly complicated in production. With its thriller theme, I had to make use of many interesting techniques, such as creating artificial rain, lighting a gasoline fire indoors, 3D printing props, and using lots of visual effects and compositing tricks.",
         link: {
             name: "watch the film",
             url: "https://youtu.be/hUkpiqK9Qis"
