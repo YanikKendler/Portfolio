@@ -33,6 +33,32 @@ function showProjectText(headerElem) {
 }
 const projectData = [
     {
+        name: "The Ghost Hunter",
+        type: "Short Film",
+        description: "This is the first short film that I felt was really well rounded off. With a 9 minute runtime it's the optimal length for a short film, where its not getting boring or overly complicated to make but also gave me enough room to tell a captivating story. With its thriller theme I had to make use of lots of interesting techniques like creating rain, lighting a gasoline fire indoors, 3d printing props and lots of visual effects and compositing tricks.",
+        link: {
+            name: "watch the film",
+            url: "https://youtu.be/hUkpiqK9Qis"
+        },
+        color: {
+            a: "#72BCCC",
+            b: "#B9DEEE"
+        }
+    },
+    {
+        name: "Shotly",
+        type: "Web App",
+        description: "A freemium, no AI, open source, shotlist creation tool for filmmakers. I built it solo in about 3 Months and released it publicly in june 2025 - lets see where this goes. Its built with a quarkus backend, nextJS frontend, a graphql API, Auth0 for user authentication and Stripe for payments.",
+        link: {
+            name: "shotly.at",
+            url: "https://shotly.at"
+        },
+        color: {
+            a: "#CD5334",
+            b: "#FBBA40"
+        }
+    },
+    {
         name: "No Tomorrow",
         type: "Short Film",
         description: "My second short film, created in late 2023 and early 2024. It was my first time writing a proper script and writing and directing dialogue. I also got to use my own camera for the first time and borrowed lighting equipment from our school. It was a leap into the unknown but I learned a ton about filmmaking and the result is a 22 minute long short film I am quite proud of.",
@@ -55,8 +81,8 @@ const projectData = [
             url: "https://www.youtube.com/watch?v=Z6PDqlk2Nf8"
         },
         color: {
-            a: "#CD5334",
-            b: "#FBBA40"
+            a: "#d93c36",
+            b: "#FB7240"
         }
     },
     {
@@ -125,20 +151,6 @@ const projectData = [
         color: {
             a: "#778CC0",
             b: "#DEAEFB"
-        }
-    },
-    {
-        name: "PetPal",
-        type: "Web App",
-        description: "This is a school project from 2022. It is an App that allows animal shelters to manage their animals by storing their data, assigning them to rooms and owners and filtering for animals.\n" +
-            "The Frontend is vanilla JavaScript and SCSS, the backend is PHP with MariaDB :/",
-        link: {
-            name: "github.com/elYanuki/PetPal",
-            url: "https://github.com/elYanuki/PetPal"
-        },
-        color: {
-            a: "#72BCCC",
-            b: "#B9DEEE"
         }
     }
 ];
