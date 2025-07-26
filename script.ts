@@ -93,7 +93,7 @@ const projectData: Project[] = [
         name: "Revenge",
         type: "Short Film",
         description: "My first short film I created with two friends in the span of 2 months for a school project.\n" +
-            "We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Aditionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.",
+            "We invested over 100 hours each into the planning recording, reshooting and editing of the film. Along the way we learned a lot about how to use the cameras, the gimbal, microphones, lights etc. Additionally I also taught myself AfterEffects in order to do paint-outs, gun flares and animations.",
         link: {
             name: "watch the video",
             url: "https://www.youtube.com/watch?v=Z6PDqlk2Nf8"
