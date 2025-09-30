@@ -43,6 +43,10 @@ h1 {
   font-weight: 400;
 }
 
+.hi-programmer {
+  display: none;
+}
+
 header {
   width: 100%;
   height: 100dvh;
@@ -135,6 +139,8 @@ header .content .text-container div.links a:hover {
   border-bottom: 2px solid white;
   margin-bottom: -1px;
   text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2), -3px -3px 3px rgba(255, 255, 255, 0.2), 3px -3px 3px rgba(255, 255, 255, 0.2), -3px 3px 3px rgba(255, 255, 255, 0.2);
+}
+header .content .text-container div.links a:hover {
   /*i{
       color: var(--hov-col)
   }*/
@@ -309,11 +315,13 @@ main .project.open .fa-angles-right {
 @media not (pointer: coarse) {
   main .project:not(.open):hover {
     outline: 2px solid #d2d2d2;
-    box-shadow: 0 0 0.5rem 0.5rem var(--color-mix-bright);
   }
   main .project:not(.open):hover .fa-angles-right {
     color: white;
     filter: brightness(100%);
+  }
+  main .project:not(.open):hover {
+    box-shadow: 0 0 0.5rem 0.5rem var(--color-mix-bright);
   }
 }
 main .project:first-of-type .header .number {
