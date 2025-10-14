@@ -3,11 +3,31 @@ body {
   color: white;
   font-family: "Red Hat Text", sans-serif;
   padding-block: 3rem;
+
+  --accent: #72BCCC;
 }
 
 * {
   padding: 0;
   margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .FYI {
@@ -25,26 +45,17 @@ body {
   }
 }
 
-h1, h2, h3, h4 {
-  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-  margin-top: 0.5em;
-  margin-bottom: 0.2em;
-}
-
-h1 {
-  font-size: 4.5rem;
-  font-weight: 400;
-}
-
-h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-}
 
 p {
   width: min(60ch, 95%);
   font-size: 1.25rem;
   line-height: 150%;
+  color: hsl(0,0%,95%);
+}
+
+p.subtitle{
+  translate: 0 -.5rem;
+  color: hsl(0,0%,85%);
 }
 
 a {
@@ -62,7 +73,7 @@ a {
 }
 a:before {
   content: "";
-  background-color: #007e9a;
+  background-color: var(--accent);
   position: absolute;
   inset: 0;
   scale: 0;
@@ -90,6 +101,16 @@ a:hover::before {
   }
 }
 
+section.filmmaking{
+  --accent: #FBBA40;
+}
+section.webdev{
+  --accent: #FD8BA5;
+}
+section.outdoors{
+  --accent: #ABF658;
+}
+
 .back {
   position: fixed;
   height: 2.5rem;
@@ -105,6 +126,11 @@ a:hover::before {
   height: 100%;
   width: 100%;
   filter: invert(1);
+}
+
+span.gap{
+  height: .5rem;
+  display: block;
 }
 
 /*# sourceMappingURL=about.css.map */
