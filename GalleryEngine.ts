@@ -51,6 +51,7 @@ class Gallery {
 			this.classifyGalleryImage(img, this.galleryImages[position])
 			this.generateGallery()
 			this.loadImage(position + 1)
+			img.onload = () => {}
 		}
 	}
 
@@ -58,7 +59,17 @@ class Gallery {
 		let div = document.createElement("div")
 
 		if (imageData.alt == true) {//alternate is provided for that image - add toggle eye icon
-			div.innerHTML += `<div data-filename="${imageData.src}" data-mode="0" class="swap" onmousedown="changeImage(this)" title="click to see before/after"><i class="fa-solid fa-eye"></i></div>`
+			const swap = document.createElement("div")
+			swap.dataset.filename = imageData.src
+			swap.dataset.mode = "0"
+			swap.className = "swap"
+			swap.title = "click to see before/after"
+			swap.innerHTML = `<i class="fa-solid fa-eye"></i>`
+
+			// Use the bound method here
+			swap.addEventListener("mousedown", (e) => this.changeImage(swap))
+
+			div.appendChild(swap)
 		}
 
 		div.appendChild(img)
@@ -76,6 +87,8 @@ class Gallery {
 	}
 
 	generateGallery() {
+		console.log("generate galery")
+
 		let html: HTMLElement[] = []
 
 		this.images.landscape = this.sortBySrc(this.images.landscape)
@@ -120,7 +133,7 @@ class Gallery {
 
 				if (
 					this.images.portrait[this.imagesUsed.portrait - 1] && //since imagesUse[0] is also ++d if its undefined you have to check for the one before as well
-					html.length % 2 == 0 //the count has to be even (othervise the last two were prtraits anyway so everything looks fine)
+					html.length % 2 == 0 //the count has to be even (otherwise the last two were portraits anyway so everything looks fine)
 				) { //cant even explain, hav fun re learing //stupid fuck I understand now :)
 					this.images.landscape[this.imagesUsed.landscape]?.classList.add("krueppel", "endpiece")
 				}
@@ -168,7 +181,11 @@ class Gallery {
 			let aImage = a.querySelector("img") as HTMLImageElement
 			let bImage = b.querySelector("img") as HTMLImageElement
 
-			//TODO i dont understand why this works
+			if(!aImage) return 1
+			if(!bImage) return -1
+
+			if(!aImage && !bImage) return 0
+
 			if (aImage.src < bImage.src) {
 				return -1
 			}
@@ -191,16 +208,18 @@ class Gallery {
 			elem.addEventListener("mouseup", () => {
 				if (Date.now() - this.timeOnClick > 300) {
 					elem.parentNode.querySelector("img").src = this.rootSrcString + filename
-				} else
+				} else {
 					setTimeout(() => {
 						elem.parentNode.querySelector("img")!.src = this.rootSrcString + filename
 					}, 300 - (Date.now() - this.timeOnClick))
+				}
 				elem.removeEventListener("mouseup", () => {
 				})
 			})
 
 			elem.parentNode.querySelector("img").src = this.rootSrcString + "alt/" + filename;
-		} else { //phone behaviour
+		}
+		else { //phone behaviour
 			if (elem.parentNode.querySelector("img").getAttribute("data-mode") == "0") {
 				elem.parentNode.querySelector("img").setAttribute("data-mode", "1")
 				elem.parentNode.querySelector("img").src = this.rootSrcString + filename

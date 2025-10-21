@@ -33,12 +33,21 @@ class Gallery {
             this.classifyGalleryImage(img, this.galleryImages[position]);
             this.generateGallery();
             this.loadImage(position + 1);
+            img.onload = () => { };
         };
     }
     classifyGalleryImage(img, imageData) {
         let div = document.createElement("div");
         if (imageData.alt == true) { //alternate is provided for that image - add toggle eye icon
-            div.innerHTML += `<div data-filename="${imageData.src}" data-mode="0" class="swap" onmousedown="changeImage(this)" title="click to see before/after"><i class="fa-solid fa-eye"></i></div>`;
+            const swap = document.createElement("div");
+            swap.dataset.filename = imageData.src;
+            swap.dataset.mode = "0";
+            swap.className = "swap";
+            swap.title = "click to see before/after";
+            swap.innerHTML = `<i class="fa-solid fa-eye"></i>`;
+            // Use the bound method here
+            swap.addEventListener("mousedown", (e) => this.changeImage(swap));
+            div.appendChild(swap);
         }
         div.appendChild(img);
         if (img.height > img.width * 1.1) { //portrait
@@ -56,6 +65,7 @@ class Gallery {
     }
     generateGallery() {
         var _a, _b, _c;
+        console.log("generate galery");
         let html = [];
         this.images.landscape = this.sortBySrc(this.images.landscape);
         this.images.portrait = this.sortBySrc(this.images.portrait);
@@ -89,7 +99,7 @@ class Gallery {
                     }
                 }
                 if (this.images.portrait[this.imagesUsed.portrait - 1] && //since imagesUse[0] is also ++d if its undefined you have to check for the one before as well
-                    html.length % 2 == 0 //the count has to be even (othervise the last two were prtraits anyway so everything looks fine)
+                    html.length % 2 == 0 //the count has to be even (otherwise the last two were portraits anyway so everything looks fine)
                 ) { //cant even explain, hav fun re learing //stupid fuck I understand now :)
                     (_c = this.images.landscape[this.imagesUsed.landscape]) === null || _c === void 0 ? void 0 : _c.classList.add("krueppel", "endpiece");
                 }
@@ -128,7 +138,12 @@ class Gallery {
         sortMe.sort(function (a, b) {
             let aImage = a.querySelector("img");
             let bImage = b.querySelector("img");
-            //TODO i dont understand why this works
+            if (!aImage)
+                return 1;
+            if (!bImage)
+                return -1;
+            if (!aImage && !bImage)
+                return 0;
             if (aImage.src < bImage.src) {
                 return -1;
             }
@@ -147,10 +162,11 @@ class Gallery {
                 if (Date.now() - this.timeOnClick > 300) {
                     elem.parentNode.querySelector("img").src = this.rootSrcString + filename;
                 }
-                else
+                else {
                     setTimeout(() => {
                         elem.parentNode.querySelector("img").src = this.rootSrcString + filename;
                     }, 300 - (Date.now() - this.timeOnClick));
+                }
                 elem.removeEventListener("mouseup", () => {
                 });
             });
