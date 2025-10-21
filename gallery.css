@@ -85,32 +85,6 @@ h1 {
   /* cursor: zoom-in; */
 }
 
-/*#gallery div.loading {
-
-  background-image: radial-gradient(circle, hsl(0, 0%, 25%) 0%, hsl(0, 0%, 52%) 50%);
-  animation: imageLoading 1.5s infinite;
-  background-repeat: no-repeat;
-  position: relative;
-  background-size: 1500px 1500px;
-  !*background-position: 50px 50px;*!
-}
-#gallery div.loading::before {
-  content: "";
-  background-color: hsl(0, 0%, 52%);
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
-@keyframes imageLoading {
-  from {
-    background-position: -500px -500px;
-  }
-  to {
-    background-position: 500px 500px;
-  }
-}*/
-
 #gallery div.loading {
   min-height: 30vh;
   max-height: 50vh;
@@ -119,6 +93,7 @@ h1 {
   position: relative;
   overflow: hidden;
   background-color: hsl(0, 0%, 85%);
+  border-radius: .5rem;
 }
 #gallery div.loading::after {
   position: absolute;
