@@ -99,12 +99,12 @@ const projectData = [
         }
     },
     {
-        name: "23 Tage Norwegen",
+        name: "5 days Wilderness",
         type: "Travel Video",
-        description: "In the summer of 2024 my family and me visited Norway with our small camping van for 23 Days. I brought my camera along and created a nice, 26 minute video documentation of our Trip. I managed a nice back and forth between calm beauty shots and more exciting adventures like sleeping out in the mountains or going puffin watching by speedboat. This was also the first video I edited in davinci resolve and dove a little deeper into color grading and proper pacing.",
+        description: "In August 2025, I boarded a plane to Trondheim with a 20kg backpack, took a bus to a small local village, and started hiking 60km north, through the wilderness of Norway. I documented my journey, mental state, wildlife encounters, and everything else that happened in those 5 days. Then, I spent the next 2 months editing - to creating a beautiful travel documentation.",
         link: {
             name: "watch the video",
-            url: "https://youtu.be/ssFkT_poFdg?si=O7kg-oYM4-5hoGth"
+            url: "https://youtu.be/sHdKzYsT0qA"
         },
         color: {
             a: "#B782E9",
