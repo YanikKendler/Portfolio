@@ -12,24 +12,6 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4 {
-  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
-  margin-top: 0.5em;
-  margin-bottom: 0.2em;
-}
-
-h1 {
-  font-size: 4.5rem;
-  font-weight: 400;
-  margin-bottom: 0;
-}
-
-h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
 .FYI {
   width: 60%;
   margin-inline: auto;
@@ -45,17 +27,27 @@ h2 {
   }
 }
 
+h1, h2, h3, h4 {
+  font-family: "Red Hat Display", "Red Hat Text", sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
 
 p {
   width: min(60ch, 95%);
   font-size: 1.25rem;
   line-height: 150%;
-  color: hsl(0,0%,95%);
-}
-
-p.subtitle{
-  translate: 0 -.5rem;
-  color: hsl(0,0%,85%);
 }
 
 a {
@@ -80,16 +72,18 @@ a:before {
   opacity: 0;
   z-index: -1;
   border-radius: 0.3rem;
-  transition: scale 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  filter: brightness(90%);
+  transition: scale 0.2s ease-in-out, opacity 300ms ease-in-out;
+  filter: brightness(90%) blur(20px);
 }
 a:hover {
   color: white;
-  text-decoration-color: transparent;
+  text-decoration: none;
+  text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.15), -3px -3px 3px rgba(255, 255, 255, 0.15), 3px -3px 3px rgba(255, 255, 255, 0.15), -3px 3px 3px rgba(255, 255, 255, 0.15);
 }
 a:hover::before {
   scale: 1;
   opacity: 1;
+  transition: scale 0.2s ease-in-out, opacity 150ms ease-out;
 }
 
 .content {
@@ -101,14 +95,21 @@ a:hover::before {
   }
 }
 
-section.filmmaking{
+section.filmmaking {
   --accent: #FBBA40;
 }
-section.webdev{
+
+section.webdev {
   --accent: #FD8BA5;
 }
-section.outdoors{
+
+section.outdoors {
   --accent: #ABF658;
+}
+
+span.gap {
+  height: 0.5rem;
+  display: block;
 }
 
 .back {
@@ -126,11 +127,6 @@ section.outdoors{
   height: 100%;
   width: 100%;
   filter: invert(1);
-}
-
-span.gap{
-  height: .5rem;
-  display: block;
 }
 
 /*# sourceMappingURL=about.css.map */

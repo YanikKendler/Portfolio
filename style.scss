@@ -140,20 +140,27 @@ header .content{
 
             a{
                 text-decoration: none;
-                border-bottom: 1px solid white;
                 transition: color .2s, text-shadow .2s;
+                height: 1.5rem;
+                position: relative;
+
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+                    height: 0.75px;
+                    background-color: white;
+                    transition: height 200ms ease-out;
+                }
 
                 &:hover {
-                    border-bottom: 2px solid white;
-                    margin-bottom: -1px;
                     text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2), -3px -3px 3px rgba(255, 255, 255, 0.2), 3px -3px 3px rgba(255, 255, 255, 0.2), -3px 3px 3px rgba(255, 255, 255, 0.2);
 
-                    span{
+                    &::after{
+                        height: 1.5px;
                     }
-
-                    /*i{
-                        color: var(--hov-col)
-                    }*/
                 }
             }
         }
@@ -254,6 +261,7 @@ div.mouseblob{
     transition: top 100ms, left 100ms;
     opacity: 15%;
     z-index: 0;
+    border-radius: 40px;
 
     @media (pointer:coarse) {
         display: none;
@@ -283,10 +291,10 @@ main{
         left: 15%;
         right: 15%;
         top: 2rem;
-        bottom: 15rem;
+        bottom: 10rem;
     }
     flex-direction: column;
-    background-color: hsl(0, 0, 7%);
+    background-color: hsl(0, 0%, 7%);
 
     @media screen and (max-width: 1350px){
         padding-inline: 8%;
@@ -436,7 +444,7 @@ main .project{
     }
 
     .text-container{
-        background-color: hsl(0, 0, 7%);
+        background-color: hsl(0, 0%, 7%);
         position: relative;
         z-index: 10;
         border-radius: 0 0 13px 13px;
@@ -469,7 +477,7 @@ main .project{
                 left: -.5rem;
             }
             opacity: 0;
-            transition: opacity 500ms, color .2s, background-color .2s;
+            transition: opacity 500ms, color .2s, background-color .2s, color .2s, text-shadow .2s;
             width: fit-content;
             position: relative;
 
@@ -477,18 +485,23 @@ main .project{
                 content: "";
                 background-color: var(--color-a);
                 position: absolute;
-                inset: 0;
+                inset: 4px;
                 scale: 0;
                 opacity: 0;
                 z-index: -1;
                 border-radius: .3rem;
-                transition: scale .2s ease-in-out, opacity .2s ease-in-out;
-                filter: brightness(90%);
+                transition: scale .2s ease-in-out, opacity 300ms ease-in-out;
+                filter: brightness(90%) blur(20px);
             }
 
-            &:hover::before {
-                scale: 1;
-                opacity: 1;
+            &:hover {
+                text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.15), -3px -3px 3px rgba(255, 255, 255, 0.15), 3px -3px 3px rgba(255, 255, 255, 0.15), -3px 3px 3px rgba(255, 255, 255, 0.15);
+
+                &::before {
+                    scale: 1;
+                    opacity: 1;
+                    transition: scale .2s ease-in-out, opacity 150ms ease-out;
+                }
             }
         }
 
@@ -554,4 +567,11 @@ button{
             color: var(--hov-col);
         }
     }
+}
+
+#thatsIt{
+    background-color: hsl(0, 0%, 7%);
+    text-align: center;
+    padding-bottom: 2rem;
+    color: hsl(0, 0%, 15%);
 }

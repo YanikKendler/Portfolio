@@ -35,7 +35,7 @@ const projectData = [
     {
         name: "The Ghost Hunter",
         type: "Short Film",
-        description: "This is my first short film that I felt was really well-rounded. With a 9-minute runtime, it's long enough to tell a captivating story without becoming boring or overly complicated in production. With its thriller theme, I had to make use of many interesting techniques, such as creating artificial rain, lighting a gasoline fire indoors, 3D printing props, and using lots of visual effects and compositing tricks.",
+        description: "This is my first short film that I felt was really well-rounded. With a 9-minute runtime, it's long enough to tell an interesting story without becoming boring or overly complicated in production. With its thriller theme, I had to make use of many interesting techniques, such as creating artificial rain, lighting a gasoline fire indoors, 3D printing props, and using lots of visual effects and compositing tricks.",
         link: {
             name: "watch the film",
             url: "https://youtu.be/hUkpiqK9Qis"
@@ -48,7 +48,7 @@ const projectData = [
     {
         name: "Shotly",
         type: "Web App",
-        description: "A freemium, no AI, open source, shotlist creation tool for filmmakers. I built it solo in about 3 Months and released it publicly in june 2025 - lets see where this goes. Its built with a quarkus backend, nextJS frontend, a graphql API, Auth0 for user authentication and Stripe for payments.",
+        description: "A freemium, no AI, source available, shotlist creation tool for filmmakers. I have been building it solo since march 2025 and officially launched it in April 2025 - lets see where this goes. Its built with a quarkus backend, nextJS frontend, a graphql API, Auth0 for user authentication and Stripe for payments.",
         link: {
             name: "shotly.at",
             url: "https://shotly.at"
@@ -86,19 +86,6 @@ const projectData = [
         }
     },
     {
-        name: "Wildlife Photography",
-        type: "Image Gallery",
-        description: "In 2023 I bought myself a proper full frame camera, in the first place for making films. But I have always loved spending time in nature: so a few months later I got a telephoto lens and started taking pictures of all the animals around us.",
-        link: {
-            name: "take a look on instagram",
-            url: "https://www.instagram.com/yanik.kendler/",
-        },
-        color: {
-            a: "#669D31",
-            b: "#ACBB80"
-        }
-    },
-    {
         name: "5 days Wilderness",
         type: "Travel Video",
         description: "In August 2025, I boarded a plane to Trondheim with a 20kg backpack, took a bus to a small local village, and started hiking 60km north, through the wilderness of Norway. I documented my journey, mental state, wildlife encounters, and everything else that happened in those 5 days. Then, I spent the next 2 months editing - to creating a beautiful travel documentation.",
@@ -109,6 +96,19 @@ const projectData = [
         color: {
             a: "#B782E9",
             b: "#FBD6F3"
+        }
+    },
+    {
+        name: "Wildlife Photography",
+        type: "Image Gallery",
+        description: "In 2023 I bought myself a proper full frame camera, in the first place for making films. But I have always loved spending time in nature: so a few months later I got a telephoto lens and started taking pictures of all the animals around us.",
+        link: {
+            name: "take a look on instagram",
+            url: "https://www.instagram.com/yanik.kendler/",
+        },
+        color: {
+            a: "#669D31",
+            b: "#ACBB80"
         }
     },
     {
@@ -145,8 +145,8 @@ const projectData = [
         description: "A NodeJS based gameshow which allows you to stream one client to a TV and control the gameshow using your phone. The question-sets will be stored on the server and can easily be customized.\n" +
             "The \"gamemaster\" can add questions to the gameboard, select them, start a timer, add players and assign them scores and more. All actions are displayed by the \"display\" client.",
         link: {
-            name: "github.com/elYanuki/Gameshow",
-            url: "https://github.com/elYanuki/Gameshow"
+            name: "check it out on GitHub",
+            url: "https://github.com/YanikKendler/Gameshow"
         },
         color: {
             a: "#778CC0",

@@ -132,18 +132,25 @@ header .content .text-container div.links i {
 }
 header .content .text-container div.links a {
   text-decoration: none;
-  border-bottom: 1px solid white;
   transition: color 0.2s, text-shadow 0.2s;
+  height: 1.5rem;
+  position: relative;
+}
+header .content .text-container div.links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 0.75px;
+  background-color: white;
+  transition: height 200ms ease-out;
 }
 header .content .text-container div.links a:hover {
-  border-bottom: 2px solid white;
-  margin-bottom: -1px;
   text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.2), -3px -3px 3px rgba(255, 255, 255, 0.2), 3px -3px 3px rgba(255, 255, 255, 0.2), -3px 3px 3px rgba(255, 255, 255, 0.2);
 }
-header .content .text-container div.links a:hover {
-  /*i{
-      color: var(--hov-col)
-  }*/
+header .content .text-container div.links a:hover::after {
+  height: 1.5px;
 }
 header .content .text-container div.buttons {
   display: flex;
@@ -228,6 +235,7 @@ div.mouseblob {
   transition: top 100ms, left 100ms;
   opacity: 15%;
   z-index: 0;
+  border-radius: 40px;
 }
 @media (pointer: coarse) {
   div.mouseblob {
@@ -256,7 +264,7 @@ main {
   padding-left: 15%;
   padding-right: 15%;
   padding-top: 2rem;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
   flex-direction: column;
   background-color: hsl(0, 0%, 7%);
 }
@@ -418,7 +426,7 @@ main .project .text-container a {
   margin-top: 0.5rem;
   margin-left: -0.5rem;
   opacity: 0;
-  transition: opacity 500ms, color 0.2s, background-color 0.2s;
+  transition: opacity 500ms, color 0.2s, background-color 0.2s, color 0.2s, text-shadow 0.2s;
   width: fit-content;
   position: relative;
 }
@@ -426,17 +434,21 @@ main .project .text-container a:before {
   content: "";
   background-color: var(--color-a);
   position: absolute;
-  inset: 0;
+  inset: 4px;
   scale: 0;
   opacity: 0;
   z-index: -1;
   border-radius: 0.3rem;
-  transition: scale 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  filter: brightness(90%);
+  transition: scale 0.2s ease-in-out, opacity 300ms ease-in-out;
+  filter: brightness(90%) blur(20px);
+}
+main .project .text-container a:hover {
+  text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.15), -3px -3px 3px rgba(255, 255, 255, 0.15), 3px -3px 3px rgba(255, 255, 255, 0.15), -3px 3px 3px rgba(255, 255, 255, 0.15);
 }
 main .project .text-container a:hover::before {
   scale: 1;
   opacity: 1;
+  transition: scale 0.2s ease-in-out, opacity 150ms ease-out;
 }
 @media screen and (max-width: 800px) {
   main .project .text-container {
@@ -496,6 +508,13 @@ button.secondary {
 button.secondary:hover {
   border-color: var(--hov-col);
   color: var(--hov-col);
+}
+
+#thatsIt {
+  background-color: hsl(0, 0%, 7%);
+  text-align: center;
+  padding-bottom: 2rem;
+  color: hsl(0, 0%, 15%);
 }
 
 /*# sourceMappingURL=style.css.map */

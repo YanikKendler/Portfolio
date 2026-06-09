@@ -38,6 +38,7 @@ h1{
 h2{
   font-size: 2.5rem;
   font-weight: 600;
+  color: var(--accent);
 }
 
 p{
@@ -61,24 +62,26 @@ a{
 
   &:before{
     content: "";
-    background-color: #007e9a;
+    background-color: var(--accent);
     position: absolute;
     inset: 0;
     scale: 0;
     opacity: 0;
     z-index: -1;
     border-radius: .3rem;
-    transition: scale .2s ease-in-out, opacity .2s ease-in-out;
-    filter: brightness(90%);
+    transition: scale .2s ease-in-out, opacity 300ms ease-in-out;
+    filter: brightness(90%) blur(20px);
   }
 
   &:hover {
     color: white;
-    text-decoration-color: transparent;
+    text-decoration: none;
+    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.15), -3px -3px 3px rgba(255, 255, 255, 0.15), 3px -3px 3px rgba(255, 255, 255, 0.15), -3px 3px 3px rgba(255, 255, 255, 0.15);
 
     &::before {
       scale: 1;
       opacity: 1;
+      transition: scale .2s ease-in-out, opacity 150ms ease-out;
     }
   }
 }
@@ -89,6 +92,21 @@ a{
   @media screen and (max-width: 800px){
     padding-left: 5%;
   }
+}
+
+section.filmmaking{
+  --accent: #FBBA40;
+}
+section.webdev{
+  --accent: #FD8BA5;
+}
+section.outdoors{
+  --accent: #ABF658;
+}
+
+span.gap{
+  height: .5rem;
+  display: block;
 }
 
 .back{
