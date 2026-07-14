@@ -66,7 +66,7 @@ const projectData: Project[] = [
     {
         name: "Shotly",
         type: "Web App",
-        description: "A freemium, no AI, source available, shotlist creation tool for filmmakers. I have been building it solo since march 2025 and officially launched it in April 2025 - lets see where this goes. Its built with a quarkus backend, nextJS frontend, a graphql API, Auth0 for user authentication and Stripe for payments.",
+        description: "A freemium, no AI, source available, shotlist creation tool for filmmakers. I have been building it solo since march 2025 and officially launched it in April 2026 - lets see where this goes. <br> Its built with a quarkus backend, nextJS frontend, a graphql API, Auth0 for user authentication and Stripe for payments.",
         link: {
             name: "shotly.at",
             url: "https://shotly.at"

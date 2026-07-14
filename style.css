@@ -41,6 +41,8 @@ h1 {
   font-size: 4.6875rem;
   font-style: normal;
   font-weight: 400;
+  line-height: 0.9;
+  margin-bottom: 0.3rem;
 }
 
 .hi-programmer {
@@ -73,7 +75,7 @@ header .content {
   header .content {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
   }
 }
 header .content .image-container {
@@ -81,7 +83,7 @@ header .content .image-container {
   width: fit-content;
 }
 header .content .image-container img {
-  height: 50vh;
+  height: 50svh;
   grid-area: 1/1/2/2;
   z-index: 5;
   object-fit: contain;
@@ -103,8 +105,11 @@ header .content .image-container .dotgrid {
   header .content .image-container img {
     height: 38vh;
   }
+  header .content .image-container .dotgrid {
+    background-size: 20px 20px;
+  }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 300px) {
   header .content .image-container img {
     height: 30vh;
   }
@@ -113,6 +118,7 @@ header .content .text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-inline: 0.2rem;
 }
 header .content .text-container p {
   max-width: min(55ch, 90vw);
@@ -124,7 +130,7 @@ header .content .text-container div.links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 header .content .text-container div.links i {
   margin-right: 0.1rem;
@@ -164,19 +170,16 @@ header .content .text-container div.buttons {
   header .content .text-container h1 {
     font-size: 3.5rem;
   }
-  header .content .text-container div.links {
-    justify-content: space-between;
-  }
   header .content .text-container div.links span {
     display: none;
   }
   header .content .text-container div.links a {
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: flex-end;
   }
-  header .content .text-container div.links a:has(i) {
-    border: none;
+  header .content .text-container div.links a:has(i)::after {
+    display: none;
   }
   header .content .text-container div.links i {
     font-size: 1.2rem;
@@ -312,6 +315,10 @@ main .project.open .text-container {
 main .project.open .fa-angles-right {
   rotate: 90deg;
 }
+main .project.open .header:hover .fa-angles-right {
+  color: white;
+  filter: brightness(100%);
+}
 @media screen and (max-width: 800px) {
   main .project {
     max-height: 8rem;
@@ -339,6 +346,7 @@ main .project .background {
   position: absolute;
   inset: 0;
   z-index: 1;
+  pointer-events: none;
 }
 main .project .header {
   height: 9rem;

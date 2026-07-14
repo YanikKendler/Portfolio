@@ -42,6 +42,8 @@ h1{
     font-size: 4.6875rem;
     font-style: normal;
     font-weight: 400;
+    line-height: 0.9;
+    margin-bottom: .3rem;
 }
 
 .hi-programmer{
@@ -72,7 +74,7 @@ header .content{
     @media screen and (max-width: 900px){
         flex-direction: column;
         align-items: center;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .image-container{
@@ -80,7 +82,7 @@ header .content{
         width: fit-content;
 
         img{
-            height: 50vh;
+            height: 50svh;
             grid-area: 1/1/2/2;
             z-index: 5;
             object-fit: contain;
@@ -106,9 +108,13 @@ header .content{
             img {
                 height: 38vh;
             }
+
+            .dotgrid{
+                background-size: 20px 20px;
+            }
         }
 
-        @media screen and (max-width: 400px){
+        @media screen and (max-width: 300px){
             img{
                 height: 30vh;
             }
@@ -119,6 +125,7 @@ header .content{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-inline: .2rem;
 
         p{
             max-width: min(55ch, 90vw);
@@ -131,7 +138,7 @@ header .content{
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: .5rem;
 
             i{
                 margin-right: .1rem;
@@ -181,19 +188,20 @@ header .content{
             }
 
             div.links {
-                justify-content: space-between;
 
                 span {
                     display: none;
                 }
 
                 a {
-                    font-size: 1rem;
+                    font-size: .9rem;
                     display: flex;
                     align-items: flex-end;
 
                     &:has(i) {
-                        border: none;
+                        &::after{
+                            display: none;
+                        }
                     }
                 }
 
@@ -343,6 +351,13 @@ main .project{
         .fa-angles-right{
             rotate: 90deg;
         }
+
+        .header:hover{
+            .fa-angles-right {
+                color: white;
+                filter: brightness(100%);
+            }
+        }
     }
 
     @media screen and (max-width: 800px){
@@ -374,6 +389,7 @@ main .project{
         position: absolute;
         inset: 0;
         z-index: 1;
+        pointer-events: none;
     }
 
     .header{
