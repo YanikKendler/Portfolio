@@ -257,3 +257,12 @@ function sizeImageForSafari() {
     let ratio = image.clientHeight / 1440;
     image.style.width = 1105 * ratio + "px";
 }
+const BIRTHDATE = new Date("2005-07-23");
+displayAge();
+function displayAge() {
+    const ageElement = document.getElementById("age");
+    if (!ageElement)
+        return;
+    const age = new Date(Date.now() - BIRTHDATE.getTime()).getFullYear() - 1970;
+    ageElement.textContent = age.toString();
+}
